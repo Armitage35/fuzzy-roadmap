@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="app">
 		<Lane v-for="lane in lanes" :laneStatus="lane.type" :laneTitle="lane.title" :key="lane.type"></Lane>
 	</div>
 </template>
@@ -7,7 +7,7 @@
 <script>
 	import Lane from './components/Lane/Lane.vue';
 	import './main.scss';
-	var demoEpics = require( './utilities/demo.js');
+	const demoEpics = require( './utilities/demo.js');
 
 	export default {
 		components: {
