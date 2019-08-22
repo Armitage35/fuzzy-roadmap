@@ -4,7 +4,7 @@
 			<span class="laneTitle">{{ laneTitle }}</span>
 		</div>
 		<div class="laneContent">
-			<Epic :epicTitle="this.epicTitle" :epicStatus="this.epicStatus"></Epic>
+			<Epic :epicTitle="this.epicTitle" :epicStatus="this.laneStatus"></Epic>
 		</div>
 	</div>
 </template>
