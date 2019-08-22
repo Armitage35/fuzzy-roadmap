@@ -3,16 +3,8 @@
 @import './components/Lane/Lane.scss';
 @import './components/Toolbar/Toolbar.scss';
 
-.lane {
-    width: 20vw
-}
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
 
-.laneTitle {
-    width: 250px;
-    height: 80px;
-    border: 1px solid #D6B656;
-    background-color: #FFF2CC;
-    text-align: center;
-    margin: auto
+body {
+    font-family: $mainFonts
 }
-
