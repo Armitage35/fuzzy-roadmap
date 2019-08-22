@@ -6,7 +6,7 @@
 </template>
 
 <script>
-	import Epic from './Epic.vue'
+	import Epic from '../Epic/Epic.vue'
 
 	export default {
 		components: {
@@ -23,16 +23,5 @@
 </script>
 
 <style>
-	.lane {
-		width: 20vw
-	}
 
-	.laneTitle {
-		width: 250px;
-		height: 80px;
-		border: 1px solid #D6B656;
-		background-color: #FFF2CC;
-		text-align: center;
-		margin: auto
-	}
 </style>

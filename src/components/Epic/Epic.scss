@@ -1,0 +1,24 @@
+@import '../../utilities/variables.scss';
+
+.epic {
+    border: 1px solid black;
+    height: 70px;
+    width: 180px;
+    display: flex;
+}
+
+.epicStatusMarker {
+    border-right: 1px solid black;
+    background-color: $primary-color;
+    height: 100%;
+    width: 10px;
+}
+
+.epicTitle {
+    text-align: center;
+    margin: auto
+}
+
+.inProgress {
+    background-color: $inProgress;
+}

@@ -3,7 +3,8 @@
 </template>
 
 <script>
-	import Lane from './components/Lane.vue'
+	import Lane from './components/Lane/Lane.vue';
+	import './main.scss'
 
 	export default {
 		components: {
@@ -16,12 +17,3 @@
 		}
 	}
 </script>
-
-<style lang="scss">
-	$primary-color: #333;
-
-	body {
-		background-color: $primary-color
-	}
-
-</style>
