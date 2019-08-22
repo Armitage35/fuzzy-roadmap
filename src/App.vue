@@ -1,18 +1,27 @@
 <template>
-	<Lanes :content="this.placeholder"></Lanes>
+	<Lane :laneStatus="this.laneStatus"></Lane>
 </template>
 
 <script>
-	import Lanes from './components/Lanes.vue'
+	import Lane from './components/Lane.vue'
 
 	export default {
 		components: {
-			Lanes
+			Lane
 		},
 		data: function() {
 			return {
-				placeholder: 'Hello'
+				laneStatus: 'In progress'
 			}
 		}
 	}
 </script>
+
+<style lang="scss">
+	$primary-color: #333;
+
+	body {
+		background-color: $primary-color
+	}
+
+</style>
