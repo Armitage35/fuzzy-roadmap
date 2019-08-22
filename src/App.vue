@@ -6,7 +6,8 @@
 
 <script>
 	import Lane from './components/Lane/Lane.vue';
-	import './main.scss'
+	import './main.scss';
+	var demoEpics = require( './utilities/demo.js');
 
 	export default {
 		components: {
@@ -19,8 +20,9 @@
 					{title: 'soon', type: "soon"},
 					{title: 'later', type: "later"},
 					{title: 'done', type: "done"}
-					]
-			}
+					],
+				demoEpics: demoEpics
+				}
 		}
 	}
 </script>
