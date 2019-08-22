@@ -9,8 +9,6 @@
 	import './main.scss';
 	const demoEpics = require( './utilities/demo.js');
 
-	console.log(demoEpics.demoEpics)
-
 	export default {
 		components: {
 			Lane
@@ -48,9 +46,9 @@
 							epicDone.push(this.demoEpics[i]);
 							break;
 						default:
-							console.log('merde')
+							null;
 					}
-				};
+				}
 			}
 		},
 		created(){
