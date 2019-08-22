@@ -1,7 +1,11 @@
 <template>
 	<div class="lane">
-		<div class="laneTitle">{{ laneStatus }}</div>
-		<Epic :epicTitle="this.epicTitle" :epicStatus="this.epicStatus"></Epic>
+		<div class="laneHeader" :class="classNameCalculation()">
+			<span class="laneTitle">{{ laneTitle }}</span>
+		</div>
+		<div class="laneContent">
+			<Epic :epicTitle="this.epicTitle" :epicStatus="this.epicStatus"></Epic>
+		</div>
 	</div>
 </template>
 
@@ -12,16 +16,20 @@
 		components: {
 			Epic
 		},
-		props: ['laneStatus'],
+		props: ['laneStatus', 'laneTitle'],
 		data: function(){
 			return {
 				epicTitle: "Cameras in Jogogo",
-				epicStatus: "inProgress"
+				epicStatus: "epicInProgress"
+			}
+		},
+		methods: {
+			classNameCalculation(){
+				return "lane" + this.laneStatus.charAt(0).toUpperCase() + this.laneStatus.slice(1)
 			}
 		}
 	}
 </script>
 
 <style>
-
 </style>

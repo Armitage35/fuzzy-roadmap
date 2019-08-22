@@ -3,8 +3,9 @@
 .epic {
     border: 1px solid black;
     height: 70px;
-    width: 180px;
+    width: 18vw;
     display: flex;
+    margin: auto
 }
 
 .epicStatusMarker {
@@ -19,6 +20,18 @@
     margin: auto
 }
 
-.inProgress {
+.epicInProgress {
     background-color: $yellow;
+}
+
+.epicSoon {
+    background-color: $blue;
+}
+
+.epicLater {
+    background-color: $red;
+}
+
+.epicDone{
+    background-color: $green;
 }

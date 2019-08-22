@@ -1,5 +1,7 @@
 <template>
-	<Lane :laneStatus="this.laneStatus"></Lane>
+	<div>
+		<Lane v-for="lane in lanes" :laneStatus="lane.type" :laneTitle="lane.title" :key="lane.type"></Lane>
+	</div>
 </template>
 
 <script>
@@ -12,7 +14,12 @@
 		},
 		data: function() {
 			return {
-				laneStatus: 'In progress'
+				lanes: [
+					{title: 'in progress', type: "inProgress"},
+					{title: 'soon', type: "soon"},
+					{title: 'later', type: "later"},
+					{title: 'done', type: "done"}
+					]
 			}
 		}
 	}

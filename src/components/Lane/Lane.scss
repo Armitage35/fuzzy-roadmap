@@ -1,14 +1,47 @@
 @import '../../utilities/variables.scss';
 
 .lane {
-    width: 20vw
+    width: 22vw;
+    height: 80vh;
+    display: inline-block;
+}
+
+.laneHeader {
+    width: 20vw;
+    height: 80px;
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    font-weight: bold
 }
 
 .laneTitle {
-    width: 250px;
-    height: 80px;
+    text-align: center;
+    margin: auto;
+}
+
+.laneContent {
+    height: 100%;
+    border-right: 1px solid black;
+    margin-top: 20px
+}
+
+.laneInProgress {
     border: 1px solid $darkYellow;
     background-color: $yellow;
-    text-align: center;
-    margin: auto
+}
+
+.laneSoon {
+    border: 1px solid $darkBlue;
+    background-color: $blue;
+}
+
+.laneLater {
+    border: 1px solid $darkRed;
+    background-color: $red;
+}
+
+.laneDone {
+    border: 1px solid $darkGreen;
+    background-color: $green;
 }
