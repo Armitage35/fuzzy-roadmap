@@ -29,6 +29,7 @@
 					],
 				demoEpics: demoEpics.demoEpics,
 
+				// TODO: make those into computed properties
 				epics: {
 					inProgress: [],
 					soon: [],

@@ -1,11 +1,10 @@
-@import '../../utilities/variables.scss';
-
 .epic {
     border: 1px solid black;
     height: 70px;
     width: 18vw;
     display: flex;
-    margin: auto
+    margin: auto;
+    margin-bottom: 20px
 }
 
 .epicStatusMarker {
