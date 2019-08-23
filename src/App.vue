@@ -1,6 +1,12 @@
 <template>
 	<div class="app">
-		<Lane v-for="lane in lanes" :laneStatus="lane.type" :laneTitle="lane.title" :key="lane.type"></Lane>
+		<Lane
+			v-for="lane in lanes"
+			:laneStatus="lane.type"
+			:laneTitle="lane.title"
+			:key="lane.type"
+			:epic="epics[lane.type]"
+			></Lane>
 	</div>
 </template>
 
@@ -21,29 +27,31 @@
 					{title: 'later', type: "later"},
 					{title: 'done', type: "done"}
 					],
-				demoEpics: demoEpics.demoEpics
+				demoEpics: demoEpics.demoEpics,
+
+				epics: {
+					inProgress: [],
+					soon: [],
+					later: [],
+					done:[]
 				}
+			}
 		},
 		methods: {
 			sortEpics(){
-				let epicsInProgress = [];
-				let epicsSoon = [];
-				let epicLater = [];
-				let epicDone = [];
-
 				for (let i = 0; i < this.demoEpics.length; i++){
 					switch (this.demoEpics[i].status){
 						case 'inProgress':
-							epicsInProgress.push(this.demoEpics[i]);
+							this.epics.inProgress.push(this.demoEpics[i]);
 							break;
 						case 'soon':
-							epicsSoon.push(this.demoEpics[i]);
+							this.epics.soon.push(this.demoEpics[i]);
 							break;
 						case 'later':
-							epicLater.push(this.demoEpics[i]);
+							this.epics.later.push(this.demoEpics[i]);
 							break;
 						case 'done':
-							epicDone.push(this.demoEpics[i]);
+							this.epics.done.push(this.demoEpics[i]);
 							break;
 						default:
 							null;
