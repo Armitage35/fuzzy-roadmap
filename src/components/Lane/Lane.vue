@@ -4,7 +4,12 @@
 			<span class="laneTitle">{{ laneTitle }}</span>
 		</div>
 		<div class="laneContent">
-			<Epic :epicTitle="this.epicTitle" :epicStatus="this.laneStatus"></Epic>
+			<Epic
+				v-for="epic in epics"
+				:epicTitle="epic.name.displayName"
+				:epicStatus="epic.status"
+				:key="epic.title"
+				></Epic>
 		</div>
 	</div>
 </template>
@@ -16,7 +21,7 @@
 		components: {
 			Epic
 		},
-		props: ['laneStatus', 'laneTitle'],
+		props: ['laneStatus', 'laneTitle', 'epics'],
 		data: function(){
 			return {
 				epicTitle: "Cameras in Jogogo",

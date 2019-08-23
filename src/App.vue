@@ -5,7 +5,7 @@
 			:laneStatus="lane.type"
 			:laneTitle="lane.title"
 			:key="lane.type"
-			:epic="epics[lane.type]"
+			:epics="epics[lane.type]"
 			></Lane>
 	</div>
 </template>
