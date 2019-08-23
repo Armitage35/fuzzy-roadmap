@@ -1,23 +1,30 @@
 <template>
 	<div class="app">
-		<Lane
-			v-for="lane in lanes"
-			:laneStatus="lane.type"
-			:laneTitle="lane.title"
-			:key="lane.type"
-			:epics="epics[lane.type]"
-			></Lane>
+		<div class="roadmap">
+			<Lane
+				v-for="lane in lanes"
+				:laneStatus="lane.type"
+				:laneTitle="lane.title"
+				:key="lane.type"
+				:epics="epics[lane.type]"
+				></Lane>
+		</div>
+			<Toolbar></Toolbar>
 	</div>
 </template>
 
 <script>
-	import Lane from './components/Lane/Lane.vue';
+	// general imports
 	import './main.scss';
 	const demoEpics = require( './utilities/demo.js');
 
+	// components
+	import Lane from './components/Lane/Lane.vue';
+	import Toolbar from './components/Toolbar/Toolbar.vue'
+
 	export default {
 		components: {
-			Lane
+			Lane, Toolbar
 		},
 		data: function() {
 			return {

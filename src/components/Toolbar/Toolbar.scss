@@ -1,0 +1,42 @@
+// Local variables
+$toolBarContent: #99a0af;
+
+%toolbarContent {
+	flex-basis: 100%;
+	text-align: center;
+	// margin-top: 20px
+
+	&:hover {
+		color: #788195;
+	}
+}
+
+// Styling
+.toolbar {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 60px;
+	background-color: #34495e;
+	display: flex;
+	flex: 1 1 1;
+	color: $toolBarContent;
+}
+
+.toolbar-roadmapName {
+	@extend %toolbarContent;
+	text-align: left;
+	margin-left: 25px;
+}
+
+.toolbar-tools {
+	@extend %toolbarContent;
+
+}
+
+.toolbar-advancedFeatures {
+	@extend %toolbarContent;
+
+}
