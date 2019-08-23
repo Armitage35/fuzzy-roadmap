@@ -7,7 +7,8 @@
 			<i class="fas fa-plus-circle"></i>
 		</div>
 		<div class="toolbar-advancedFeatures">
-			Hello boys
+			<i class="fas fa-chart-line"></i>
+			<i class="fas fa-cloud-download-alt"></i>
 		</div>
 	</div>
 </template>

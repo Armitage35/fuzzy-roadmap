@@ -1,13 +1,20 @@
 // Local variables
 $toolBarContent: #99a0af;
 
+%toolBarHover {
+	color: #788195;
+}
+
 %toolbarContent {
 	flex-basis: 100%;
 	text-align: center;
-	// margin-top: 20px
 
-	&:hover {
-		color: #788195;
+	i {
+		font-size: 40px;
+		height: 100%;
+		&:hover {
+			@extend %toolBarHover;
+		}
 	}
 }
 
