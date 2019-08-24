@@ -38,16 +38,20 @@ $toolbarPadding: 25px;
 	padding-left: $toolbarPadding;
 	justify-content: left;
 	cursor: pointer;
+	margin: auto;
 
-	&:hover {
+	:hover {
 		color: #788195;
+	}
+
+	i {
+		font-size: 18px;
 	}
 }
 
 .toolbar-tools {
 	@extend %toolBarContent;
 	margin: auto
-
 }
 
 .toolbar-advancedFeatures {

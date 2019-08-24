@@ -1,7 +1,7 @@
 <template>
 	<div class="toolbar">
 		<div class="toolbar-roadmapName">
-			My roadmap
+			<span>My roadmap</span>
 			<i class="fas fa-pencil-alt"></i>
 		</div>
 		<div class="toolbar-tools">
