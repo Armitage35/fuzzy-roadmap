@@ -2,10 +2,6 @@
 $toolBarContentColor: #99a0af;
 $toolbarPadding: 25px;
 
-%toolBarHover {
-	color: #788195;
-}
-
 %toolBarContent {
 	flex-basis: 100%;
 	align-items: center;
@@ -18,7 +14,7 @@ $toolbarPadding: 25px;
 		margin: 0 16px;
 
 		&:hover {
-			@extend %toolBarHover;
+			color: #788195;
 		}
 	}
 }
@@ -39,9 +35,13 @@ $toolbarPadding: 25px;
 
 .toolbar-roadmapName {
 	@extend %toolBarContent;
-	text-align: left;
 	padding-left: $toolbarPadding;
 	justify-content: left;
+	cursor: pointer;
+
+	&:hover {
+		color: #788195;
+	}
 }
 
 .toolbar-tools {
