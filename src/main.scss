@@ -13,7 +13,7 @@ body {
 }
 
 h2 {
-	font-size: 24px;
+	font-size: 32px;
 }
 
 label {
@@ -45,4 +45,19 @@ input {
 .roadmap {
     display: flex;
     margin: 30px;
+}
+
+button {
+	border: none;
+	padding: 12px;
+	font-family: $mainFonts;
+}
+
+.bttn-secondary {
+	background: none
+}
+
+.bttn-primary {
+	background-color: $primaryBlue;
+	color: white
 }

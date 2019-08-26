@@ -10,7 +10,7 @@
 
 .epicStatusMarker {
     border-right: $defaultBorder;
-    background-color: $yellow;
+    background-color: $epicYellow;
     height: 100%;
     min-width: 10px;
 }
@@ -21,17 +21,17 @@
 }
 
 .epicInProgress {
-    background-color: $yellow;
+    background-color: $epicYellow;
 }
 
 .epicSoon {
-    background-color: $blue;
+    background-color: $epicBlue;
 }
 
 .epicLater {
-    background-color: $red;
+    background-color: $epicRed;
 }
 
 .epicDone{
-    background-color: $green;
+    background-color: $epicGreen;
 }
