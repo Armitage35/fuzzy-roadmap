@@ -19,7 +19,7 @@
 </template>
 
 <script>
-	// TODO: load FA as svg to save on load time
+	// @TODO: load FA as svg to save on load time
 	export default {
 
 	}

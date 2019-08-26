@@ -1,5 +1,6 @@
 <template>
 	<div class="app">
+		<Modal v-if="appState.modal.showModal" :modalType="appState.modal.modalType"></Modal>
 		<div class="roadmap">
 			<Lane
 				v-for="lane in lanes"
@@ -20,11 +21,12 @@
 
 	// components
 	import Lane from './components/Lane/Lane.vue';
-	import Toolbar from './components/Toolbar/Toolbar.vue'
+	import Toolbar from './components/Toolbar/Toolbar.vue';
+	import Modal from './components/Modal/Modal.vue';
 
 	export default {
 		components: {
-			Lane, Toolbar
+			Lane, Toolbar, Modal
 		},
 		data: function() {
 			return {
@@ -36,12 +38,18 @@
 					],
 				demoEpics: demoEpics.demoEpics,
 
-				// TODO: make those into computed properties
+				// @TODO: make those into computed properties
 				epics: {
 					inProgress: [],
 					soon: [],
 					later: [],
 					done:[]
+				},
+				appState: {
+					modal:{
+						showModal: true,
+						modalType: "epic"
+					}
 				}
 			}
 		},
