@@ -52,7 +52,8 @@
 					modal:{
 						showModal: true,
 						modalType: "epic"
-					}
+					},
+					activeView: "roadmap"
 				}
 			}
 		},
