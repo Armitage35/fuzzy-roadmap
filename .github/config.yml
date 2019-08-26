@@ -1,5 +1,5 @@
 todo:
-  keyword: "@makeAnIssue"
+  keyword: "@todo"
   autoAssign: true
   keyword: "TODO"
   caseSensitive: false
