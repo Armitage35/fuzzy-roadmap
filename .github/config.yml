@@ -1,0 +1,6 @@
+todo:
+  keyword: "@makeAnIssue"
+  autoAssign: true
+  keyword: "TODO"
+  caseSensitive: false
+  label: "TODO bot"
