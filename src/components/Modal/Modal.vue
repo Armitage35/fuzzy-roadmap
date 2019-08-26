@@ -1,6 +1,8 @@
 <template>
-	<div class="modal">
-		<EpicModal v-if="modalType === 'epic'"></EpicModal>
+	<div class="modal-mask">
+		<div class="modal-container">
+			<EpicModal v-if="modalType === 'epic'"></EpicModal>
+		</div>
 	</div>
 </template>
 
