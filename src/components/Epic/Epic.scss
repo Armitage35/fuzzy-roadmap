@@ -1,14 +1,15 @@
 .epic {
-    border: 1px solid black;
+    border: $defaultBorder;
     height: 70px;
     width: 18vw;
     display: flex;
     margin: auto;
-    margin-bottom: 20px
+	margin-bottom: 20px;
+	text-transform: uppercase;
 }
 
 .epicStatusMarker {
-    border-right: 1px solid black;
+    border-right: $defaultBorder;
     background-color: $yellow;
     height: 100%;
     min-width: 10px;

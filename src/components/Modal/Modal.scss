@@ -19,6 +19,7 @@
 	border-radius: 2px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
 	transition: all .3s ease;
+	border-radius: 5px
 }
 
 .modal-header {
@@ -27,4 +28,19 @@
 
 .modal-close {
 	margin-left: auto;
+	font-size: 32px;
+	align-items: center;
+    display: flex;
+}
+
+.modal-close:hover {
+	color: #3f3f3f;
+}
+
+.modal-form {
+	margin-top: 24px
+}
+
+.modal-form-title {
+	font-weight: bold;
 }

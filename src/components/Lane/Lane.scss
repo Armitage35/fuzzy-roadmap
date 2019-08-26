@@ -12,7 +12,8 @@
     font-size: 18px;
     font-weight: bold;
     display: inline-flex;
-    margin-left: 1vw;
+	margin-left: 1vw;
+	text-transform: uppercase;
 }
 
 .laneTitle {
@@ -22,7 +23,7 @@
 
 .laneContent {
     height: 100%;
-    border-right: 1px solid black;
+    border-right: $defaultBorder;
     margin-top: 20px
 }
 
