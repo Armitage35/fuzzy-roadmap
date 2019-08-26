@@ -1,6 +1,9 @@
 <template>
 	<div class="app">
-		<Modal v-if="appState.modal.showModal" :modalType="appState.modal.modalType"></Modal>
+		<Modal
+			v-if="appState.modal.showModal"
+			:modalType="appState.modal.modalType"
+		></Modal>
 		<div class="roadmap">
 			<Lane
 				v-for="lane in lanes"
