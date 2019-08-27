@@ -46,8 +46,8 @@
 			saveEpic() {
 				let newEpic = {
 					name: {
-            			displayName: this.epicName,
-           				fullName: this.epicName,
+						displayName: this.epicName,
+						fullName: this.epicName,
 					},
 					status: this.epicStatus,
 					creationDate: new Date(),
