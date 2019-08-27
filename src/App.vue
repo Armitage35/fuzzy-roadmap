@@ -3,6 +3,7 @@
 		<Modal
 			v-if="appState.modal.showModal"
 			:modalType="appState.modal.modalType"
+			:epics="this.demoEpics"
 			@toggleModal="toggleModal($event)"
 		></Modal>
 		<div class="roadmap">

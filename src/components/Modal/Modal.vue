@@ -10,6 +10,7 @@
 			<EpicModal
 				v-if="modalType === 'epic'"
 				@toggleModal="closeModal"
+				:epics="this.epics"
 			></EpicModal>
 		</div>
 	</div>
@@ -19,7 +20,7 @@
 	import EpicModal from './EpicModal/EpicModal'
 
 	export default {
-		props: ['modalType'],
+		props: ['modalType', 'epics'],
 		components: {
 			EpicModal
 		},

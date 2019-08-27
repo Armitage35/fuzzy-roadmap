@@ -31,6 +31,7 @@
 
 <script>
 	export default {
+		props: ['epics'],
 		data: function() {
 			return {
 				epicName: "",
@@ -43,7 +44,21 @@
 				this.$emit('toggleModal', "");
 			},
 			saveEpic() {
-
+				let newEpic = {
+					name: {
+            			displayName: this.epicName,
+           				fullName: this.epicName,
+					},
+					status: this.epicStatus,
+					creationDate: new Date(),
+					order: 1,
+					resolution: {
+						resolved: false,
+						resolutionDate: null
+					},
+					author: 'Adrien D. Ahlqvist'
+				}
+				this.epics.push(newEpic);
 			}
 		}
 	}
