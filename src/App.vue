@@ -12,7 +12,7 @@
 				:laneStatus="lane.type"
 				:laneTitle="lane.title"
 				:key="lane.type"
-				:epics="epics[lane.type]"
+				:epics="findLane(lane.type)"
 				></Lane>
 		</div>
 			<Toolbar @toggleModal="toggleModal($event)"></Toolbar>
@@ -20,11 +20,11 @@
 </template>
 
 <script>
-	// general imports
+	// General imports
 	import './master.scss';
 	const demoEpics = require( './utilities/demo.js');
 
-	// components
+	// Components
 	import Lane from './components/Lane/Lane.vue';
 	import Toolbar from './components/Toolbar/Toolbar.vue';
 	import Modal from './components/Modal/Modal.vue';
@@ -42,44 +42,16 @@
 					{title: 'done', type: "done"}
 					],
 				demoEpics: demoEpics.demoEpics,
-
-				// @TODO: make those into computed properties
-				epics: {
-					inProgress: [],
-					soon: [],
-					later: [],
-					done:[]
-				},
 				appState: {
 					modal:{
 						showModal: false,
 						modalType: ""
 					},
 					activeView: "roadmap"
-				}
+				},
 			}
 		},
 		methods: {
-			sortEpics(){
-				for (let i = 0; i < this.demoEpics.length; i++){
-					switch (this.demoEpics[i].status){
-						case 'inProgress':
-							this.epics.inProgress.push(this.demoEpics[i]);
-							break;
-						case 'soon':
-							this.epics.soon.push(this.demoEpics[i]);
-							break;
-						case 'later':
-							this.epics.later.push(this.demoEpics[i]);
-							break;
-						case 'done':
-							this.epics.done.push(this.demoEpics[i]);
-							break;
-						default:
-							null;
-					}
-				}
-			},
 			toggleModal(event){
 				this.appState.modal.showModal = !this.appState.modal.showModal;
 				this.appState.modal.modalType = event;
@@ -92,6 +64,24 @@
 					}
 				}
 				return epics;
+			},
+			findLane(lane) {
+				switch(lane) {
+					case 'inProgress':
+							return this.epicsInProgress;
+							break;
+						case 'soon':
+							return this.epicsSoon;
+							break;
+						case 'later':
+							return this.epicsLater;
+							break;
+						case 'done':
+							return this.epicsDone;
+							break;
+						default:
+							null;
+				}
 			}
 		},
 		computed: {
@@ -106,10 +96,7 @@
 			},
 			epicsDone() {
 				return this.filterEpic('done');
-			},
-		},
-		created(){
-			this.sortEpics()
+			}
 		}
 	}
 </script>
