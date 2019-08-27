@@ -69,16 +69,12 @@
 				switch(lane) {
 					case 'inProgress':
 							return this.epicsInProgress;
-							break;
 						case 'soon':
 							return this.epicsSoon;
-							break;
 						case 'later':
 							return this.epicsLater;
-							break;
 						case 'done':
 							return this.epicsDone;
-							break;
 						default:
 							null;
 				}
