@@ -29,7 +29,7 @@
 		},
 		methods: {
 			closeModal() {
-				this.$emit('closeModal', "");
+				this.$emit('toggleModal', "");
 			}
 		}
 	}

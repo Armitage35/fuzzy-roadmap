@@ -3,7 +3,7 @@
 		<Modal
 			v-if="appState.modal.showModal"
 			:modalType="appState.modal.modalType"
-			@closeModal="toggleModal($event)"
+			@toggleModal="toggleModal($event)"
 		></Modal>
 		<div class="roadmap">
 			<Lane
@@ -14,7 +14,7 @@
 				:epics="epics[lane.type]"
 				></Lane>
 		</div>
-			<Toolbar></Toolbar>
+			<Toolbar @toggleModal="toggleModal($event)"></Toolbar>
 	</div>
 </template>
 
@@ -51,8 +51,8 @@
 				},
 				appState: {
 					modal:{
-						showModal: true,
-						modalType: "epic"
+						showModal: false,
+						modalType: ""
 					},
 					activeView: "roadmap"
 				}
