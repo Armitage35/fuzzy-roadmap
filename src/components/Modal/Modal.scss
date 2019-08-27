@@ -28,13 +28,14 @@
 
 .modal-close {
 	margin-left: auto;
-	font-size: 32px;
-	align-items: center;
-    display: flex;
+	font-size: 18px;
+	align-items: baseline;
+	display: flex;
+	color: $lightGrey
 }
 
 .modal-close:hover {
-	color: #3f3f3f;
+	color: $almostBlack;
 }
 
 .modal-data {
@@ -58,6 +59,7 @@
 	display: flex;
 	align-items: right;
 	justify-content: right;
+	border-radius: 0 0 5px 5px;
 
 	.bttn-secondary {
 		margin-right: 24px

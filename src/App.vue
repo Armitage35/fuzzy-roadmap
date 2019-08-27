@@ -19,7 +19,7 @@
 
 <script>
 	// general imports
-	import './main.scss';
+	import './master.scss';
 	const demoEpics = require( './utilities/demo.js');
 
 	// components
