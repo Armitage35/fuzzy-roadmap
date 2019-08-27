@@ -3,6 +3,7 @@
 		<Modal
 			v-if="appState.modal.showModal"
 			:modalType="appState.modal.modalType"
+			@closeModal="toggleModal($event)"
 		></Modal>
 		<div class="roadmap">
 			<Lane
@@ -77,6 +78,10 @@
 							null;
 					}
 				}
+			},
+			toggleModal(event){
+				this.appState.modal.showModal = !this.appState.modal.showModal;
+				this.appState.modal.modalType = event;
 			}
 		},
 		created(){

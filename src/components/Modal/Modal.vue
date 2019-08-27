@@ -3,7 +3,7 @@
 		<div class="modal-container">
 			<div class="modal-header">
 				<h2 class="modal-title">{{modalTitle}}</h2>
-				<i class="fas fa-times modal-close"></i>
+				<i class="fas fa-times modal-close" @click="closeModal"></i>
 			</div>
 			<EpicModal v-if="modalType === 'epic'"></EpicModal>
 		</div>
@@ -25,6 +25,11 @@
 				} else {
 					return "Edit your epic"
 				}
+			}
+		},
+		methods: {
+			closeModal() {
+				this.$emit('closeModal', "");
 			}
 		}
 	}
