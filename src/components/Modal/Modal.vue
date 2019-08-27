@@ -3,9 +3,14 @@
 		<div class="modal-container">
 			<div class="modal-header">
 				<h2 class="modal-title">{{modalTitle}}</h2>
-				<i class="fas fa-times modal-close" @click="closeModal"></i>
+				<i class="fas fa-times modal-close"
+					@click="closeModal"
+				></i>
 			</div>
-			<EpicModal v-if="modalType === 'epic'"></EpicModal>
+			<EpicModal
+				v-if="modalType === 'epic'"
+				@toggleModal="closeModal"
+			></EpicModal>
 		</div>
 	</div>
 </template>
