@@ -83,7 +83,30 @@
 			toggleModal(event){
 				this.appState.modal.showModal = !this.appState.modal.showModal;
 				this.appState.modal.modalType = event;
+			},
+			filterEpic(status){
+				let epics = [];
+				for (let i = 0; i < this.demoEpics.length; i++){
+					if (this.demoEpics[i].status == status) {
+						epics.push(this.demoEpics[i])
+					}
+				}
+				return epics;
 			}
+		},
+		computed: {
+			epicsInProgress() {
+				return this.filterEpic('inProgress');
+			},
+			epicsSoon() {
+				return this.filterEpic('soon');
+			},
+			epicsLater() {
+				return this.filterEpic('later');
+			},
+			epicsDone() {
+				return this.filterEpic('done');
+			},
 		},
 		created(){
 			this.sortEpics()
