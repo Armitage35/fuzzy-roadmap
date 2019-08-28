@@ -1,0 +1,13 @@
+.settings-layout {
+	display: flex;
+}
+
+.settings-picture {
+	margin-top: 32px;
+	margin-left: 32px;
+	width: 80px;
+	height: 80px;
+	background-color: $darkGrey;
+	background-image: url('https://fr.gravatar.com/userimage/26960800/576f0907a4ed387626f1c211c4b11942.png');
+	border-radius: 5px;
+}
