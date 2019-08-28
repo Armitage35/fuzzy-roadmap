@@ -1,5 +1,5 @@
 <template>
-	<div class="modal-mask">
+	<div class="modal-mask" tabindex="0" @keydown.esc="closeModal">
 		<div class="modal-container">
 			<div class="modal-header">
 				<h2 class="modal-title">{{modalTitle}}</h2>
@@ -28,11 +28,13 @@
 			EpicModal, SettingsModal
 		},
 		computed: {
-			modalTitle: function(){
+			modalTitle(){
 				if (this.modalType === "epic"){
 					return "Create your epic"
 				} else if (this.modalType === "settings"){
 					return "Set your preferences"
+				} else {
+					return "Edit epic"
 				}
 			}
 		},
