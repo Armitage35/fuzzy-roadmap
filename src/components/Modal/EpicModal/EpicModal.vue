@@ -30,6 +30,9 @@
 </template>
 
 <script>
+	import iziToast from 'izitoast';
+	import 'izitoast/dist/css/iziToast.min.css';
+
 	export default {
 		props: ['epics'],
 		data: function() {
@@ -59,7 +62,12 @@
 					author: 'Adrien D. Ahlqvist'
 				}
 				this.epics.push(newEpic);
-				this.closeModal()
+				this.closeModal();
+				iziToast.success({
+					title: 'Epic created',
+					message: 'You are getting the hang of this',
+					position: "topRight"
+				});
 			}
 		}
 	}

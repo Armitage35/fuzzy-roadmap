@@ -17,7 +17,7 @@
 </template>
 
 <script>
-	import EpicModal from './EpicModal/EpicModal'
+	import EpicModal from './EpicModal/EpicModal';
 
 	export default {
 		props: ['modalType', 'epics'],
