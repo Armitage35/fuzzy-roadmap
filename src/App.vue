@@ -42,13 +42,27 @@
 					{title: 'done', type: "done"}
 					],
 				demoEpics: demoEpics.demoEpics,
+				userDetails: {
+					id: Math.floor(Math.random() * 200),
+					email: 'ron@hogwarts.com',
+					profilePicture: 'https://fr.gravatar.com/userimage/26960800/576f0907a4ed387626f1c211c4b11942.png',
+					name: 'Armitage',
+					createdOn: new Date(),
+					lastLoginDate: new Date(),
+					preferences: {
+						darkTheme: false,
+						language: 'en',
+						tracking: true,
+						moveEpicsToBacklogAfter: 60
+					}
+				},
 				appState: {
 					modal:{
 						showModal: false,
 						modalType: ""
 					},
 					activeView: "roadmap"
-				},
+				}
 			}
 		},
 		methods: {
