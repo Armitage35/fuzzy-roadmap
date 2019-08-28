@@ -3,9 +3,9 @@
 		<div class="toolbar-roadmapName">
 			<span>My roadmap</span>
 			<i class="fas fa-pencil-alt"
-				 data-tippy="Rename this roadmap"></i>
+				data-tippy="Rename this roadmap"></i>
 		</div>
-		<div class="toolbar-tools">
+		<div class="toolbar-tools">3
 			<i class="fas fa-plus-circle"
 				@click="requestEpicCreationModal"
 				data-tippy="Create a new epic"></i>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+	// eslint-disable-next-line
 	import tippy from 'tippy.js';
 
 	// @TODO: load FA as svg to save on load time
