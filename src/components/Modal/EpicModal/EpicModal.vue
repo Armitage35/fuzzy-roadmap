@@ -59,6 +59,7 @@
 					author: 'Adrien D. Ahlqvist'
 				}
 				this.epics.push(newEpic);
+				this.closeModal()
 			}
 		}
 	}
