@@ -1,6 +1,5 @@
 todo:
-  keyword: "@todo"
-  keyword: "TODO"
+  keyword: ["@todo", "TODO"]
   autoAssign: true
   caseSensitive: false
   label: "TODO bot"
