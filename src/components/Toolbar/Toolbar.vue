@@ -28,6 +28,9 @@
 </template>
 
 <script>
+	const locales = require( '../../assets/locales/strings.js');
+	console.log(locales.en.toolbar.new)
+
 	// eslint-disable-next-line
 	import tippy from 'tippy.js';
 
@@ -35,7 +38,7 @@
 	export default {
 		methods: {
 			requestEpicCreationModal() {
-				this.$emit('toggleModal', "epic")
+				this.$emit('toggleModal', "epic");
 			}
 		}
 	}
