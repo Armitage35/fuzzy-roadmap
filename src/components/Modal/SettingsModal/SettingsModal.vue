@@ -12,15 +12,14 @@
 						<input
 							type="text"
 							name="email"
-							placeholder="ron@hogwarts.com"
 							spellcheck="true"
 							class="modal-form-title"
-							v-model="this.userSettings.email">
+							:value="this.userSettings.email">
 					</div>
 					<div class="modal-form">
 						<label for="theme">Preferred theme</label>
 						<br />
-						<select name="theme" v-model="this.userSettings.preferences.theme">
+						<select name="theme" :value="this.userSettings.preferences.theme">
 							<option value="light">Light</option>
 							<option value="dark">Dark</option>
 						</select>
@@ -28,10 +27,20 @@
 					<div class="modal-form">
 						<label for="language">Language</label>
 						<br />
-						<select name="language" v-model="this.userSettings.preferences.language">
+						<select name="language" :value="this.userSettings.preferences.language">
 							<option value="en">English</option>
 							<option value="fr">French</option>
 						</select>
+					</div>
+					<div class="modal-form">
+						<label for="profilePicture">Your picture</label>
+						<br />
+						<input
+							type="text"
+							name="profilePicture"
+							spellcheck="false"
+							class="modal-form-title"
+							:value="this.userSettings.profilePicture">
 					</div>
 					<div class="modal-form">
 						<label for="tracking">Language</label>
@@ -39,7 +48,7 @@
 						<input
 							type="checkbox"
 							name="tracking"
-							v-model="this.userSettings.preferences.tracking">
+							:value="this.userSettings.preferences.tracking">
 							I agree be tracked to help improve this app
 					</div>
 				</div>
