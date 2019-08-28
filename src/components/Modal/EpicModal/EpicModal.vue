@@ -7,7 +7,8 @@
 				<input
 					type="text"
 					name="epicName"
-					placeholder="A great epic name" spellcheck="true"
+					placeholder="A great epic name"
+					spellcheck="true"
 					class="modal-form-title"
 					v-model="epicName">
 			</div>
@@ -15,7 +16,7 @@
 				<label for="epicStatus">Epic status</label>
 				<br />
 				<select name="epicStatus" v-model="epicStatus">
-					<option value="inProgress" class="modal-form-epicStatus">In progress</option>
+					<option value="inProgress">In progress</option>
 					<option value="soon">Soon</option>
 					<option value="later">Later</option>
 					<option value="done">Done</option>
@@ -30,6 +31,7 @@
 </template>
 
 <script>
+	// Importing external modules
 	import iziToast from 'izitoast';
 	import 'izitoast/dist/css/iziToast.min.css';
 
