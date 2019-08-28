@@ -13,7 +13,9 @@
 				:epics="this.epics"
 			></EpicModal>
 			<SettingsModal
-				v-if="modalType === 'settings'"></SettingsModal>
+				v-if="modalType === 'settings'"
+				:userSettings="this.userSettings"
+				></SettingsModal>
 		</div>
 	</div>
 </template>
@@ -23,7 +25,7 @@
 	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
 	export default {
-		props: ['modalType', 'epics'],
+		props: ['modalType', 'epics', 'userSettings'],
 		components: {
 			EpicModal, SettingsModal
 		},

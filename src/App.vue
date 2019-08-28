@@ -4,6 +4,7 @@
 			v-if="appState.modal.showModal"
 			:modalType="appState.modal.modalType"
 			:epics="this.demoEpics"
+			:userSettings="this.userDetails"
 			@toggleModal="toggleModal($event)"
 		></Modal>
 		<div class="roadmap">
@@ -50,7 +51,7 @@
 					createdOn: new Date(),
 					lastLoginDate: new Date(),
 					preferences: {
-						darkTheme: false,
+						theme: 'light',
 						language: 'en',
 						tracking: true,
 						moveEpicsToBacklogAfter: 60

@@ -15,28 +15,32 @@
 							placeholder="ron@hogwarts.com"
 							spellcheck="true"
 							class="modal-form-title"
-							v-model="email">
+							v-model="this.userSettings.email">
 					</div>
 					<div class="modal-form">
-						<label for="epicStatus">Preferred theme</label>
+						<label for="theme">Preferred theme</label>
 						<br />
-						<select name="epicStatus" v-model="theme">
+						<select name="theme" v-model="this.userSettings.preferences.theme">
 							<option value="light">Light</option>
 							<option value="dark">Dark</option>
 						</select>
 					</div>
 					<div class="modal-form">
-						<label for="epicStatus">Language</label>
+						<label for="language">Language</label>
 						<br />
-						<select name="epicStatus" v-model="language">
-							<option value="light">English</option>
-							<option value="dark">French</option>
+						<select name="language" v-model="this.userSettings.preferences.language">
+							<option value="en">English</option>
+							<option value="fr">French</option>
 						</select>
 					</div>
 					<div class="modal-form">
 						<label for="tracking">Language</label>
 						<br />
-						<input type="checkbox" name="tracking">I agree be tracked to help improve this app
+						<input
+							type="checkbox"
+							name="tracking"
+							v-model="this.userSettings.preferences.tracking">
+							I agree be tracked to help improve this app
 					</div>
 				</div>
 			</div>
@@ -50,6 +54,6 @@
 
 <script>
 	export default {
-
+		props: ['userSettings']
 	}
 </script>
