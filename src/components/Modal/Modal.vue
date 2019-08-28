@@ -12,24 +12,27 @@
 				@toggleModal="closeModal"
 				:epics="this.epics"
 			></EpicModal>
+			<SettingsModal
+				v-if="modalType === 'settings'"></SettingsModal>
 		</div>
 	</div>
 </template>
 
 <script>
-	import EpicModal from './EpicModal/EpicModal';
+	import EpicModal from './EpicModal/EpicModal.vue';
+	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
 	export default {
 		props: ['modalType', 'epics'],
 		components: {
-			EpicModal
+			EpicModal, SettingsModal
 		},
 		computed: {
 			modalTitle: function(){
 				if (this.modalType === "epic"){
 					return "Create your epic"
-				} else {
-					return "Edit your epic"
+				} else if (this.modalType === "settings"){
+					return "Set your preferences"
 				}
 			}
 		},

@@ -22,7 +22,8 @@
 			<i class="fas fa-trash"
 				data-tippy="Reset roadmap"></i>
 			<i class="fas fa-cog"
-				data-tippy="Settings"></i>
+				data-tippy="Settings"
+				@click="$emit('toggleModal', 'settings')"></i>
 		</div>
 	</div>
 </template>
