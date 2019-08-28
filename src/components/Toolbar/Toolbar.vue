@@ -5,7 +5,7 @@
 			<i class="fas fa-pencil-alt"></i>
 		</div>
 		<div class="toolbar-tools">
-			<i class="fas fa-plus-circle"></i>
+			<i class="fas fa-plus-circle" @click="requestEpicCreationModal"></i>
 			<i class="fas fa-stream"></i>
 			<i class="fas fa-chart-line"></i>
 		</div>
@@ -19,8 +19,12 @@
 </template>
 
 <script>
-	// TODO: load FA as svg to save on load time
+	// @TODO: load FA as svg to save on load time
 	export default {
-
+		methods: {
+			requestEpicCreationModal() {
+				this.$emit('toggleModal', "epic")
+			}
+		}
 	}
 </script>

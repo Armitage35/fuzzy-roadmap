@@ -1,5 +1,6 @@
 // Internal files
 @import './utilities/variables.scss';
+@import './App.scss';
 @import './components/Epic/Epic.scss';
 @import './components/Lane/Lane.scss';
 @import './components/Toolbar/Toolbar.scss';
@@ -7,13 +8,3 @@
 
 // External ressources
 @import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
-
-body {
-    font-family: $mainFonts;
-    text-transform: uppercase;
-}
-
-.roadmap {
-    display: flex;
-    margin: 30px;
-}
