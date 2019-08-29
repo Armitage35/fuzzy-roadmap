@@ -1,6 +1,6 @@
 module.exports = {demoEpics: [
 	{
-		name: {
+		epicName: {
 			displayName: 'Camera in Jogogo',
 			fullName: 'Camera in Jogogo',
 		},
@@ -14,7 +14,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'App rewrite',
 			fullName: 'App rewrite',
 		},
@@ -28,7 +28,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'Brand specific instance',
 			fullName: 'Brand specific instance',
 		},
@@ -42,7 +42,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'LOCATION SPECIFIC CHECK-IN PORTAL',
 			fullName: 'LOCATION SPECIFIC CHECK-IN PORTAL',
 		},
@@ -56,7 +56,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	}
 	,{
-		name: {
+		epicName: {
 			displayName: 'ACTIVATION DASHBOARD AND REPORTING',
 			fullName: 'ACTIVATION DASHBOARD AND REPORTING',
 		},
@@ -70,7 +70,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'Trends analytics',
 			fullName: 'Trends analytics',
 		},
@@ -84,7 +84,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'Brand-wide dashboard',
 			fullName: 'Brand-wide dashboard',
 		},
@@ -98,7 +98,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'Visitor segment',
 			fullName: 'Visitor segment',
 		},
@@ -112,7 +112,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'Brand-wide POI',
 			fullName: 'Brand-wide POI',
 		},
@@ -126,7 +126,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'INTEGRATIONS',
 			fullName: 'INTEGRATIONS',
 		},
@@ -140,7 +140,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'BEHAVIOR FLOW FOR POI',
 			fullName: 'BEHAVIOR FLOW FOR POI',
 		},
@@ -154,7 +154,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'Notifications',
 			fullName: 'Notifications',
 		},
@@ -168,7 +168,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'SEGMENT TRACKING IN APP',
 			fullName: 'SEGMENT TRACKING IN APP',
 		},
@@ -182,7 +182,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'API DOCUMENTATION',
 			fullName: 'API DOCUMENTATION',
 		},
@@ -196,7 +196,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'READ-ONLY MANAGERS',
 			fullName: 'READ-ONLY MANAGERS',
 		},
@@ -210,7 +210,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'ZONE DETAILS IN POI',
 			fullName: 'ZONE DETAILS IN POI',
 		},
@@ -224,7 +224,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'API PULL STATS',
 			fullName: 'API PULL STATS',
 		},
@@ -238,7 +238,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'FLOOR PLAN',
 			fullName: 'FLOOR PLAN',
 		},
@@ -252,7 +252,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'POE UPDATE',
 			fullName: 'POE UPDATE',
 		},
@@ -266,7 +266,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'BRAND-WIDE MESSAGES',
 			fullName: 'BRAND-WIDE MESSAGES',
 		},
@@ -280,7 +280,7 @@ module.exports = {demoEpics: [
 		author: 'Adrien D. Ahlqvist'
 	},
 	{
-		name: {
+		epicName: {
 			displayName: 'SMS CHECK-IN',
 			fullName: 'SMS CHECK-IN',
 		},

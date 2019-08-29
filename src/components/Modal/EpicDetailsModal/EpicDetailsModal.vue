@@ -33,7 +33,7 @@
 						<label for="epicName">Epic name</label>
 						<br />
 						<input type="text" name="userName" spellcheck="true" class="modal-form-title"
-							:value="selectedEpic.name.fullName">
+							:value="selectedEpic.epicName.fullName">
 					</div>
 					<div class="modal-form">
 						<label for="epicStatus">Epic status</label>
@@ -78,6 +78,12 @@
 			deleteEpic() {
 				this.$emit('deleteEpic', this.selectedEpic.id);
 				this.$emit('toggleModal', '');
+			}
+		},
+		data: function() {
+			return {
+				epicName: this.selectedEpic.epicName.fullName,
+				epicStatus: this.selectedEpic.epicStatus
 			}
 		}
 	}

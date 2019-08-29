@@ -45,10 +45,10 @@
 		data: function () {
 			return {
 				lanes: [
-					{title: 'in progress', type: "inProgress"},
-					{title: 'soon', type: "soon"},
-					{title: 'later', type: "later"},
-					{title: 'done', type: "done"}
+						{title: 'in progress', type: "inProgress"},
+						{title: 'soon', type: "soon"},
+						{title: 'later', type: "later"},
+						{title: 'done', type: "done"}
 					],
 				demoEpics: demoEpics.demoEpics,
 				userDetails: {

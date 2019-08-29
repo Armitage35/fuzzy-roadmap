@@ -49,7 +49,7 @@
 			},
 			saveEpic() {
 				let newEpic = {
-					name: {
+					epicName: {
 						displayName: this.epicName,
 						fullName: this.epicName,
 					},
