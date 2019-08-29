@@ -7,14 +7,14 @@
 			<div class="setting-right">
 				<div class="modal-data">
 					<div class="modal-form">
-						<label for="name">Your name</label>
+						<label for="userName">Your name</label>
 						<br />
 						<input
 							type="text"
-							name="name"
+							name="userName"
 							spellcheck="true"
 							class="modal-form-title"
-							v-model="name">
+							v-model="userName">
 					</div>
 					<div class="modal-form">
 						<label for="email">Your email</label>
@@ -77,7 +77,7 @@
 		props: ['userSettings'],
 		data: function(){
 			return {
-				name: this.userSettings.userName,
+				userName: this.userSettings.userName,
 				email: this.userSettings.email,
 				theme: this.userSettings.preferences.theme,
 				language: this.userSettings.preferences.language,
@@ -87,7 +87,14 @@
 		},
 		methods: {
 			updateSettings() {
-
+				this.$emit('updateSettings', {
+					userName: this.userName,
+					email: this.email,
+					theme: this.theme,
+					language: this.language,
+					pictureUrl: this.pictureUrl,
+					tracking: this.tracking
+				})
 			}
 		}
 	}
