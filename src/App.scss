@@ -1,5 +1,6 @@
 body {
-    font-family: $mainFonts;
+	font-family: $mainFonts;
+	text-transform: uppercase;
 }
 
 h2 {
@@ -21,7 +22,7 @@ select {
 	width: 240px;
 	font-size: 24px;
 	box-shadow: 1px 1px #888888;
-	color: $lightGrey;
+	color: black;
 	outline: none
 }
 
@@ -39,12 +40,12 @@ button {
 }
 
 .app {
-    display: flex;
+	display: flex;
 }
 
 .roadmap {
-    display: flex;
-    margin: 30px;
+	display: flex;
+	margin: 30px;
 }
 
 .bttn-secondary {
@@ -64,4 +65,8 @@ button {
 
 .bttn-primary:hover {
 	background-color: $primaryBlue;
+}
+
+.iziToast-body {
+	text-transform: none;
 }

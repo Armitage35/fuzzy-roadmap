@@ -4,7 +4,9 @@
 			v-if="appState.modal.showModal"
 			:modalType="appState.modal.modalType"
 			:epics="this.demoEpics"
+			:userSettings="this.userDetails"
 			@toggleModal="toggleModal($event)"
+			@updateSettings="updateSettings($event)"
 		></Modal>
 		<div class="roadmap">
 			<Lane
@@ -24,6 +26,10 @@
 	import './master.scss';
 	const demoEpics = require( './utilities/demo.js');
 
+	// Importing external modules
+	import iziToast from 'izitoast';
+	import 'izitoast/dist/css/iziToast.min.css';
+
 	// Components
 	import Lane from './components/Lane/Lane.vue';
 	import Toolbar from './components/Toolbar/Toolbar.vue';
@@ -33,7 +39,7 @@
 		components: {
 			Lane, Toolbar, Modal
 		},
-		data: function() {
+		data: function () {
 			return {
 				lanes: [
 					{title: 'in progress', type: "inProgress"},
@@ -42,13 +48,26 @@
 					{title: 'done', type: "done"}
 					],
 				demoEpics: demoEpics.demoEpics,
+				userDetails: {
+					id: Math.floor(Math.random() * 200),
+					email: 'ron@hogwarts.com',
+					profilePicture: 'https://fr.gravatar.com/userimage/26960800/576f0907a4ed387626f1c211c4b11942.png',
+					userName: 'New User',
+					createdOn: new Date(),
+					lastLoginDate: new Date(),
+					preferences: {
+						theme: 'light',
+						language: 'en',
+						tracking: true
+					}
+				},
 				appState: {
 					modal:{
 						showModal: false,
 						modalType: ""
 					},
 					activeView: "roadmap"
-				},
+				}
 			}
 		},
 		methods: {
@@ -78,6 +97,20 @@
 						default:
 							null;
 				}
+			},
+			updateSettings(event) {
+				this.userDetails.userName = event.userName;
+				this.userDetails.email = event.email;
+				this.userDetails.profilePicture = event.pictureUrl;
+				this.userDetails.preferences.language = event.language;
+				this.userDetails.preferences.theme = event.theme;
+				this.userDetails.preferences.tracking = event.tracking;
+
+				iziToast.success({
+					title: 'Settings updated',
+					message: 'Your profile has a newfound gleam',
+					position: "topRight"
+				});
 			}
 		},
 		computed: {

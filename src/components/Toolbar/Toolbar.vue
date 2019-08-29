@@ -5,7 +5,7 @@
 			<i class="fas fa-pencil-alt"
 				data-tippy="Rename this roadmap"></i>
 		</div>
-		<div class="toolbar-tools">3
+		<div class="toolbar-tools">
 			<i class="fas fa-plus-circle"
 				@click="requestEpicCreationModal"
 				data-tippy="Create a new epic"></i>
@@ -22,7 +22,8 @@
 			<i class="fas fa-trash"
 				data-tippy="Reset roadmap"></i>
 			<i class="fas fa-cog"
-				data-tippy="Settings"></i>
+				data-tippy="Settings"
+				@click="$emit('toggleModal', 'settings')"></i>
 		</div>
 	</div>
 </template>

@@ -36,7 +36,7 @@
 	import 'izitoast/dist/css/iziToast.min.css';
 
 	export default {
-		props: ['epics'],
+		props: ['epics', 'author'],
 		data: function() {
 			return {
 				epicName: "",
@@ -61,7 +61,7 @@
 						resolved: false,
 						resolutionDate: null
 					},
-					author: 'Adrien D. Ahlqvist'
+					author: this.author
 				}
 				this.epics.push(newEpic);
 				this.closeModal();

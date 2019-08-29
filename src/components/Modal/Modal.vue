@@ -1,5 +1,5 @@
 <template>
-	<div class="modal-mask">
+	<div class="modal-mask" tabindex="0" @keydown.esc="closeModal">
 		<div class="modal-container">
 			<div class="modal-header">
 				<h2 class="modal-title">{{modalTitle}}</h2>
@@ -11,31 +11,45 @@
 				v-if="modalType === 'epic'"
 				@toggleModal="closeModal"
 				:epics="this.epics"
+				:author="userSettings.userName"
 			></EpicModal>
+			<SettingsModal
+				v-if="modalType === 'settings'"
+				:userSettings="this.userSettings"
+				@toggleModal="closeModal"
+				@updateSettings="updateSettings($event)"
+				></SettingsModal>
 		</div>
 	</div>
 </template>
 
 <script>
-	import EpicModal from './EpicModal/EpicModal';
+	import EpicModal from './EpicModal/EpicModal.vue';
+	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
 	export default {
-		props: ['modalType', 'epics'],
+		props: ['modalType', 'epics', 'userSettings'],
 		components: {
-			EpicModal
+			EpicModal,
+			SettingsModal
 		},
 		computed: {
-			modalTitle: function(){
+			modalTitle (){
 				if (this.modalType === "epic"){
-					return "Create your epic"
+					return "Create your epic";
+				} else if (this.modalType === "settings"){
+					return "Set your preferences";
 				} else {
-					return "Edit your epic"
+					return "Edit epic";
 				}
 			}
 		},
 		methods: {
-			closeModal() {
+			closeModal () {
 				this.$emit('toggleModal', "");
+			},
+			updateSettings (event) {
+				this.$emit('updateSettings', event);
 			}
 		}
 	}
