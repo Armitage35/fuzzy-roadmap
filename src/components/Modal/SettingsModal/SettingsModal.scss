@@ -11,3 +11,13 @@
 	background-image: url('https://fr.gravatar.com/userimage/26960800/576f0907a4ed387626f1c211c4b11942.png');
 	border-radius: 5px;
 }
+
+.settings-roadmapName {
+	color: $lightGrey;
+	text-transform: none;
+    padding: 18px;
+    border-left: 5px solid $lightGrey;
+	font-size: 12px;
+	margin-top: 24px;
+	font-style: italic;
+}

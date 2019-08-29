@@ -27,7 +27,7 @@
 							v-model="email">
 					</div>
 					<div class="modal-form">
-						<label for="theme">Preferred theme</label>
+						<label for="theme">Preferred theme *</label>
 						<br />
 						<select name="theme" v-model="theme">
 							<option value="light">Light</option>
@@ -35,7 +35,7 @@
 						</select>
 					</div>
 					<div class="modal-form">
-						<label for="language">Language</label>
+						<label for="language">Language *</label>
 						<br />
 						<select name="language" v-model="language">
 							<option value="en">English</option>
@@ -53,7 +53,7 @@
 							v-model="pictureUrl">
 					</div>
 					<div class="modal-form">
-						<label for="tracking">Tracking</label>
+						<label for="tracking">Tracking *</label>
 						<br />
 						<input
 							type="checkbox"
@@ -62,6 +62,7 @@
 							<!-- @TODO: make label clickable -->
 							I agree be tracked to help improve this app
 					</div>
+					<p class="settings-roadmapName">* This is still an early version, some of these features are not implemented yet</p>
 				</div>
 			</div>
 		</div>
