@@ -1,8 +1,8 @@
 <template>
 	<div class="modal-content">
 		<div class="modal-data">
-			<div class="settings-layout">
-				<div class="setting-left">
+			<div class="epicDetails-layout">
+				<div class="epicDetails-left">
 					<div>
 						<p class="modal-epicDetails-epicDetailsLabel">Epic ID</p>
 						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.id }}</p>
@@ -20,13 +20,15 @@
 						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.creationDate.toLocaleDateString('en-CA') }}</p>
 					</div>
 					<div>
-						<p class="modal-epicDetails-epicDetailsLabel">Resolution</p>
+						<p class="modal-epicDetails-epicDetailsLabel">Resolved</p>
 						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.resolution.resolved }}</p>
-						<p v-if="selectedEpic.resolution.resolved">Resolution date:
-						{{ selectedEpic.resolution.resolutionDate.toLocaleDateString('en-CA') }}</p>
+					</div>
+					<div>
+						<p v-if="selectedEpic.resolution.resolved" class="modal-epicDetails-epicDetailsLabel">Resolution date</p>
+						<p v-if="selectedEpic.resolution.resolved" class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.resolution.resolutionDate.toLocaleDateString('en-CA') }}</p>
 					</div>
 				</div>
-				<div class="setting-right">
+				<div class="epicDetails-right">
 					<div class="modal-form">
 						<label for="epicName">Epic name</label>
 						<br />
@@ -47,6 +49,10 @@
 			</div>
 		</div>
 		<div class="modal-actions">
+			<button type="button" class="bttn-danger epicDetails-delete">
+				<i class="fas fa-trash-alt"></i>
+				Delete epic
+			</button>
 			<button type="button" class="bttn-secondary">Cancel changes</button>
 			<button type="button" class="bttn-primary">Save</button>
 		</div>
