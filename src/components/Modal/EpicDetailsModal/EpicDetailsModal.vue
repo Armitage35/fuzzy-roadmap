@@ -8,6 +8,10 @@
 						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.id }}</p>
 					</div>
 					<div>
+						<p class="modal-epicDetails-epicDetailsLabel">Author</p>
+						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.author }}</p>
+					</div>
+					<div>
 						<p class="modal-epicDetails-epicDetailsLabel">Creation date</p>
 						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.creationDate.toLocaleDateString('en-CA') }}</p>
 					</div>
