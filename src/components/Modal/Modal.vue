@@ -19,19 +19,24 @@
 				@toggleModal="closeModal"
 				@updateSettings="updateSettings($event)"
 				></SettingsModal>
+			<EpicDetailsModal
+				v-if="modalType === 'epicDetails'"
+				:selectedEpic="selectedEpic"
+			></EpicDetailsModal>
 		</div>
 	</div>
 </template>
 
 <script>
 	import CreateEpicModal from './CreateEpicModal/CreateEpicModal.vue';
-	import SettingsModal from './SettingsModal/SettingsModal.vue';
 	import EpicDetailsModal from './EpicDetailsModal/EpicDetailsModal.vue';
+	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
 	export default {
-		props: ['modalType', 'epics', 'userSettings'],
+		props: ['modalType', 'epics', 'userSettings', 'selectedEpic'],
 		components: {
 			CreateEpicModal,
+			EpicDetailsModal,
 			SettingsModal
 		},
 		computed: {
@@ -40,6 +45,9 @@
 					return "Create your epic";
 				} else if (this.modalType === "settings"){
 					return "Set your preferences";
+				}
+				else if (this.modalType === "epicDetails"){
+					return "Epic details";
 				} else {
 					return "Edit epic";
 				}
