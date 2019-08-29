@@ -15,6 +15,7 @@
 			<SettingsModal
 				v-if="modalType === 'settings'"
 				:userSettings="this.userSettings"
+				@toggleModal="closeModal"
 				></SettingsModal>
 		</div>
 	</div>
@@ -27,10 +28,11 @@
 	export default {
 		props: ['modalType', 'epics', 'userSettings'],
 		components: {
-			EpicModal, SettingsModal
+			EpicModal,
+			SettingsModal
 		},
 		computed: {
-			modalTitle(){
+			modalTitle (){
 				if (this.modalType === "epic"){
 					return "Create your epic"
 				} else if (this.modalType === "settings"){
@@ -41,7 +43,7 @@
 			}
 		},
 		methods: {
-			closeModal() {
+			closeModal () {
 				this.$emit('toggleModal', "");
 			}
 		}

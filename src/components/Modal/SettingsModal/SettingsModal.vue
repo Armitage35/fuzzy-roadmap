@@ -7,6 +7,16 @@
 			<div class="setting-right">
 				<div class="modal-data">
 					<div class="modal-form">
+						<label for="name">Your name</label>
+						<br />
+						<input
+							type="text"
+							name="name"
+							spellcheck="true"
+							class="modal-form-title"
+							v-model="name">
+					</div>
+					<div class="modal-form">
 						<label for="email">Your email</label>
 						<br />
 						<input
@@ -14,12 +24,12 @@
 							name="email"
 							spellcheck="true"
 							class="modal-form-title"
-							:value="this.userSettings.email">
+							v-model="email">
 					</div>
 					<div class="modal-form">
 						<label for="theme">Preferred theme</label>
 						<br />
-						<select name="theme" :value="this.userSettings.preferences.theme">
+						<select name="theme" v-model="theme">
 							<option value="light">Light</option>
 							<option value="dark">Dark</option>
 						</select>
@@ -27,7 +37,7 @@
 					<div class="modal-form">
 						<label for="language">Language</label>
 						<br />
-						<select name="language" :value="this.userSettings.preferences.language">
+						<select name="language" v-model="language">
 							<option value="en">English</option>
 							<option value="fr">French</option>
 						</select>
@@ -40,29 +50,45 @@
 							name="profilePicture"
 							spellcheck="false"
 							class="modal-form-title"
-							:value="this.userSettings.profilePicture">
+							v-model="pictureUrl">
 					</div>
 					<div class="modal-form">
-						<label for="tracking">Language</label>
+						<label for="tracking">Tracking</label>
 						<br />
 						<input
 							type="checkbox"
 							name="tracking"
-							:value="this.userSettings.preferences.tracking">
+							v-model="tracking">
+							<!-- @TODO: make label clickable -->
 							I agree be tracked to help improve this app
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="modal-actions">
-			<button type="button" class="bttn-secondary">Cancel changes</button>
-			<button type="button" class="bttn-primary">Save</button>
+			<button type="button" class="bttn-secondary" @click="$emit('toggleModal')">Cancel changes</button>
+			<button type="button" class="bttn-primary" @click="updateSettings">Save</button>
 		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		props: ['userSettings']
+		props: ['userSettings'],
+		data: function(){
+			return {
+				name: this.userSettings.userName,
+				email: this.userSettings.email,
+				theme: this.userSettings.preferences.theme,
+				language: this.userSettings.preferences.language,
+				pictureUrl: this.userSettings.profilePicture,
+				tracking: this.userSettings.preferences.tracking
+			}
+		},
+		methods: {
+			updateSettings() {
+
+			}
+		}
 	}
 </script>
