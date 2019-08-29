@@ -15,7 +15,7 @@
 				:laneTitle="lane.title"
 				:key="lane.type"
 				:epics="findLane(lane.type)"
-				@epicSelected="selectEpic($event)"
+				@epicSelected="appState.selectedEpic = $event"
 				></Lane>
 		</div>
 			<Toolbar @toggleModal="toggleModal($event)"></Toolbar>
@@ -68,7 +68,7 @@
 						modalType: ''
 					},
 					activeView: 'roadmap',
-					selectedEpic: null
+					selectedEpic: 0
 				}
 			}
 		},
@@ -116,8 +116,7 @@
 				});
 			},
 			selectEpic(event) {
-				console.log(event);
-				this.selectedEpic = event
+				this.appState.selectedEpic = event;
 			}
 		},
 		computed: {
