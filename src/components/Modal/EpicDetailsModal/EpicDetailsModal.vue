@@ -32,13 +32,12 @@
 					<div class="modal-form">
 						<label for="epicName">Epic name</label>
 						<br />
-						<input type="text" name="userName" spellcheck="true" class="modal-form-title"
-							:value="selectedEpic.epicName.fullName">
+						<input type="text" name="userName" spellcheck="true" v-model="selectedEpic.epicName.fullName" class="modal-form-title">
 					</div>
 					<div class="modal-form">
 						<label for="epicStatus">Epic status</label>
 						<br />
-						<select name="epicStatus" :value="selectedEpic.status">
+						<select name="epicStatus" v-model="selectedEpic.status">
 							<option value="inProgress">In progress</option>
 							<option value="soon">Soon</option>
 							<option value="later">Later</option>
@@ -54,7 +53,7 @@
 				Delete epic
 			</button>
 			<button type="button" class="bttn-secondary" @click="$emit('toggleModal')">Cancel changes</button>
-			<button type="button" class="bttn-primary">Save</button>
+			<button type="button" class="bttn-primary" @click="$emit('updateEpic', selectedEpic)">Save</button>
 		</div>
 	</div>
 </template>
@@ -78,12 +77,6 @@
 			deleteEpic() {
 				this.$emit('deleteEpic', this.selectedEpic.id);
 				this.$emit('toggleModal', '');
-			}
-		},
-		data: function() {
-			return {
-				epicName: this.selectedEpic.epicName.fullName,
-				epicStatus: this.selectedEpic.epicStatus
 			}
 		}
 	}

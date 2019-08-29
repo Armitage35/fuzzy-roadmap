@@ -8,6 +8,7 @@
 			:selectedEpic="this.demoEpics[this.appState.selectedEpic]"
 			@toggleModal="toggleModal($event)"
 			@updateSettings="updateSettings($event)"
+			@updateEpic="updateEpic($event)"
 			@deleteEpic="deleteEpic($event)"
 		></Modal>
 		<div class="roadmap">
@@ -129,6 +130,9 @@
 					message: 'This one\'s a goner',
 					position: "topRight"
 				});
+			},
+			updateEpic(event) {
+				console.log('epic Name ' + event.epicName.fullName);
 			}
 		},
 		computed: {

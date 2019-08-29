@@ -24,6 +24,7 @@
 				:selectedEpic="selectedEpic"
 				@toggleModal="closeModal"
 				@deleteEpic="deleteEpic($event)"
+				@updateEpic="updateEpic($event)"
 			></EpicDetailsModal>
 		</div>
 	</div>
@@ -64,6 +65,9 @@
 			},
 			deleteEpic(event) {
 				this.$emit('deleteEpic', event);
+			},
+			updateEpic(event) {
+				this.$emit('updateEpic', event);
 			}
 		}
 	}
