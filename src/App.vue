@@ -81,6 +81,7 @@
 				let epics = [];
 				for (let i = 0; i < this.demoEpics.length; i++){
 					if (this.demoEpics[i].status == status) {
+						this.demoEpics[i].id = i;
 						epics.push(this.demoEpics[i])
 					}
 				}
