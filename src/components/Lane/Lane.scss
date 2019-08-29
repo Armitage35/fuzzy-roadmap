@@ -28,6 +28,12 @@
     margin-top: 20px
 }
 
+.lane:last-of-type {
+	.laneContent {
+		border-right: none
+	}
+}
+
 .laneInProgress {
     border: 1px solid $epicDarkYellow;
     background-color: $epicYellow;

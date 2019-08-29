@@ -26,6 +26,10 @@
 	import './master.scss';
 	const demoEpics = require( './utilities/demo.js');
 
+	// Importing external modules
+	import iziToast from 'izitoast';
+	import 'izitoast/dist/css/iziToast.min.css';
+
 	// Components
 	import Lane from './components/Lane/Lane.vue';
 	import Toolbar from './components/Toolbar/Toolbar.vue';
@@ -101,6 +105,12 @@
 				this.userDetails.preferences.language = event.language;
 				this.userDetails.preferences.theme = event.theme;
 				this.userDetails.preferences.tracking = event.tracking;
+
+				iziToast.success({
+					title: 'Settings updated',
+					message: 'Your profile has a newfound gleam',
+					position: "topRight"
+				});
 			}
 		},
 		computed: {
