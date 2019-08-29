@@ -49,7 +49,7 @@
 			</div>
 		</div>
 		<div class="modal-actions">
-			<button type="button" class="bttn-danger epicDetails-delete">
+			<button type="button" class="bttn-danger epicDetails-delete" @click="deleteEpic">
 				<i class="fas fa-trash-alt"></i>
 				Delete epic
 			</button>
@@ -74,6 +74,10 @@
 		methods: {
 			dateResolver(date) {
 				return date.toLocaleDateString('en-CA');
+			},
+			deleteEpic() {
+				this.$emit('deleteEpic', this.selectedEpic.id);
+				this.$emit('toggleModal', '');
 			}
 		}
 	}

@@ -8,6 +8,7 @@
 			:selectedEpic="this.demoEpics[this.appState.selectedEpic]"
 			@toggleModal="toggleModal($event)"
 			@updateSettings="updateSettings($event)"
+			@deleteEpic="deleteEpic($event)"
 		></Modal>
 		<div class="roadmap">
 			<Lane
@@ -120,6 +121,14 @@
 				this.appState.selectedEpic = event;
 				this.appState.modal.showModal = true;
 				this.appState.modal.modalType = "epicDetails";
+			},
+			deleteEpic(event) {
+				this.demoEpics.splice(event, 1);
+				iziToast.success({
+					title: 'Epic deleted',
+					message: 'This one\'s a goner',
+					position: "topRight"
+				});
 			}
 		},
 		computed: {

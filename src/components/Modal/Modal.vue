@@ -23,6 +23,7 @@
 				v-if="modalType === 'epicDetails'"
 				:selectedEpic="selectedEpic"
 				@toggleModal="closeModal"
+				@deleteEpic="deleteEpic($event)"
 			></EpicDetailsModal>
 		</div>
 	</div>
@@ -60,6 +61,9 @@
 			},
 			updateSettings (event) {
 				this.$emit('updateSettings', event);
+			},
+			deleteEpic(event) {
+				this.$emit('deleteEpic', event);
 			}
 		}
 	}
