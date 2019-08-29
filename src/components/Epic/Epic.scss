@@ -1,37 +1,37 @@
 .epic {
-    border: $defaultBorder;
-    height: 70px;
-    width: 18vw;
-    display: flex;
-    margin: auto;
+	border: $defaultBorder;
+	height: 70px;
+	width: 18vw;
+	display: flex;
+	margin: auto;
 	margin-bottom: 20px;
 	text-transform: uppercase;
 }
 
 .epicStatusMarker {
-    border-right: $defaultBorder;
-    background-color: $epicYellow;
-    height: 100%;
-    min-width: 10px;
+	border-right: $defaultBorder;
+	background-color: $epicYellow;
+	height: 100%;
+	min-width: 10px;
 }
 
 .epicTitle {
-    text-align: center;
-    margin: auto
+	text-align: center;
+	margin: auto
 }
 
 .epicInProgress {
-    background-color: $epicYellow;
+	background-color: $epicYellow;
 }
 
 .epicSoon {
-    background-color: $epicBlue;
+	background-color: $epicBlue;
 }
 
 .epicLater {
-    background-color: $epicRed;
+	background-color: $epicRed;
 }
 
-.epicDone{
-    background-color: $epicGreen;
+.epicDone {
+	background-color: $epicGreen;
 }

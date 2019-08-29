@@ -75,6 +75,7 @@
 	export default {
 		props: ['userSettings'],
 		data: function(){
+			// @TODO: add format validation
 			return {
 				userName: this.userSettings.userName,
 				email: this.userSettings.email,
