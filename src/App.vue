@@ -15,6 +15,7 @@
 				:laneTitle="lane.title"
 				:key="lane.type"
 				:epics="findLane(lane.type)"
+				@epicSelected="selectEpic($event)"
 				></Lane>
 		</div>
 			<Toolbar @toggleModal="toggleModal($event)"></Toolbar>
@@ -64,9 +65,10 @@
 				appState: {
 					modal:{
 						showModal: false,
-						modalType: ""
+						modalType: ''
 					},
-					activeView: "roadmap"
+					activeView: 'roadmap',
+					selectedEpic: null
 				}
 			}
 		},
@@ -111,6 +113,10 @@
 					message: 'Your profile has a newfound gleam',
 					position: "topRight"
 				});
+			},
+			selectEpic(event) {
+				console.log(event);
+				this.selectedEpic = event
 			}
 		},
 		computed: {

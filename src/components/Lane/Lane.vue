@@ -5,10 +5,12 @@
 		</div>
 		<div class="laneContent">
 			<Epic
-				v-for="epic in epics"
+				v-for="(epic, index) in epics"
 				:epicTitle="epic.name.displayName"
 				:epicStatus="epic.status"
-				:key="epic.title"
+				:key="index"
+				:id="index"
+				@epicSelectd="$emit('epicSelected', $event)"
 				></Epic>
 		</div>
 	</div>
