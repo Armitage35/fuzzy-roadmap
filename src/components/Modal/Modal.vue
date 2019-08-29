@@ -7,12 +7,12 @@
 					@click="closeModal"
 				></i>
 			</div>
-			<EpicModal
+			<CreateEpicModal
 				v-if="modalType === 'epic'"
 				@toggleModal="closeModal"
 				:epics="this.epics"
 				:author="userSettings.userName"
-			></EpicModal>
+			></CreateEpicModal>
 			<SettingsModal
 				v-if="modalType === 'settings'"
 				:userSettings="this.userSettings"
@@ -24,13 +24,14 @@
 </template>
 
 <script>
-	import EpicModal from './EpicModal/EpicModal.vue';
+	import CreateEpicModal from './CreateEpicModal/CreateEpicModal.vue';
 	import SettingsModal from './SettingsModal/SettingsModal.vue';
+	import EpicDetailsModal from './EpicDetailsModal/EpicDetailsModal.vue';
 
 	export default {
 		props: ['modalType', 'epics', 'userSettings'],
 		components: {
-			EpicModal,
+			CreateEpicModal,
 			SettingsModal
 		},
 		computed: {

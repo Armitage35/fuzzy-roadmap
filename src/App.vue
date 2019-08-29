@@ -15,7 +15,7 @@
 				:laneTitle="lane.title"
 				:key="lane.type"
 				:epics="findLane(lane.type)"
-				@epicSelected="appState.selectedEpic = $event"
+				@epicSelected="selectEpic($event)"
 				></Lane>
 		</div>
 			<Toolbar @toggleModal="toggleModal($event)"></Toolbar>
@@ -117,6 +117,8 @@
 			},
 			selectEpic(event) {
 				this.appState.selectedEpic = event;
+				this.appState.modal.showModal = true;
+				this.appState.modal.modalType = "epicDetails";
 			}
 		},
 		computed: {
