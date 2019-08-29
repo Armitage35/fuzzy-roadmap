@@ -11,6 +11,7 @@
 				v-if="modalType === 'epic'"
 				@toggleModal="closeModal"
 				:epics="this.epics"
+				:author="userSettings.userName"
 			></EpicModal>
 			<SettingsModal
 				v-if="modalType === 'settings'"
