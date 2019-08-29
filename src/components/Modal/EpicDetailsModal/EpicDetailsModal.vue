@@ -3,12 +3,24 @@
 		<div class="modal-data">
 			<div class="settings-layout">
 				<div class="setting-left">
-					<p>ID: {{ selectedEpic.id }}</p>
-					<p>Creation date: {{ selectedEpic.creationDate.toLocaleDateString('en-CA') }}</p>
-					<p>Update date: {{ selectedEpic.creationDate.toLocaleDateString('en-CA') }}</p>
-					<p>Resolution: {{ selectedEpic.resolution.resolved }}</p>
-					<p v-if="selectedEpic.resolution.resolved">Resolution date:
+					<div>
+						<p class="modal-epicDetails-epicDetailsLabel">Epic ID</p>
+						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.id }}</p>
+					</div>
+					<div>
+						<p class="modal-epicDetails-epicDetailsLabel">Creation date</p>
+						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.creationDate.toLocaleDateString('en-CA') }}</p>
+					</div>
+					<div>
+						<p class="modal-epicDetails-epicDetailsLabel">Update date</p>
+						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.creationDate.toLocaleDateString('en-CA') }}</p>
+					</div>
+					<div>
+						<p class="modal-epicDetails-epicDetailsLabel">Resolution</p>
+						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.resolution.resolved }}</p>
+						<p v-if="selectedEpic.resolution.resolved">Resolution date:
 						{{ selectedEpic.resolution.resolutionDate.toLocaleDateString('en-CA') }}</p>
+					</div>
 				</div>
 				<div class="setting-right">
 					<div class="modal-form">
