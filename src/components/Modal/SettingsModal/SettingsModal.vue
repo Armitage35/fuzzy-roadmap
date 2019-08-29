@@ -89,12 +89,13 @@
 			updateSettings() {
 				this.$emit('updateSettings', {
 					userName: this.userName,
-					email: this.email,
+					email: this.email.toLowerCase(),
 					theme: this.theme,
 					language: this.language,
-					pictureUrl: this.pictureUrl,
+					pictureUrl: this.pictureUrl.toLowerCase(),
 					tracking: this.tracking
-				})
+				});
+				this.$emit('toggleModal');
 			}
 		}
 	}

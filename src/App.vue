@@ -6,6 +6,7 @@
 			:epics="this.demoEpics"
 			:userSettings="this.userDetails"
 			@toggleModal="toggleModal($event)"
+			@updateSettings="updateSettings($event)"
 		></Modal>
 		<div class="roadmap">
 			<Lane
@@ -34,7 +35,7 @@
 		components: {
 			Lane, Toolbar, Modal
 		},
-		data: function() {
+		data: function () {
 			return {
 				lanes: [
 					{title: 'in progress', type: "inProgress"},
@@ -53,8 +54,7 @@
 					preferences: {
 						theme: 'light',
 						language: 'en',
-						tracking: true,
-						moveEpicsToBacklogAfter: 60
+						tracking: true
 					}
 				},
 				appState: {
@@ -93,6 +93,14 @@
 						default:
 							null;
 				}
+			},
+			updateSettings(event) {
+				this.userDetails.userName = event.userName;
+				this.userDetails.email = event.email;
+				this.userDetails.profilePicture = event.pictureUrl;
+				this.userDetails.preferences.language = event.language;
+				this.userDetails.preferences.theme = event.theme;
+				this.userDetails.preferences.tracking = event.tracking;
 			}
 		},
 		computed: {

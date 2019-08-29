@@ -16,6 +16,7 @@
 				v-if="modalType === 'settings'"
 				:userSettings="this.userSettings"
 				@toggleModal="closeModal"
+				@updateSettings="updateSettings($event)"
 				></SettingsModal>
 		</div>
 	</div>
@@ -34,17 +35,20 @@
 		computed: {
 			modalTitle (){
 				if (this.modalType === "epic"){
-					return "Create your epic"
+					return "Create your epic";
 				} else if (this.modalType === "settings"){
-					return "Set your preferences"
+					return "Set your preferences";
 				} else {
-					return "Edit epic"
+					return "Edit epic";
 				}
 			}
 		},
 		methods: {
 			closeModal () {
 				this.$emit('toggleModal', "");
+			},
+			updateSettings (event) {
+				this.$emit('updateSettings', event);
 			}
 		}
 	}
