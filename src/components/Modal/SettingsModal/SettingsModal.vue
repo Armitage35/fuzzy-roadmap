@@ -55,12 +55,10 @@
 					<div class="modal-form">
 						<label for="tracking">Tracking *</label>
 						<br />
-						<input
+						<label class="modal-settings-checkboxLabel"><input
 							type="checkbox"
 							name="tracking"
-							v-model="tracking">
-							<!-- @TODO: make label clickable -->
-							I agree be tracked to help improve this app
+							v-model="tracking">I agree be tracked to help improve this app</label>
 					</div>
 					<p class="settings-roadmapName">* This is still an early version, some of these features are not implemented yet</p>
 				</div>
