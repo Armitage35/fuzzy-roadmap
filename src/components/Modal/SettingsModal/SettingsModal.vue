@@ -2,7 +2,7 @@
 	<div class="modal-content">
 		<div class="settings-layout">
 			<div class="setting-left">
-				<div class="settings-picture"></div>
+				<div class="settings-picture" :style="{'background-image': 'url(' + pictureUrl + ')'}"></div>
 			</div>
 			<div class="setting-right">
 				<div class="modal-data">
