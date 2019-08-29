@@ -80,6 +80,10 @@ button {
 	color: white;
 }
 
+.bttn-danger:hover {
+	background-color: $darkerRed
+}
+
 .iziToast-body {
 	text-transform: none;
 }

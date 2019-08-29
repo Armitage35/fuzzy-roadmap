@@ -13,19 +13,19 @@
 					</div>
 					<div>
 						<p class="modal-epicDetails-epicDetailsLabel">Creation date</p>
-						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.creationDate.toLocaleDateString('en-CA') }}</p>
+						<p class="modal-epicDetails-epicDetailsValue">{{ dateResolver(selectedEpic.creationDate) }}</p>
 					</div>
 					<div>
 						<p class="modal-epicDetails-epicDetailsLabel">Update date</p>
-						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.creationDate.toLocaleDateString('en-CA') }}</p>
+						<p class="modal-epicDetails-epicDetailsValue">{{ dateResolver(selectedEpic.creationDate) }}</p>
 					</div>
 					<div>
 						<p class="modal-epicDetails-epicDetailsLabel">Resolved</p>
-						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.resolution.resolved }}</p>
+						<p class="modal-epicDetails-epicDetailsValue">{{ resolutionStatus }}</p>
 					</div>
 					<div>
 						<p v-if="selectedEpic.resolution.resolved" class="modal-epicDetails-epicDetailsLabel">Resolution date</p>
-						<p v-if="selectedEpic.resolution.resolved" class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.resolution.resolutionDate.toLocaleDateString('en-CA') }}</p>
+						<p v-if="selectedEpic.resolution.resolved" class="modal-epicDetails-epicDetailsValue">{{ dateResolver(selectedEpic.resolution.resolutionDate) }}</p>
 					</div>
 				</div>
 				<div class="epicDetails-right">
@@ -53,7 +53,7 @@
 				<i class="fas fa-trash-alt"></i>
 				Delete epic
 			</button>
-			<button type="button" class="bttn-secondary">Cancel changes</button>
+			<button type="button" class="bttn-secondary" @click="$emit('toggleModal')">Cancel changes</button>
 			<button type="button" class="bttn-primary">Save</button>
 		</div>
 	</div>
@@ -61,6 +61,20 @@
 
 <script>
 	export default {
-		props: ['selectedEpic']
+		props: ['selectedEpic'],
+		computed:{
+			resolutionStatus() {
+				if (this.selectedEpic.resolution.resolved) {
+					return "Resolved";
+				} else {
+					return "Unresolved";
+				}
+			}
+		},
+		methods: {
+			dateResolver(date) {
+				return date.toLocaleDateString('en-CA');
+			}
+		}
 	}
 </script>

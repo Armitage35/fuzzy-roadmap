@@ -22,6 +22,7 @@
 			<EpicDetailsModal
 				v-if="modalType === 'epicDetails'"
 				:selectedEpic="selectedEpic"
+				@toggleModal="closeModal"
 			></EpicDetailsModal>
 		</div>
 	</div>
