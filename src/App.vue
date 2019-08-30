@@ -7,6 +7,7 @@
 			:userSettings="this.userDetails"
 			:selectedEpic="this.demoEpics[this.appState.selectedEpic]"
 			@deleteEpic="deleteEpic($event)"
+			@deleteRoadmap="resetRoadmap"
 			@toggleModal="toggleModal($event)"
 			@updateEpic="updateEpic($event)"
 			@updateSettings="updateSettings($event)"
@@ -23,7 +24,8 @@
 		</div>
 			<Toolbar
 				@toggleModal="toggleModal($event)"
-				@exportRoadmap="exportRoadmap"></Toolbar>
+				@exportRoadmap="exportRoadmap"
+        @openResetRoadmapModal="toggleModal($event)"></Toolbar>
 	</div>
 </template>
 
@@ -48,10 +50,10 @@
 		data: function () {
 			return {
 				lanes: [
-						{title: 'in progress', type: "inProgress"},
-						{title: 'soon', type: "soon"},
-						{title: 'later', type: "later"},
-						{title: 'done', type: "done"}
+						{title: 'in progress', type: 'inProgress'},
+						{title: 'soon', type: 'soon'},
+						{title: 'later', type: 'later'},
+						{title: 'done', type: 'done'}
 					],
 				demoEpics: demoEpics.demoEpics,
 				userDetails: {
@@ -117,20 +119,20 @@
 				iziToast.success({
 					title: 'Settings updated',
 					message: 'Your profile has a newfound gleam',
-					position: "topRight"
+					position: 'topRight'
 				});
 			},
 			selectEpic(event) {
 				this.appState.selectedEpic = event;
 				this.appState.modal.showModal = true;
-				this.appState.modal.modalType = "epicDetails";
+				this.appState.modal.modalType = 'epicDetails';
 			},
 			deleteEpic(event) {
 				this.demoEpics.splice(event, 1);
 				iziToast.success({
 					title: 'Epic deleted',
 					message: 'This one\'s a goner',
-					position: "topRight"
+					position: 'topRight'
 				});
 			},
 			updateEpic(event) {
@@ -143,7 +145,16 @@
 				iziToast.success({
 					title: 'Epic updated',
 					message: 'It feels much better  already!',
-					position: "topRight"
+					position: 'topRight'
+				});
+			},
+			resetRoadmap() {
+				this.demoEpics = [];
+
+				iziToast.success({
+					title: 'Roadmap reset',
+					message: 'Well, we did warn you',
+					position: 'topRight'
 				});
 			},
 			exportRoadmap() {
