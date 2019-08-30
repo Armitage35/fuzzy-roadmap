@@ -22,7 +22,10 @@
 				@epicSelected="selectEpic($event)"
 				></Lane>
 		</div>
-			<Toolbar @toggleModal="toggleModal($event)" @openResetRoadmapModal="toggleModal($event)"></Toolbar>
+			<Toolbar
+				@toggleModal="toggleModal($event)"
+				@exportRoadmap="toggleModal($event)"
+				@openResetRoadmapModal="toggleModal($event)"></Toolbar>
 	</div>
 </template>
 
@@ -153,6 +156,9 @@
 					message: 'Well, we did warn you',
 					position: 'topRight'
 				});
+			},
+			exportRoadmap() {
+
 			}
 		},
 		computed: {

@@ -26,6 +26,11 @@
 				@deleteEpic="deleteEpic($event)"
 				@updateEpic="updateEpic($event)"
 			></EpicDetailsModal>
+			<ExportRoadmapModal
+				v-if="modalType === 'exportRoadmap'"
+				:epics="epics"
+				@toggleModal="closeModal"
+			></ExportRoadmapModal>
 			<ResetRoadmapModal
 				v-if="modalType === 'resetRoadmapModal'"
 				@deleteRoadmap="deleteRoadmap"
@@ -38,6 +43,7 @@
 <script>
 	import CreateEpicModal from './CreateEpicModal/CreateEpicModal.vue';
 	import EpicDetailsModal from './EpicDetailsModal/EpicDetailsModal.vue';
+	import ExportRoadmapModal from './ExportRoadmapModal/ExportRoadmapModal'
 	import ResetRoadmapModal from './ResetRoadmapModal/ResetRoadmapModal.vue';
 	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
@@ -46,22 +52,25 @@
 		components: {
 			CreateEpicModal,
 			EpicDetailsModal,
+			ExportRoadmapModal,
 			ResetRoadmapModal,
 			SettingsModal
 		},
 		computed: {
 			modalTitle (){
-				if (this.modalType === "epic"){
-					return "Create your epic";
-				} else if (this.modalType === "settings"){
-					return "Set your preferences";
-				} else if (this.modalType === "resetRoadmapModal"){
-					return "HERE BE DRAGONS!";
-				}
-				else if (this.modalType === "epicDetails"){
-					return "Epic details";
-				} else {
-					return "Edit epic";
+				switch (this.modalType) {
+					case 'epic':
+						return 'Create your epic';
+					case 'settings':
+						return 'Set your preferences';
+					case 'resetRoadmapModal':
+						return 'HERE BE DRAGONS!';
+					case 'epicDetails':
+						return 'Epic details';
+					case 'exportRoadmap':
+						return 'Export roadmap';
+					default:
+						return 'Hum, this is rather embarassing...'
 				}
 			}
 		},

@@ -19,7 +19,7 @@
 		<div class="toolbar-advancedFeatures">
 			<i class="fas fa-file-download"
 				data-tippy="Download roadmap"
-				@click="featureNotReady"></i>
+				@click="$emit('exportRoadmap', 'exportRoadmap')"></i>
 			<i class="fas fa-upload"
 				data-tippy="Import roadmap"
 				@click="featureNotReady"></i>
@@ -41,7 +41,7 @@
 	export default {
 		methods: {
 			requestEpicCreationModal() {
-				this.$emit('toggleModal', 'epic')
+				this.$emit('toggleModal', "epic");
 			},
 			featureNotReady() {
 				iziToast.error({
