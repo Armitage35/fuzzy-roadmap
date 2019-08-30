@@ -10,6 +10,7 @@
 					placeholder="A great epic name"
 					spellcheck="true"
 					class="modal-form-title"
+					autocomplete="off"
 					v-model="epicName">
 			</div>
 			<div class="modal-form">
@@ -44,13 +45,12 @@
 			}
 		},
 		methods: {
-			// @TODO: this should be in an event bus to share it directly to the App component
 			closeModal() {
 				this.$emit('toggleModal', "");
 			},
 			saveEpic() {
 				let newEpic = {
-					name: {
+					epicName: {
 						displayName: this.epicName,
 						fullName: this.epicName,
 					},
@@ -58,12 +58,12 @@
 					creationDate: new Date(),
 					order: 1,
 					resolution: {
-						resolved: false,
-						resolutionDate: null
+						resolved: this.epicStatus === 'done' ? true : false,
+						resolutionDate: this.epicStatus === 'done' ? new Date() : null,
 					},
 					author: this.author
 				}
-				this.epics.push(newEpic);
+				this.epics.unshift(newEpic);
 				this.closeModal();
 				iziToast.success({
 					title: 'Epic created',

@@ -7,30 +7,39 @@
 					@click="closeModal"
 				></i>
 			</div>
-			<EpicModal
+			<CreateEpicModal
 				v-if="modalType === 'epic'"
 				@toggleModal="closeModal"
 				:epics="this.epics"
 				:author="userSettings.userName"
-			></EpicModal>
+			></CreateEpicModal>
 			<SettingsModal
 				v-if="modalType === 'settings'"
 				:userSettings="this.userSettings"
 				@toggleModal="closeModal"
 				@updateSettings="updateSettings($event)"
 				></SettingsModal>
+			<EpicDetailsModal
+				v-if="modalType === 'epicDetails'"
+				:selectedEpic="selectedEpic"
+				@toggleModal="closeModal"
+				@deleteEpic="deleteEpic($event)"
+				@updateEpic="updateEpic($event)"
+			></EpicDetailsModal>
 		</div>
 	</div>
 </template>
 
 <script>
-	import EpicModal from './EpicModal/EpicModal.vue';
+	import CreateEpicModal from './CreateEpicModal/CreateEpicModal.vue';
+	import EpicDetailsModal from './EpicDetailsModal/EpicDetailsModal.vue';
 	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
 	export default {
-		props: ['modalType', 'epics', 'userSettings'],
+		props: ['modalType', 'epics', 'userSettings', 'selectedEpic'],
 		components: {
-			EpicModal,
+			CreateEpicModal,
+			EpicDetailsModal,
 			SettingsModal
 		},
 		computed: {
@@ -39,6 +48,9 @@
 					return "Create your epic";
 				} else if (this.modalType === "settings"){
 					return "Set your preferences";
+				}
+				else if (this.modalType === "epicDetails"){
+					return "Epic details";
 				} else {
 					return "Edit epic";
 				}
@@ -50,6 +62,12 @@
 			},
 			updateSettings (event) {
 				this.$emit('updateSettings', event);
+			},
+			deleteEpic(event) {
+				this.$emit('deleteEpic', event);
+			},
+			updateEpic(event) {
+				this.$emit('updateEpic', event);
 			}
 		}
 	}

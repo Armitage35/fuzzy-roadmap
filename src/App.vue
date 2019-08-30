@@ -5,7 +5,10 @@
 			:modalType="appState.modal.modalType"
 			:epics="this.demoEpics"
 			:userSettings="this.userDetails"
+			:selectedEpic="this.demoEpics[this.appState.selectedEpic]"
+			@deleteEpic="deleteEpic($event)"
 			@toggleModal="toggleModal($event)"
+			@updateEpic="updateEpic($event)"
 			@updateSettings="updateSettings($event)"
 		></Modal>
 		<div class="roadmap">
@@ -15,6 +18,7 @@
 				:laneTitle="lane.title"
 				:key="lane.type"
 				:epics="findLane(lane.type)"
+				@epicSelected="selectEpic($event)"
 				></Lane>
 		</div>
 			<Toolbar @toggleModal="toggleModal($event)"></Toolbar>
@@ -42,10 +46,10 @@
 		data: function () {
 			return {
 				lanes: [
-					{title: 'in progress', type: "inProgress"},
-					{title: 'soon', type: "soon"},
-					{title: 'later', type: "later"},
-					{title: 'done', type: "done"}
+						{title: 'in progress', type: "inProgress"},
+						{title: 'soon', type: "soon"},
+						{title: 'later', type: "later"},
+						{title: 'done', type: "done"}
 					],
 				demoEpics: demoEpics.demoEpics,
 				userDetails: {
@@ -64,9 +68,10 @@
 				appState: {
 					modal:{
 						showModal: false,
-						modalType: ""
+						modalType: ''
 					},
-					activeView: "roadmap"
+					activeView: 'roadmap',
+					selectedEpic: 0
 				}
 			}
 		},
@@ -79,6 +84,7 @@
 				let epics = [];
 				for (let i = 0; i < this.demoEpics.length; i++){
 					if (this.demoEpics[i].status == status) {
+						this.demoEpics[i].id = i;
 						epics.push(this.demoEpics[i])
 					}
 				}
@@ -109,6 +115,32 @@
 				iziToast.success({
 					title: 'Settings updated',
 					message: 'Your profile has a newfound gleam',
+					position: "topRight"
+				});
+			},
+			selectEpic(event) {
+				this.appState.selectedEpic = event;
+				this.appState.modal.showModal = true;
+				this.appState.modal.modalType = "epicDetails";
+			},
+			deleteEpic(event) {
+				this.demoEpics.splice(event, 1);
+				iziToast.success({
+					title: 'Epic deleted',
+					message: 'This one\'s a goner',
+					position: "topRight"
+				});
+			},
+			updateEpic(event) {
+				// @TODO: display name shoud not be a string but a computed property
+				// @TODO: the whole resolution system should also be a computed property
+				event.epicName.displayName = event.epicName.fullName;
+				event.updated = new Date();
+				this.demoEpics.splice(event.id, 1, event);
+
+				iziToast.success({
+					title: 'Epic updated',
+					message: 'It feels much better  already!',
 					position: "topRight"
 				});
 			}
