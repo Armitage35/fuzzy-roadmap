@@ -37,6 +37,8 @@
 			},
 			async exportJPG () {
 				let picture = await html2canvas(document.querySelector('.roadmap'));
+				this.exportSuccess();
+
 				picture.toBlob(function(blob){
 					const url = window.URL.createObjectURL(blob);
 					const a = document.createElement('a');
@@ -46,7 +48,7 @@
 					document.body.appendChild(a);
 					a.click();
 					window.URL.revokeObjectURL(url);
-				})
+				});
 			},
 			exportSuccess() {
 				this.$emit('toggleModal');
