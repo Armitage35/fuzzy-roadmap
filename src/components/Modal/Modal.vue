@@ -28,6 +28,7 @@
 			></EpicDetailsModal>
 			<ResetRoadmapModal
 				v-if="modalType === 'resetRoadmapModal'"
+				@toggleModal="closeModal"
 			></ResetRoadmapModal>
 		</div>
 	</div>
