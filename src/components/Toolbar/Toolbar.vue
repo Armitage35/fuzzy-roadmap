@@ -13,13 +13,16 @@
 				data-tippy="Backlog"
 				@click="featureNotReady"></i>
 			<i class="fas fa-chart-line"
-				data-tippy="Reports"></i>
+				data-tippy="Reports"
+				@click="featureNotReady"></i>
 		</div>
 		<div class="toolbar-advancedFeatures">
 			<i class="fas fa-file-download"
-				data-tippy="Download roadmap"></i>
+				data-tippy="Download roadmap"
+				@click="featureNotReady"></i>
 			<i class="fas fa-upload"
-				data-tippy="Import roadmap"></i>
+				data-tippy="Import roadmap"
+				@click="featureNotReady"></i>
 			<i class="fas fa-trash"
 				data-tippy="Reset roadmap"></i>
 			<i class="fas fa-cog"
