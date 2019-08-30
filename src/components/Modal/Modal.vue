@@ -28,6 +28,7 @@
 			></EpicDetailsModal>
 			<ResetRoadmapModal
 				v-if="modalType === 'resetRoadmapModal'"
+				@deleteRoadmap="deleteRoadmap"
 				@toggleModal="closeModal"
 			></ResetRoadmapModal>
 		</div>
@@ -76,6 +77,10 @@
 			},
 			updateEpic(event) {
 				this.$emit('updateEpic', event);
+			},
+			deleteRoadmap() {
+				this.$emit('deleteRoadmap');
+				this.$emit('toggleModal', "");
 			}
 		}
 	}

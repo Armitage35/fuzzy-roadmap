@@ -7,6 +7,7 @@
 			:userSettings="this.userDetails"
 			:selectedEpic="this.demoEpics[this.appState.selectedEpic]"
 			@deleteEpic="deleteEpic($event)"
+			@deleteRoadmap="resetRoadmap"
 			@toggleModal="toggleModal($event)"
 			@updateEpic="updateEpic($event)"
 			@updateSettings="updateSettings($event)"
@@ -141,6 +142,15 @@
 				iziToast.success({
 					title: 'Epic updated',
 					message: 'It feels much better  already!',
+					position: 'topRight'
+				});
+			},
+			resetRoadmap() {
+				this.demoEpics = [];
+
+				iziToast.success({
+					title: 'Roadmap reset',
+					message: 'Well, we did warn you',
 					position: 'topRight'
 				});
 			}

@@ -7,7 +7,7 @@
 		</div>
 		<div class="modal-actions">
 			<button type="button" class="bttn-secondary" @click="$emit('toggleModal')">Cancel</button>
-			<button type="button" class="bttn-danger epicDetails-delete" @click="deleteEpic">
+			<button type="button" class="bttn-danger epicDetails-delete" @click="$emit('deleteRoadmap')">
 				<i class="fas fa-dragon"></i>
 				Reset roadmap
 			</button>
