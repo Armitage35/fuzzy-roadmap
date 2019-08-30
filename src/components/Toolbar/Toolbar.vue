@@ -42,6 +42,7 @@
 		methods: {
 			requestEpicCreationModal() {
 				this.$emit('toggleModal', "epic");
+			},
 			featureNotReady() {
 				iziToast.error({
 					title: 'Yikes!',
