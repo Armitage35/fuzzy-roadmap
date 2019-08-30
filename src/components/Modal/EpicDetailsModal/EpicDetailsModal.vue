@@ -5,7 +5,7 @@
 				<div class="epicDetails-left">
 					<div>
 						<p class="modal-epicDetails-epicDetailsLabel">Epic ID</p>
-						<p class="modal-epicDetails-epicDetailsValue">{{ selectedEpic.id }}</p>
+						<p class="modal-epicDetails-epicDetailsValue">{{ 'FZ' + (selectedEpic.id  + 1)}}</p>
 					</div>
 					<div>
 						<p class="modal-epicDetails-epicDetailsLabel">Author</p>
@@ -59,7 +59,7 @@
 				Delete epic
 			</button>
 			<button type="button" class="bttn-secondary" @click="$emit('toggleModal')">Cancel changes</button>
-			<button type="button" class="bttn-primary" @click="$emit('updateEpic', selectedEpic)">Save</button>
+			<button type="button" class="bttn-primary" @click="saveEpic">Save</button>
 		</div>
 	</div>
 </template>
@@ -70,9 +70,9 @@
 		computed:{
 			resolutionStatus() {
 				if (this.selectedEpic.resolution.resolved) {
-					return "Resolved";
+					return 'Resolved';
 				} else {
-					return "Unresolved";
+					return 'Unresolved';
 				}
 			}
 		},
@@ -82,6 +82,10 @@
 			},
 			deleteEpic() {
 				this.$emit('deleteEpic', this.selectedEpic.id);
+				this.$emit('toggleModal', '');
+			},
+			saveEpic() {
+				this.$emit('updateEpic', this.selectedEpic);
 				this.$emit('toggleModal', '');
 			}
 		}

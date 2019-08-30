@@ -134,7 +134,14 @@
 			updateEpic(event) {
 				// @TODO: display name shoud not be a string but a computed property
 				event.epicName.displayName = event.epicName.fullName;
+				event.updated.displayName = new Date();
 				this.demoEpics.splice(event.id, 1, event);
+
+				iziToast.success({
+					title: 'Epic updated',
+					message: 'Much better now!',
+					position: "topRight"
+				});
 			}
 		},
 		computed: {
