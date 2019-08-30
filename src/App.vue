@@ -133,13 +133,14 @@
 			},
 			updateEpic(event) {
 				// @TODO: display name shoud not be a string but a computed property
+				// @TODO: the whole resolution system should also be a computed property
 				event.epicName.displayName = event.epicName.fullName;
-				event.updated.displayName = new Date();
+				event.updated = new Date();
 				this.demoEpics.splice(event.id, 1, event);
 
 				iziToast.success({
 					title: 'Epic updated',
-					message: 'Much better now!',
+					message: 'It feels much better  already!',
 					position: "topRight"
 				});
 			}

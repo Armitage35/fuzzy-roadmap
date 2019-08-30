@@ -43,7 +43,7 @@
 					<div class="modal-form">
 						<label for="epicStatus">Epic status</label>
 						<br />
-						<select name="epicStatus" v-model="selectedEpic.status">
+						<select name="epicStatus" v-model="status">
 							<option value="inProgress">In progress</option>
 							<option value="soon">Soon</option>
 							<option value="later">Later</option>
@@ -69,7 +69,7 @@
 		props: ['selectedEpic'],
 		computed:{
 			resolutionStatus() {
-				if (this.selectedEpic.resolution.resolved) {
+				if (this.selectedEpic.status === 'done') {
 					return 'Resolved';
 				} else {
 					return 'Unresolved';
@@ -85,8 +85,14 @@
 				this.$emit('toggleModal', '');
 			},
 			saveEpic() {
+				this.selectedEpic.status = this.status;
 				this.$emit('updateEpic', this.selectedEpic);
 				this.$emit('toggleModal', '');
+			}
+		},
+		data: function() {
+			return {
+				status: this.selectedEpic.status
 			}
 		}
 	}
