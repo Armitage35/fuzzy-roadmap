@@ -58,18 +58,19 @@
 		},
 		computed: {
 			modalTitle (){
-				if (this.modalType === 'epic') {
-					return 'Create your epic';
-				} else if (this.modalType === 'settings') {
-					return 'Set your preferences';
-				} else if (this.modalType === 'resetRoadmapModal') {
-					return "HERE BE DRAGONS!";
-				} else if (this.modalType === 'epicDetails') {
-					return 'Epic details';
-				} else if (this.modalType === 'exportRoadmap') {
-					return 'Export roadmap';
-				} else {
-					return 'Edit epic';
+				switch (this.modalType) {
+					case 'epic':
+						return 'Create your epic';
+					case 'settings':
+						return 'Set your preferences';
+					case 'resetRoadmapModal':
+						return 'HERE BE DRAGONS!';
+					case 'epicDetails':
+						return 'Epic details';
+					case 'exportRoadmap':
+						return 'Export roadmap';
+					default:
+						return 'Hum, this is rather embarassing...'
 				}
 			}
 		},
