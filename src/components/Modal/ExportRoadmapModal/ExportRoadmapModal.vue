@@ -37,14 +37,6 @@
 
 				this.exportSuccess();
 			},
-			exportSuccess() {
-				this.$emit('toggleModal');
-				iziToast.success({
-					title: 'Export generated',
-					message: 'Your file is ready for you',
-					position: 'topRight'
-				})
-			},
 			exportRoadmap(blob, filename) {
 				const url = window.URL.createObjectURL(blob);
 				const a = document.createElement('a');
@@ -54,6 +46,14 @@
 				document.body.appendChild(a);
 				a.click();
 				window.URL.revokeObjectURL(url);
+			},
+			exportSuccess() {
+				this.$emit('toggleModal');
+				iziToast.success({
+					title: 'Export generated',
+					message: 'Your file is ready for you',
+					position: 'topRight'
+				})
 			}
 		}
 	}
