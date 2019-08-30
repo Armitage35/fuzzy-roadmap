@@ -7,8 +7,8 @@
 		</div>
 		<div class="toolbar-tools">
 			<i class="fas fa-plus-circle"
-				@click="requestEpicCreationModal"
-				data-tippy="Create a new epic"></i>
+				data-tippy="Create a new epic"
+				@click="requestEpicCreationModal"></i>
 			<i class="fas fa-stream"
 				data-tippy="Backlog"></i>
 			<i class="fas fa-chart-line"
@@ -16,7 +16,8 @@
 		</div>
 		<div class="toolbar-advancedFeatures">
 			<i class="fas fa-file-download"
-				data-tippy="Download roadmap"></i>
+				data-tippy="Download roadmap"
+				@click="$emit('exportRoadmap')"></i>
 			<i class="fas fa-upload"
 				data-tippy="Import roadmap"></i>
 			<i class="fas fa-trash"
@@ -36,7 +37,7 @@
 	export default {
 		methods: {
 			requestEpicCreationModal() {
-				this.$emit('toggleModal', "epic")
+				this.$emit('toggleModal', "epic");
 			}
 		}
 	}

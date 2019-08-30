@@ -21,7 +21,9 @@
 				@epicSelected="selectEpic($event)"
 				></Lane>
 		</div>
-			<Toolbar @toggleModal="toggleModal($event)"></Toolbar>
+			<Toolbar
+				@toggleModal="toggleModal($event)"
+				@exportRoadmap="exportRoadmap"></Toolbar>
 	</div>
 </template>
 
@@ -143,6 +145,17 @@
 					message: 'It feels much better  already!',
 					position: "topRight"
 				});
+			},
+			exportRoadmap() {
+				const blob = new Blob([JSON.stringify(this.demoEpics)], {type: 'application/json'});
+				const url = window.URL.createObjectURL(blob);
+				const a = document.createElement('a');
+				a.style.display = 'none';
+				a.href = url;
+				a.download = 'fuzzyRoadmap.json';
+				document.body.appendChild(a);
+				a.click();
+				window.URL.revokeObjectURL(url);
 			}
 		},
 		computed: {
