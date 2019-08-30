@@ -26,9 +26,7 @@
 				const blob = new Blob([JSON.stringify(this.epics)], {type: 'application/json'});
 				const url = window.URL.createObjectURL(blob);
 				const a = document.createElement('a');
-				a.style.display = 'none';
-				a.href = url;
-				this.wrapExportUp(a, 'fuzzyRoadmap.json')
+				this.wrapExportUp(a, url, 'fuzzyRoadmap.json')
 
 				this.exportSuccess();
 			},
@@ -40,9 +38,7 @@
 				picture.toBlob(function(blob){
 					const url = window.URL.createObjectURL(blob);
 					const a = document.createElement('a');
-					a.style.display = 'none';
-					a.href = url;
-					self.wrapExportUp(a, 'fuzzyRoadmap.png')
+					self.wrapExportUp(a, url, 'fuzzyRoadmap.png')
 				});
 			},
 			exportSuccess() {
@@ -53,7 +49,9 @@
 					position: 'topRight'
 				})
 			},
-			wrapExportUp(a, filename) {
+			wrapExportUp(a, url, filename) {
+				a.style.display = 'none';
+				a.href = url;
 				a.download = filename;
 				document.body.appendChild(a);
 				a.click();
