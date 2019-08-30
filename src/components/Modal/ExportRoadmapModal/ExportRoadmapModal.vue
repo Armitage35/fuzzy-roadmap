@@ -6,7 +6,7 @@
 				<button type="button" class="bttn-primary" @click="exportJson">
 					<i class="fas fa-file-code"></i>
 					Export as .JSON</button>
-				<button type="button" class="bttn-primary">
+				<button type="button" class="bttn-primary" @click="exportJPG">
 					<i class="fas fa-file-image"></i>
 					Export as .PNG
 				</button>
@@ -16,32 +16,46 @@
 </template>
 
 <script>
-import iziToast from 'izitoast';
+	import iziToast from 'izitoast';
+	import html2canvas from 'html2canvas';
 
-export default {
-	props: ['epics'],
-	methods: {
-		exportJson(){
-			const blob = new Blob([JSON.stringify(this.epics)], {type: 'application/json'});
-			const url = window.URL.createObjectURL(blob);
-			const a = document.createElement('a');
-			a.style.display = 'none';
-			a.href = url;
-			a.download = 'fuzzyRoadmap.json';
-			document.body.appendChild(a);
-			a.click();
-			window.URL.revokeObjectURL(url);
+	export default {
+		props: ['epics'],
+		methods: {
+			exportJson(){
+				const blob = new Blob([JSON.stringify(this.epics)], {type: 'application/json'});
+				const url = window.URL.createObjectURL(blob);
+				const a = document.createElement('a');
+				a.style.display = 'none';
+				a.href = url;
+				a.download = 'fuzzyRoadmap.json';
+				document.body.appendChild(a);
+				a.click();
+				window.URL.revokeObjectURL(url);
 
-			this.exportSuccess();
-		},
-		exportSuccess() {
-			this.$emit('toggleModal');
-			iziToast.success({
-				title: 'Export generated',
-				message: 'Your file is ready for you',
-				position: 'topRight'
-			});
+				this.exportSuccess();
+			},
+			async exportJPG () {
+				let picture = await html2canvas(document.querySelector('.roadmap'));
+				picture.toBlob(function(blob){
+					const url = window.URL.createObjectURL(blob);
+					const a = document.createElement('a');
+					a.style.display = 'none';
+					a.href = url;
+					a.download = 'fuzzyRoadmap.png';
+					document.body.appendChild(a);
+					a.click();
+					window.URL.revokeObjectURL(url);
+				})
+			},
+			exportSuccess() {
+				this.$emit('toggleModal');
+				iziToast.success({
+					title: 'Export generated',
+					message: 'Your file is ready for you',
+					position: 'topRight'
+				});
+			}
 		}
 	}
-}
 </script>
