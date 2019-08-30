@@ -28,10 +28,7 @@
 				const a = document.createElement('a');
 				a.style.display = 'none';
 				a.href = url;
-				a.download = 'fuzzyRoadmap.json';
-				document.body.appendChild(a);
-				a.click();
-				window.URL.revokeObjectURL(url);
+				this.wrapExportUp(a, 'fuzzyRoadmap.json')
 
 				this.exportSuccess();
 			},
@@ -39,15 +36,13 @@
 				let picture = await html2canvas(document.querySelector('.roadmap'));
 				this.exportSuccess();
 
+				let self = this;
 				picture.toBlob(function(blob){
 					const url = window.URL.createObjectURL(blob);
 					const a = document.createElement('a');
 					a.style.display = 'none';
 					a.href = url;
-					a.download = 'fuzzyRoadmap.png';
-					document.body.appendChild(a);
-					a.click();
-					window.URL.revokeObjectURL(url);
+					self.wrapExportUp(a, 'fuzzyRoadmap.png')
 				});
 			},
 			exportSuccess() {
@@ -56,7 +51,13 @@
 					title: 'Export generated',
 					message: 'Your file is ready for you',
 					position: 'topRight'
-				});
+				})
+			},
+			wrapExportUp(a, filename) {
+				a.download = filename;
+				document.body.appendChild(a);
+				a.click();
+				window.URL.revokeObjectURL(url);
 			}
 		}
 	}
