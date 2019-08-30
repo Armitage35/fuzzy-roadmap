@@ -12,4 +12,5 @@ Checklist
 - [ ] Tested on weird screen sizes
 
 ### Screenshot
-![GitHub Logo](/images/logo.png)
+
+<!-- ![GitHub Logo](/images/logo.png) -->
