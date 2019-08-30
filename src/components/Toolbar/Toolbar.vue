@@ -7,10 +7,11 @@
 		</div>
 		<div class="toolbar-tools">
 			<i class="fas fa-plus-circle"
-				@click="requestEpicCreationModal"
-				data-tippy="Create a new epic"></i>
+				data-tippy="Create a new epic"
+				@click="requestEpicCreationModal"></i>
 			<i class="fas fa-stream"
-				data-tippy="Backlog"></i>
+				data-tippy="Backlog"
+				@click="featureNotReady"></i>
 			<i class="fas fa-chart-line"
 				data-tippy="Reports"></i>
 		</div>
@@ -31,12 +32,19 @@
 <script>
 	// eslint-disable-next-line
 	import tippy from 'tippy.js';
+	import iziToast from 'izitoast';
 
-	// @TODO: load FA as svg to save on load time
 	export default {
 		methods: {
 			requestEpicCreationModal() {
-				this.$emit('toggleModal', "epic")
+				this.$emit('toggleModal', 'epic')
+			},
+			featureNotReady() {
+				iziToast.error({
+					title: 'Yikes!',
+					message: 'Sorry, I\'ve not gotten around this one yet, but be sure it\'s coming along soon!',
+					position: 'topRight'
+				});
 			}
 		}
 	}
