@@ -6,10 +6,10 @@
 			:epics="this.demoEpics"
 			:userSettings="this.userDetails"
 			:selectedEpic="this.demoEpics[this.appState.selectedEpic]"
-			@toggleModal="toggleModal($event)"
-			@updateSettings="updateSettings($event)"
-			@updateEpic="updateEpic($event)"
 			@deleteEpic="deleteEpic($event)"
+			@toggleModal="toggleModal($event)"
+			@updateEpic="updateEpic($event)"
+			@updateSettings="updateSettings($event)"
 		></Modal>
 		<div class="roadmap">
 			<Lane
