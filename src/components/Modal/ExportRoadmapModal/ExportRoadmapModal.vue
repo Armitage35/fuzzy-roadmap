@@ -1,7 +1,7 @@
 <template>
 	<div class="modal-content">
 		<div class="modal-data">
-			<p>Select the format you want to get your data in</p>
+			<p class="modal-export-description">Select the format you want to get your data in</p>
 			<div class="modal-export-bttnGroup">
 				<button type="button" class="bttn-primary" @click="exportJson">
 					<i class="fas fa-file-code"></i>
