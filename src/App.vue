@@ -132,7 +132,9 @@
 				});
 			},
 			updateEpic(event) {
-				console.log('epic Name ' + event.epicName.fullName);
+				// @TODO: display name shoud not be a string but a computed property
+				event.epicName.displayName = event.epicName.fullName;
+				this.demoEpics.splice(event.id, 1, event);
 			}
 		},
 		computed: {

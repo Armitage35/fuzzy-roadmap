@@ -10,6 +10,7 @@
 					placeholder="A great epic name"
 					spellcheck="true"
 					class="modal-form-title"
+					autocomplete="off"
 					v-model="epicName">
 			</div>
 			<div class="modal-form">
