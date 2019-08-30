@@ -19,7 +19,7 @@
 		<div class="toolbar-advancedFeatures">
 			<i class="fas fa-file-download"
 				data-tippy="Download roadmap"
-				@click="$emit('exportRoadmap')"></i>
+				@click="$emit('exportRoadmap', 'exportRoadmap')"></i>
 			<i class="fas fa-upload"
 				data-tippy="Import roadmap"
 				@click="featureNotReady"></i>

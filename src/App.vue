@@ -24,8 +24,8 @@
 		</div>
 			<Toolbar
 				@toggleModal="toggleModal($event)"
-				@exportRoadmap="exportRoadmap"
-        @openResetRoadmapModal="toggleModal($event)"></Toolbar>
+				@exportRoadmap="toggleModal($event)"
+				@openResetRoadmapModal="toggleModal($event)"></Toolbar>
 	</div>
 </template>
 
@@ -158,15 +158,7 @@
 				});
 			},
 			exportRoadmap() {
-				const blob = new Blob([JSON.stringify(this.demoEpics)], {type: 'application/json'});
-				const url = window.URL.createObjectURL(blob);
-				const a = document.createElement('a');
-				a.style.display = 'none';
-				a.href = url;
-				a.download = 'fuzzyRoadmap.json';
-				document.body.appendChild(a);
-				a.click();
-				window.URL.revokeObjectURL(url);
+
 			}
 		},
 		computed: {
