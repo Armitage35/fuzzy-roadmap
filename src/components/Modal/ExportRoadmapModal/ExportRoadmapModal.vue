@@ -8,7 +8,7 @@
 					Export as .JSON</button>
 				<button type="button" class="bttn-primary" @click="exportJPG">
 					<i class="fas fa-file-image"></i>
-					Export as .PNG
+					Export as .PNG (beta)
 				</button>
 			</div>
 		</div>
@@ -24,22 +24,18 @@
 		methods: {
 			exportJson(){
 				const blob = new Blob([JSON.stringify(this.epics)], {type: 'application/json'});
-				const url = window.URL.createObjectURL(blob);
-				const a = document.createElement('a');
-				this.wrapExportUp(a, url, 'fuzzyRoadmap.json')
-
+				this.exportRoadmap(blob, 'fuzzyRoadmap.json')
 				this.exportSuccess();
 			},
 			async exportJPG () {
 				let picture = await html2canvas(document.querySelector('.roadmap'));
-				this.exportSuccess();
-
 				let self = this;
+
 				picture.toBlob(function(blob){
-					const url = window.URL.createObjectURL(blob);
-					const a = document.createElement('a');
-					self.wrapExportUp(a, url, 'fuzzyRoadmap.png')
+					self.exportRoadmap(blob, 'fuzzyRoadmap.png')
 				});
+
+				this.exportSuccess();
 			},
 			exportSuccess() {
 				this.$emit('toggleModal');
@@ -49,7 +45,9 @@
 					position: 'topRight'
 				})
 			},
-			wrapExportUp(a, url, filename) {
+			exportRoadmap(blob, filename) {
+				const url = window.URL.createObjectURL(blob);
+				const a = document.createElement('a');
 				a.style.display = 'none';
 				a.href = url;
 				a.download = filename;
