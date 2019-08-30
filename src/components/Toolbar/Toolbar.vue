@@ -24,7 +24,8 @@
 				data-tippy="Import roadmap"
 				@click="featureNotReady"></i>
 			<i class="fas fa-trash"
-				data-tippy="Reset roadmap"></i>
+				data-tippy="Reset roadmap"
+				@click="$emit('openResetRoadmapModal', 'resetRoadmapModal')"></i>
 			<i class="fas fa-cog"
 				data-tippy="Settings"
 				@click="$emit('toggleModal', 'settings')"></i>

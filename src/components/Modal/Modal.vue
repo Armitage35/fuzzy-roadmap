@@ -26,6 +26,9 @@
 				@deleteEpic="deleteEpic($event)"
 				@updateEpic="updateEpic($event)"
 			></EpicDetailsModal>
+			<ResetRoadmapModal
+				v-if="modalType === 'resetRoadmapModal'"
+			></ResetRoadmapModal>
 		</div>
 	</div>
 </template>
@@ -33,6 +36,7 @@
 <script>
 	import CreateEpicModal from './CreateEpicModal/CreateEpicModal.vue';
 	import EpicDetailsModal from './EpicDetailsModal/EpicDetailsModal.vue';
+	import ResetRoadmapModal from './ResetRoadmapModal/ResetRoadmapModal.vue';
 	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
 	export default {
@@ -40,6 +44,7 @@
 		components: {
 			CreateEpicModal,
 			EpicDetailsModal,
+			ResetRoadmapModal,
 			SettingsModal
 		},
 		computed: {
@@ -48,6 +53,8 @@
 					return "Create your epic";
 				} else if (this.modalType === "settings"){
 					return "Set your preferences";
+				} else if (this.modalType === "resetRoadmapModal"){
+					return "HERE BE DRAGONS!";
 				}
 				else if (this.modalType === "epicDetails"){
 					return "Epic details";

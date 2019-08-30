@@ -21,7 +21,7 @@
 				@epicSelected="selectEpic($event)"
 				></Lane>
 		</div>
-			<Toolbar @toggleModal="toggleModal($event)"></Toolbar>
+			<Toolbar @toggleModal="toggleModal($event)" @openResetRoadmapModal="toggleModal($event)"></Toolbar>
 	</div>
 </template>
 
