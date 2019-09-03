@@ -3,9 +3,9 @@
 		<Modal
 			v-if="appState.modal.showModal"
 			:modalType="appState.modal.modalType"
-			:epics="this.demoEpics"
+			:epics="this.userEpics"
 			:userSettings="this.userDetails"
-			:selectedEpic="this.demoEpics[this.appState.selectedEpic]"
+			:selectedEpic="this.userEpics[this.appState.selectedEpic]"
 			@deleteEpic="deleteEpic($event)"
 			@deleteRoadmap="resetRoadmap"
 			@toggleModal="toggleModal($event)"
@@ -47,6 +47,9 @@
 		components: {
 			Lane, Toolbar, Modal
 		},
+		created: function() {
+
+		},
 		data: function () {
 			return {
 				lanes: [
@@ -55,7 +58,7 @@
 						{title: 'later', type: 'later'},
 						{title: 'done', type: 'done'}
 					],
-				demoEpics: demoEpics.demoEpics,
+				userEpics: demoEpics.demoEpics,
 				userDetails: {
 					id: Math.floor(Math.random() * 200),
 					email: 'ron@hogwarts.com',
@@ -86,10 +89,10 @@
 			},
 			filterEpic(status){
 				let epics = [];
-				for (let i = 0; i < this.demoEpics.length; i++){
-					if (this.demoEpics[i].status == status) {
-						this.demoEpics[i].id = i;
-						epics.push(this.demoEpics[i])
+				for (let i = 0; i < this.userEpics.length; i++){
+					if (this.userEpics[i].status == status) {
+						this.userEpics[i].id = i;
+						epics.push(this.userEpics[i])
 					}
 				}
 				return epics;
@@ -128,7 +131,7 @@
 				this.appState.modal.modalType = 'epicDetails';
 			},
 			deleteEpic(event) {
-				this.demoEpics.splice(event, 1);
+				this.userEpics.splice(event, 1);
 				iziToast.success({
 					title: 'Epic deleted',
 					message: 'This one\'s a goner',
@@ -140,7 +143,7 @@
 				// @TODO: the whole resolution system should also be a computed property
 				event.epicName.displayName = event.epicName.fullName;
 				event.updated = new Date();
-				this.demoEpics.splice(event.id, 1, event);
+				this.userEpics.splice(event.id, 1, event);
 
 				iziToast.success({
 					title: 'Epic updated',
@@ -149,7 +152,7 @@
 				});
 			},
 			resetRoadmap() {
-				this.demoEpics = [];
+				this.userEpics = [];
 
 				iziToast.success({
 					title: 'Roadmap reset',
