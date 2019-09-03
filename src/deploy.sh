@@ -7,11 +7,11 @@ set -e
 yarn run build
 
 # navigate into the build output directory
-cd dist
+cd ../dist
 
 git init
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:Armitage35/fuzzy-roadmap
+git push -f git@github.com:Armitage35/fuzzy-roadmap.git master:gh-pages
 cd -
