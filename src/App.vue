@@ -50,7 +50,7 @@
 		created: function() {
 			if (localStorage.getItem('roadmap') === null) {
 				this.userEpics = demoEpics.demoEpics;
-				localStorage.setItem('roadmap', JSON.stringify(this.userEpics));
+				this.saveRoadmapInClient();
 			} else {
 				this.userEpics = JSON.parse(localStorage.getItem('roadmap'));
 			};
@@ -137,6 +137,9 @@
 			},
 			deleteEpic(event) {
 				this.userEpics.splice(event, 1);
+
+				this.saveRoadmapInClient();
+
 				iziToast.success({
 					title: 'Epic deleted',
 					message: 'This one\'s a goner',
@@ -159,14 +162,16 @@
 			resetRoadmap() {
 				this.userEpics = [];
 
+				localStorage.clear();
+
 				iziToast.success({
 					title: 'Roadmap reset',
 					message: 'Well, we did warn you',
 					position: 'topRight'
 				});
 			},
-			exportRoadmap() {
-
+			saveRoadmapInClient() {
+				localStorage.setItem('roadmap', JSON.stringify(this.userEpics));
 			}
 		},
 		computed: {
