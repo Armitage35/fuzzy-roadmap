@@ -3,9 +3,10 @@
 		<Modal
 			v-if="appState.modal.showModal"
 			:modalType="appState.modal.modalType"
-			:epics="this.demoEpics"
+			:epics="this.userEpics"
 			:userSettings="this.userDetails"
-			:selectedEpic="this.demoEpics[this.appState.selectedEpic]"
+			:selectedEpic="this.userEpics[this.appState.selectedEpic]"
+			@createEpic="createEpic($event)"
 			@deleteEpic="deleteEpic($event)"
 			@deleteRoadmap="resetRoadmap"
 			@toggleModal="toggleModal($event)"
@@ -32,7 +33,8 @@
 <script>
 	// General imports
 	import './master.scss';
-	const demoEpics = require( './utilities/demo.js');
+	const demoEpics = require( './utilities/demoRoadmap.js');
+	const defaultUser = require( './utilities/defaultUser.js');
 
 	// Importing external modules
 	import iziToast from 'izitoast';
@@ -47,6 +49,21 @@
 		components: {
 			Lane, Toolbar, Modal
 		},
+		created: function() {
+			if (localStorage.getItem('roadmap') === null) {
+				this.userEpics = demoEpics.demoEpics;
+				this.saveRoadmapInClient();
+			} else {
+				this.userEpics = JSON.parse(localStorage.getItem('roadmap'));
+			}
+
+			if (localStorage.getItem('user') === null) {
+				this.userDetails = defaultUser.defaultUser;
+				this.saveRoadmapInClient();
+			} else {
+				this.userDetails = JSON.parse(localStorage.getItem('user'));
+			}
+		},
 		data: function () {
 			return {
 				lanes: [
@@ -55,20 +72,8 @@
 						{title: 'later', type: 'later'},
 						{title: 'done', type: 'done'}
 					],
-				demoEpics: demoEpics.demoEpics,
-				userDetails: {
-					id: Math.floor(Math.random() * 200),
-					email: 'ron@hogwarts.com',
-					profilePicture: 'https://fr.gravatar.com/userimage/26960800/576f0907a4ed387626f1c211c4b11942.png',
-					userName: 'New User',
-					createdOn: new Date(),
-					lastLoginDate: new Date(),
-					preferences: {
-						theme: 'light',
-						language: 'en',
-						tracking: true
-					}
-				},
+				userEpics: demoEpics.demoEpics,
+				userDetails: {},
 				appState: {
 					modal:{
 						showModal: false,
@@ -86,10 +91,10 @@
 			},
 			filterEpic(status){
 				let epics = [];
-				for (let i = 0; i < this.demoEpics.length; i++){
-					if (this.demoEpics[i].status == status) {
-						this.demoEpics[i].id = i;
-						epics.push(this.demoEpics[i])
+				for (let i = 0; i < this.userEpics.length; i++){
+					if (this.userEpics[i].status == status) {
+						this.userEpics[i].id = i;
+						epics.push(this.userEpics[i])
 					}
 				}
 				return epics;
@@ -116,6 +121,8 @@
 				this.userDetails.preferences.theme = event.theme;
 				this.userDetails.preferences.tracking = event.tracking;
 
+				localStorage.setItem('user', JSON.stringify(this.userDetails));
+
 				iziToast.success({
 					title: 'Settings updated',
 					message: 'Your profile has a newfound gleam',
@@ -128,7 +135,10 @@
 				this.appState.modal.modalType = 'epicDetails';
 			},
 			deleteEpic(event) {
-				this.demoEpics.splice(event, 1);
+				this.userEpics.splice(event, 1);
+
+				saveRoadmapInClient();
+
 				iziToast.success({
 					title: 'Epic deleted',
 					message: 'This one\'s a goner',
@@ -140,7 +150,9 @@
 				// @TODO: the whole resolution system should also be a computed property
 				event.epicName.displayName = event.epicName.fullName;
 				event.updated = new Date();
-				this.demoEpics.splice(event.id, 1, event);
+				this.userEpics.splice(event.id, 1, event);
+
+				this.saveRoadmapInClient();
 
 				iziToast.success({
 					title: 'Epic updated',
@@ -149,7 +161,9 @@
 				});
 			},
 			resetRoadmap() {
-				this.demoEpics = [];
+				this.userEpics = [];
+
+				localStorage.clear();
 
 				iziToast.success({
 					title: 'Roadmap reset',
@@ -157,7 +171,20 @@
 					position: 'topRight'
 				});
 			},
-			exportRoadmap() {
+			saveRoadmapInClient() {
+				localStorage.setItem('roadmap', JSON.stringify(this.userEpics));
+			},
+			createEpic(newEpic) {
+				this.userEpics.unshift(newEpic);
+				this.toggleModal();
+
+				this.saveRoadmapInClient();
+
+				iziToast.success({
+					title: 'Epic created',
+					message: 'You are getting the hang of this',
+					position: "topRight"
+				});
 
 			}
 		},

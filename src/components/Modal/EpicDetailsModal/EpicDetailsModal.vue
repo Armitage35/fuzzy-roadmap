@@ -78,6 +78,7 @@
 		},
 		methods: {
 			dateResolver(date) {
+				date = new Date(date);
 				return date.toLocaleDateString('en-CA');
 			},
 			deleteEpic() {

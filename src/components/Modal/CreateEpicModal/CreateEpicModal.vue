@@ -32,12 +32,8 @@
 </template>
 
 <script>
-	// Importing external modules
-	import iziToast from 'izitoast';
-	import 'izitoast/dist/css/iziToast.min.css';
-
 	export default {
-		props: ['epics', 'author'],
+		props: ['author'],
 		data: function() {
 			return {
 				epicName: "",
@@ -63,13 +59,9 @@
 					},
 					author: this.author
 				}
-				this.epics.unshift(newEpic);
-				this.closeModal();
-				iziToast.success({
-					title: 'Epic created',
-					message: 'You are getting the hang of this',
-					position: "topRight"
-				});
+
+				this.$emit('createEpic', newEpic);
+
 			}
 		}
 	}
