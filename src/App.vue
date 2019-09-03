@@ -50,8 +50,9 @@
 		created: function() {
 			if (localStorage.getItem('roadmap') === null) {
 				this.userEpics = demoEpics.demoEpics;
+				localStorage.setItem('roadmap', JSON.stringify(this.userEpics));
 			} else {
-				this.userEpics = localStorage.getItem('roadmap');
+				this.userEpics = JSON.parse(localStorage.getItem('roadmap'));
 			};
 		},
 		data: function () {
