@@ -6,6 +6,7 @@
 			:epics="this.userEpics"
 			:userSettings="this.userDetails"
 			:selectedEpic="this.userEpics[this.appState.selectedEpic]"
+			@createEpic="createEpic($event)"
 			@deleteEpic="deleteEpic($event)"
 			@deleteRoadmap="resetRoadmap"
 			@toggleModal="toggleModal($event)"
@@ -53,7 +54,7 @@
 				this.saveRoadmapInClient();
 			} else {
 				this.userEpics = JSON.parse(localStorage.getItem('roadmap'));
-			};
+			}
 		},
 		data: function () {
 			return {
@@ -138,7 +139,7 @@
 			deleteEpic(event) {
 				this.userEpics.splice(event, 1);
 
-				this.saveRoadmapInClient();
+				saveRoadmapInClient();
 
 				iziToast.success({
 					title: 'Epic deleted',
@@ -152,6 +153,8 @@
 				event.epicName.displayName = event.epicName.fullName;
 				event.updated = new Date();
 				this.userEpics.splice(event.id, 1, event);
+
+				saveRoadmapInClient();
 
 				iziToast.success({
 					title: 'Epic updated',
@@ -172,6 +175,19 @@
 			},
 			saveRoadmapInClient() {
 				localStorage.setItem('roadmap', JSON.stringify(this.userEpics));
+			},
+			createEpic(newEpic) {
+				this.userEpics.unshift(newEpic);
+				this.toggleModal();
+
+				this.saveRoadmapInClient();
+
+				iziToast.success({
+					title: 'Epic created',
+					message: 'You are getting the hang of this',
+					position: "topRight"
+				});
+
 			}
 		},
 		computed: {
