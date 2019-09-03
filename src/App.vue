@@ -48,7 +48,11 @@
 			Lane, Toolbar, Modal
 		},
 		created: function() {
-
+			if (localStorage.getItem('roadmap') === null) {
+				this.userEpics = demoEpics.demoEpics;
+			} else {
+				this.userEpics = localStorage.getItem('roadmap');
+			};
 		},
 		data: function () {
 			return {
