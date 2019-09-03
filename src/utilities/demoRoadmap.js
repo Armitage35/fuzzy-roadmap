@@ -1,8 +1,8 @@
 module.exports = {demoEpics: [
 	{
 		epicName: {
-			displayName: 'Camera in Jogogo',
-			fullName: 'Camera in Jogogo',
+			displayName: 'Camera data',
+			fullName: 'Camera data',
 		},
 		status: 'inProgress',
 		creationDate: new Date(),

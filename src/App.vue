@@ -137,7 +137,7 @@
 			deleteEpic(event) {
 				this.userEpics.splice(event, 1);
 
-				saveRoadmapInClient();
+				this.saveRoadmapInClient();
 
 				iziToast.success({
 					title: 'Epic deleted',
