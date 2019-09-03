@@ -154,7 +154,7 @@
 				event.updated = new Date();
 				this.userEpics.splice(event.id, 1, event);
 
-				saveRoadmapInClient();
+				this.saveRoadmapInClient();
 
 				iziToast.success({
 					title: 'Epic updated',
