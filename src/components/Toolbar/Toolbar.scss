@@ -7,6 +7,8 @@ $toolbarPadding: 25px;
 	align-items: center;
 	justify-content: center;
 	display: flex;
+	user-select: none;
+	outline: none;
 
 	i {
 		font-size: 35px;
@@ -40,6 +42,7 @@ $toolbarPadding: 25px;
 	justify-content: left;
 	cursor: pointer;
 	margin: auto;
+	text-transform: none;
 
 	&:hover {
 		color: #788195;

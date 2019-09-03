@@ -1,5 +1,5 @@
 <template>
-	<div class="modal-mask">
+	<div class="modal-mask" tabindex="0" @keydown.esc="closeModal">
 		<div class="modal-container">
 			<div class="modal-header">
 				<h2 class="modal-title">{{modalTitle}}</h2>
@@ -7,34 +7,88 @@
 					@click="closeModal"
 				></i>
 			</div>
-			<EpicModal
+			<CreateEpicModal
 				v-if="modalType === 'epic'"
+				@createEpic="$emit('createEpic', $event)"
 				@toggleModal="closeModal"
-				:epics="this.epics"
-			></EpicModal>
+				:author="userSettings.userName"
+			></CreateEpicModal>
+			<SettingsModal
+				v-if="modalType === 'settings'"
+				:userSettings="this.userSettings"
+				@toggleModal="closeModal"
+				@updateSettings="updateSettings($event)"
+				></SettingsModal>
+			<EpicDetailsModal
+				v-if="modalType === 'epicDetails'"
+				:selectedEpic="selectedEpic"
+				@toggleModal="closeModal"
+				@deleteEpic="deleteEpic($event)"
+				@updateEpic="updateEpic($event)"
+			></EpicDetailsModal>
+			<ExportRoadmapModal
+				v-if="modalType === 'exportRoadmap'"
+				:epics="epics"
+				@toggleModal="closeModal"
+			></ExportRoadmapModal>
+			<ResetRoadmapModal
+				v-if="modalType === 'resetRoadmapModal'"
+				@deleteRoadmap="deleteRoadmap"
+				@toggleModal="closeModal"
+			></ResetRoadmapModal>
 		</div>
 	</div>
 </template>
 
 <script>
-	import EpicModal from './EpicModal/EpicModal';
+	import CreateEpicModal from './CreateEpicModal/CreateEpicModal.vue';
+	import EpicDetailsModal from './EpicDetailsModal/EpicDetailsModal.vue';
+	import ExportRoadmapModal from './ExportRoadmapModal/ExportRoadmapModal'
+	import ResetRoadmapModal from './ResetRoadmapModal/ResetRoadmapModal.vue';
+	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
 	export default {
-		props: ['modalType', 'epics'],
+		props: ['modalType', 'epics', 'userSettings', 'selectedEpic'],
 		components: {
-			EpicModal
+			CreateEpicModal,
+			EpicDetailsModal,
+			ExportRoadmapModal,
+			ResetRoadmapModal,
+			SettingsModal
 		},
 		computed: {
-			modalTitle: function(){
-				if (this.modalType === "epic"){
-					return "Create your epic"
-				} else {
-					return "Edit your epic"
+			modalTitle (){
+				switch (this.modalType) {
+					case 'epic':
+						return 'Create your epic';
+					case 'settings':
+						return 'Set your preferences';
+					case 'resetRoadmapModal':
+						return 'HERE BE DRAGONS!';
+					case 'epicDetails':
+						return 'Epic details';
+					case 'exportRoadmap':
+						return 'Export roadmap';
+					default:
+						return 'Hum, this is rather embarassing...'
 				}
 			}
 		},
 		methods: {
-			closeModal() {
+			closeModal () {
+				this.$emit('toggleModal', "");
+			},
+			updateSettings (event) {
+				this.$emit('updateSettings', event);
+			},
+			deleteEpic(event) {
+				this.$emit('deleteEpic', event);
+			},
+			updateEpic(event) {
+				this.$emit('updateEpic', event);
+			},
+			deleteRoadmap() {
+				this.$emit('deleteRoadmap');
 				this.$emit('toggleModal', "");
 			}
 		}

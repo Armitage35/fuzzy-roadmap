@@ -1,49 +1,55 @@
 // @TODO: use flexbox properly rather than hacking your way in
 .lane {
-    width: 22vw;
-    height: 80vh;
-    display: inline-block;
+	width: 22vw;
+	height: 80vh;
+	display: inline-block;
 }
 
 .laneHeader {
-    width: 20vw;
-    height: 80px;
-    text-align: center;
-    margin: auto;
-    font-size: 18px;
-    font-weight: bold;
-    display: inline-flex;
+	width: 20vw;
+	height: 80px;
+	text-align: center;
+	margin: auto;
+	font-size: 18px;
+	font-weight: bold;
+	display: inline-flex;
 	margin-left: 1vw;
 	text-transform: uppercase;
 }
 
 .laneTitle {
-    text-align: center;
-    margin: auto;
+	text-align: center;
+	margin: auto;
 }
 
 .laneContent {
-    height: 100%;
-    border-right: $defaultBorder;
-    margin-top: 20px
+	height: 100%;
+	border-right: $defaultBorder;
+	margin-top: 20px
+}
+
+.lane:last-of-type {
+	.laneContent {
+		border-right: none
+	}
 }
 
 .laneInProgress {
-    border: 1px solid $epicDarkYellow;
-    background-color: $epicYellow;
+	border: 1px solid $epicDarkYellow;
+	background-color: $epicYellow;
 }
 
 .laneSoon {
-    border: 1px solid $epiDcarkBlue;
-    background-color: $epicBlue;
+	border: 1px solid $epiDcarkBlue;
+	background-color: $epicBlue;
 }
 
 .laneLater {
-    border: 1px solid $epicDarkRed;
-    background-color: $epicRed;
+	border: 1px solid $epicDarkRed;
+	background-color: $epicRed;
 }
 
 .laneDone {
-    border: 1px solid $epicDarkGreen;
-    background-color: $epicGreen;
+	border: 1px solid $epicDarkGreen;
+	background-color: $epicGreen;
 }
