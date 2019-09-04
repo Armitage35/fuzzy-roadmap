@@ -17,12 +17,15 @@
 	export default {
 		data: function() {
 			return {
-				epicsImport: []
+				epicsImport: 'Hello there'
 			}
 		},
 		methods: {
 			runVerification() {
-				console.log(this.epicsImport)
+				let test = this.epicsImport;
+				item.value.split('||');
+				// console.log(test.split('{{sensor}}')[1]})
+				// test = [test];
 			}
 		}
 	}
