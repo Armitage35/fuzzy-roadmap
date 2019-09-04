@@ -1,10 +1,10 @@
 <template>
 	<div class="modal-content">
 		<div class="modal-data">
-			<label for="epicName">Place your roadmap here</label>
+			<label for="epicName">Paste your roadmap here</label>
 			<br/>
-			<textarea name="roadmap" placeholder="Paste your .csv roadmap here" wrap="off" cols="30" rows="5"></textarea>
-			<div>Wait, I need help</div>
+			<textarea name="roadmap" placeholder="Epic name...	Epic status..." wrap="off" cols="30" rows="5" v-model="epicsImport"></textarea>
+			<div class="modal-import-hint">Hint: paste your content from a .CSV (comma separated) file to add them to your current roadmap. We will only import your epics names and statuses. The accepted statuses can be either 'inProgress', 'soon', 'later' or 'done', anything else will be rejected.</div>
 		</div>
 		<div class="modal-actions">
 			<button type="button" class="bttn-secondary">Close</button>
@@ -15,6 +15,10 @@
 
 <script>
 	export default {
-
+		data: function() {
+			return {
+				epicsImport: []
+			}
+		}
 	}
 </script>
