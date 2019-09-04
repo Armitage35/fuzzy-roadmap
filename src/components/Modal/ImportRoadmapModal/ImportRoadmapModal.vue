@@ -23,9 +23,7 @@
 		methods: {
 			runVerification() {
 				let test = this.epicsImport;
-				item.value.split('||');
-				// console.log(test.split('{{sensor}}')[1]})
-				// test = [test];
+				console.log(test.split(', '));
 			}
 		}
 	}
