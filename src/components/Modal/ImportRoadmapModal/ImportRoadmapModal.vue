@@ -44,7 +44,6 @@
 			},
 			verifyEpicStatuses() {
 				let statuses = true;
-				let self = this;
 
 				for (let i = 0; i < this.importedRoadmap.length; i += 2) {
 					if (this.importedRoadmap[i + 1] === 'inProgress' && statuses) {
@@ -56,8 +55,8 @@
 					} else if (this.importedRoadmap[i + 1] === 'done' && statuses) {
 						statuses = true;
 					} else {
-						statuses = false;
 						this.importError = 'Some of your statuses are wrong';
+						statuses = false;
 					};
 				};
 
