@@ -26,6 +26,10 @@
 				@deleteEpic="deleteEpic($event)"
 				@updateEpic="updateEpic($event)"
 			></EpicDetailsModal>
+			<ImportRoadmapModal
+				v-if="modalType === 'importRoadmap'"
+				@toggleModal="closeModal"
+			></ImportRoadmapModal>
 			<ExportRoadmapModal
 				v-if="modalType === 'exportRoadmap'"
 				:epics="epics"
@@ -44,6 +48,7 @@
 	import CreateEpicModal from './CreateEpicModal/CreateEpicModal.vue';
 	import EpicDetailsModal from './EpicDetailsModal/EpicDetailsModal.vue';
 	import ExportRoadmapModal from './ExportRoadmapModal/ExportRoadmapModal'
+	import ImportRoadmapModal from './ImportRoadmapModal/ImportRoadmapModal.vue'
 	import ResetRoadmapModal from './ResetRoadmapModal/ResetRoadmapModal.vue';
 	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
@@ -53,6 +58,7 @@
 			CreateEpicModal,
 			EpicDetailsModal,
 			ExportRoadmapModal,
+			ImportRoadmapModal,
 			ResetRoadmapModal,
 			SettingsModal
 		},
@@ -69,6 +75,8 @@
 						return 'Epic details';
 					case 'exportRoadmap':
 						return 'Export roadmap';
+					case 'importRoadmap':
+						return 'Import roadmap';
 					default:
 						return 'Hum, this is rather embarassing...'
 				}
