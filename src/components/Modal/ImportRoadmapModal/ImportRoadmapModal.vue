@@ -17,13 +17,52 @@
 	export default {
 		data: function() {
 			return {
-				epicsImport: 'Hello there'
+				epicsImport: '',
+				importError: []
 			}
 		},
 		methods: {
 			runVerification() {
-				let test = this.epicsImport;
-				console.log(test.split(', '));
+				this.importError = [];
+
+				if (this.isRoadmapEven && this.verifyEpicStatuses) {
+					this.importRoadmap();
+				} else {
+					console.log('not yet pal')
+				}
+			},
+			importRoadmap() {
+				console.log('wait up')
+			}
+		},
+		computed: {
+			isRoadmapEven() {
+				if (Number.isInteger(this.importedRoadmap.length / 2)) {
+					return true
+				} else {
+					// this.importError.push('You are missing statuses for your epics');
+					return false
+				}
+			},
+			verifyEpicStatuses() {
+				for (let i = 0; i < this.importedRoadmap.length ; i += 2) {
+					switch(this.importedRoadmap[i + 1]) {
+						case 'inProgress':
+							return true;
+						case 'soon':
+							return true;
+						case 'later':
+							return true;
+						case 'done':
+							return true;
+						default:
+							// this.importError.push('Your epic statuses are incorrect');
+							return false;
+					}
+				}
+			},
+			importedRoadmap() {
+				return this.epicsImport.replace('\n', ', ').split(',');
 			}
 		}
 	}
