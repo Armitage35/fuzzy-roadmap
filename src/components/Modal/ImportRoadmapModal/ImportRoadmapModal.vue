@@ -18,51 +18,55 @@
 		data: function() {
 			return {
 				epicsImport: '',
-				importError: []
+				importError: ''
 			}
 		},
 		methods: {
 			runVerification() {
-				this.importError = [];
+				this.importError = '';
 
-				if (this.isRoadmapEven && this.verifyEpicStatuses) {
+				if (this.isRoadmapEven() && this.verifyEpicStatuses()) {
 					this.importRoadmap();
 				} else {
-					console.log('not yet pal')
+					return this.importError
 				}
 			},
 			importRoadmap() {
-				console.log('wait up')
-			}
-		},
-		computed: {
+				console.log('excellent');
+			},
 			isRoadmapEven() {
 				if (Number.isInteger(this.importedRoadmap.length / 2)) {
 					return true
 				} else {
-					// this.importError.push('You are missing statuses for your epics');
+					this.importError = 'You are missing statuses for your epics';
 					return false
 				}
 			},
 			verifyEpicStatuses() {
-				for (let i = 0; i < this.importedRoadmap.length ; i += 2) {
-					switch(this.importedRoadmap[i + 1]) {
-						case 'inProgress':
-							return true;
-						case 'soon':
-							return true;
-						case 'later':
-							return true;
-						case 'done':
-							return true;
-						default:
-							// this.importError.push('Your epic statuses are incorrect');
-							return false;
-					}
-				}
+				let statuses = true;
+				let self = this;
+
+				for (let i = 0; i < this.importedRoadmap.length; i += 2) {
+					if (this.importedRoadmap[i + 1] === 'inProgress' && statuses) {
+						statuses = true;
+					} else if (this.importedRoadmap[i + 1] === 'soon' && statuses) {
+						statuses = true;
+					} else if (this.importedRoadmap[i + 1] === 'later' && statuses) {
+						statuses = true;
+					} else if (this.importedRoadmap[i + 1] === 'done' && statuses) {
+						statuses = true;
+					} else {
+						statuses = false;
+						this.importError = 'Some of your statuses are wrong';
+					};
+				};
+
+				return statuses;
 			},
+		},
+		computed: {
 			importedRoadmap() {
-				return this.epicsImport.replace('\n', ', ').split(',');
+				return this.epicsImport.replace(/\n/g, ', ').split(', ');
 			}
 		}
 	}
