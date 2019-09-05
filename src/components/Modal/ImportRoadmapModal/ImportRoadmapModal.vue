@@ -1,10 +1,10 @@
 <template>
 	<div class="modal-content">
 		<div class="modal-data">
-			<label for="epicName">Paste your roadmap here</label>
+			<label for="epicContent">Paste your roadmap here</label>
 			<br/>
 			<textarea name="roadmap" placeholder="Epic name...	Epic status..." wrap="off" cols="30" rows="5" spellcheck="false" v-model="epicsImport"></textarea>
-			<div v-if="importError.status">{{ importError.message }}</div>
+			<div class="modal-import-error" v-if="importError.status">{{ importError.message }}</div>
 			<div class="modal-import-hint">Hint: paste your content from a .CSV (comma separated) file to add them to your current roadmap. We will only import your epics names and statuses. The accepted statuses can be either 'inProgress', 'soon', 'later' or 'done', anything else will be rejected.</div>
 		</div>
 		<div class="modal-actions">
@@ -62,9 +62,9 @@
 							this.importError.status = true;
 							this.importError.message = 'Some of your statuses are wrong';
 							statuses = false;
-						};
+						}
 					}
-				};
+				}
 				return statuses;
 			},
 		},
