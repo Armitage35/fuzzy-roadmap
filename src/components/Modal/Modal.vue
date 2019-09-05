@@ -28,7 +28,7 @@
 			></EpicDetailsModal>
 			<ImportRoadmapModal
 				v-if="modalType === 'importRoadmap'"
-				@toggleModal="closeModal"
+				@importRoadmap="$emit('importRoadmap', $event)"
 			></ImportRoadmapModal>
 			<ExportRoadmapModal
 				v-if="modalType === 'exportRoadmap'"

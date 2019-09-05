@@ -9,6 +9,7 @@
 			@createEpic="createEpic($event)"
 			@deleteEpic="deleteEpic($event)"
 			@deleteRoadmap="resetRoadmap"
+			@importRoadmap="batchAddEpics($event)"
 			@toggleModal="toggleModal($event)"
 			@updateEpic="updateEpic($event)"
 			@updateSettings="updateSettings($event)"
@@ -201,7 +202,11 @@
 					message: 'You are getting the hang of this',
 					position: "topRight"
 				});
-
+			},
+			batchAddEpics (batch) {
+				for (let i = 0; i < batch.length; i++) {
+					this.createEpic(batch[i]);
+				}
 			}
 		},
 		computed: {

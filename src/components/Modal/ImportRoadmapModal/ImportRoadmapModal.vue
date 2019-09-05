@@ -19,7 +19,7 @@
 		data: function() {
 			return {
 				epicsImport: '',
-				cleanedUpImport: {},
+				cleanedUpImport: [],
 				importError: {
 					status: false,
 					message: ''
@@ -37,7 +37,7 @@
 				}
 			},
 			importRoadmap() {
-				this.$emit('createEpic', this.importedRoadmap)
+				this.$emit('importRoadmap', this.cleanedUpImport);
 			},
 			isRoadmapEven() {
 				if (Number.isInteger(this.importedRoadmap.length / 2)) {
@@ -72,8 +72,10 @@
 					}
 				}
 
-				// making the long array into many smaller arrays
-
+				// making the long array into many smaller arrays of pairs
+				for (let i = 0; i < this.importedRoadmap.length; i += 2) {
+					this.cleanedUpImport.push([this.importedRoadmap[i], this.importedRoadmap[i +1]])
+				}
 			}
 		},
 		computed: {
