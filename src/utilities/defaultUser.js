@@ -9,7 +9,7 @@ module.exports = {
 		preferences: {
 			theme: 'light',
 			language: 'en',
-			tracking: true
+			tracking: false
 		}
 	}
 }
