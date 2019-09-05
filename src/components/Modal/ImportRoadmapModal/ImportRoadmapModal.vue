@@ -18,8 +18,8 @@
 	export default {
 		data: function() {
 			return {
-				epicsImport: '',
-				cleanedUpImport: [],
+				epicsImport: '', // controlled by user input. Consumed by importedRoadmap
+				cleanedUpImport: [], // finished import
 				importError: {
 					status: false,
 					message: ''
