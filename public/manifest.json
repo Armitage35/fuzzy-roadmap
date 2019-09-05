@@ -2,6 +2,7 @@
 	"short_name": "Fuzzy Roadmap",
 	"name": "Fuzzy Roadmap",
 	"description": "A roadmapping tool that lets you forget about timelines",
+	"version": "1.1.1",
 	"author": "Adrien D. Ahlqvist",
 	"developer": {
 		"name": "Adrien D. Ahlqvist",
@@ -21,14 +22,15 @@
 	],
 	"homepage_url": "fuzzyroadmap.com",
 	"default_locale": "en",
+	"lang": "en-CA",
 	"manifest_version": 1,
+	"orientation": "landscape",
 	"browser_action": {
 		"default_icon": "favicon.ico",
 		"default_popup": "index.html"
 	},
-	"version": "1.1.1",
 	"start_url": "./index.html",
 	"display": "standalone",
-	"theme_color": "#000000",
-	"background_color": "#ffffff"
+	"theme_color": "#3A4768",
+	"background_color": "#3A4768"
 }
