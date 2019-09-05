@@ -9,6 +9,7 @@
 			@createEpic="createEpic($event)"
 			@deleteEpic="deleteEpic($event)"
 			@deleteRoadmap="resetRoadmap"
+			@importRoadmap="batchAddEpics($event)"
 			@toggleModal="toggleModal($event)"
 			@updateEpic="updateEpic($event)"
 			@updateSettings="updateSettings($event)"
@@ -26,6 +27,7 @@
 			<Toolbar
 				@toggleModal="toggleModal($event)"
 				@exportRoadmap="toggleModal($event)"
+				@importRoadmap="toggleModal($event)"
 				@openResetRoadmapModal="toggleModal($event)"></Toolbar>
 	</div>
 </template>
@@ -174,7 +176,22 @@
 			saveRoadmapInClient() {
 				localStorage.setItem('roadmap', JSON.stringify(this.userEpics));
 			},
-			createEpic(newEpic) {
+			createEpic(epicData) {
+				let newEpic = {
+					epicName: {
+						displayName: epicData[0],
+						fullName: epicData[0],
+					},
+					status: epicData[1],
+					creationDate: new Date(),
+					order: 1,
+					resolution: {
+						resolved: epicData[1] === 'done' ? true : false,
+						resolutionDate: epicData[1] === 'done' ? new Date() : null,
+					},
+					author: this.userDetails.userName
+				}
+
 				this.userEpics.unshift(newEpic);
 				this.toggleModal();
 
@@ -185,7 +202,11 @@
 					message: 'You are getting the hang of this',
 					position: "topRight"
 				});
-
+			},
+			batchAddEpics (batch) {
+				for (let i = 0; i < batch.length; i++) {
+					this.createEpic(batch[i]);
+				}
 			}
 		},
 		computed: {

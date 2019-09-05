@@ -49,6 +49,16 @@ button {
 	}
 }
 
+textarea {
+	border: $defaultBorder;
+	resize: none;
+	overflow: auto;
+	width: 90%;
+	font-family: $mainFonts;
+	border-radius: 5px;
+	padding: 12px;
+}
+
 .app {
 	display: flex;
 }
