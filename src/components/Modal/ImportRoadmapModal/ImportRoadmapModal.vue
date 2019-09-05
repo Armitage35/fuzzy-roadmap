@@ -19,6 +19,7 @@
 		data: function() {
 			return {
 				epicsImport: '',
+				cleanedUpImport: {},
 				importError: {
 					status: false,
 					message: ''
@@ -43,7 +44,7 @@
 					return true
 				} else {
 					this.importError.status = true;
-					this.importError.message = 'Your epics seem to be missing their statuses';
+					this.importError.message = 'Some of your epics seem to be missing a status';
 					return false
 				}
 			},
@@ -64,15 +65,20 @@
 				return statuses;
 			},
 			cleanImport() {
+				// removing empty lines / sections in array
 				for (let i = 0; i < this.importedRoadmap.length; i++) {
 					if (this.importedRoadmap[i] == '') {
 						this.importedRoadmap.splice(i, 1);
 					}
 				}
+
+				// making the long array into many smaller arrays
+
 			}
 		},
 		computed: {
 			importedRoadmap() {
+				// transforms the epic import string into an array
 				return this.epicsImport.replace(/\n/g, ', ').split(', ');
 			}
 		},
