@@ -175,7 +175,22 @@
 			saveRoadmapInClient() {
 				localStorage.setItem('roadmap', JSON.stringify(this.userEpics));
 			},
-			createEpic(newEpic) {
+			createEpic(epicData) {
+				let newEpic = {
+					epicName: {
+						displayName: epicData[0],
+						fullName: epicData[0],
+					},
+					status: epicData[1],
+					creationDate: new Date(),
+					order: 1,
+					resolution: {
+						resolved: epicData[1] === 'done' ? true : false,
+						resolutionDate: epicData[1] === 'done' ? new Date() : null,
+					},
+					author: this.userDetails.userName
+				}
+
 				this.userEpics.unshift(newEpic);
 				this.toggleModal();
 

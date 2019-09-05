@@ -25,8 +25,8 @@
 			</div>
 		</div>
 		<div class="modal-actions">
-			<button type="button" class="bttn-secondary" @click="closeModal">Cancel changes</button>
-			<button type="button" class="bttn-primary" @click="saveEpic">Save</button>
+			<button type="button" class="bttn-secondary" @click="$emit('toggleModal', '');">Cancel changes</button>
+			<button type="button" class="bttn-primary" @click="$emit('createEpic', [epicName, epicStatus])">Save</button>
 		</div>
 	</div>
 </template>
@@ -38,30 +38,6 @@
 			return {
 				epicName: "",
 				epicStatus: "inProgress"
-			}
-		},
-		methods: {
-			closeModal() {
-				this.$emit('toggleModal', "");
-			},
-			saveEpic() {
-				let newEpic = {
-					epicName: {
-						displayName: this.epicName,
-						fullName: this.epicName,
-					},
-					status: this.epicStatus,
-					creationDate: new Date(),
-					order: 1,
-					resolution: {
-						resolved: this.epicStatus === 'done' ? true : false,
-						resolutionDate: this.epicStatus === 'done' ? new Date() : null,
-					},
-					author: this.author
-				}
-
-				this.$emit('createEpic', newEpic);
-
 			}
 		}
 	}
