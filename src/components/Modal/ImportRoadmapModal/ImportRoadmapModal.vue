@@ -27,6 +27,8 @@
 		},
 		methods: {
 			runVerification() {
+				this.cleanImport();
+
 				if (this.isRoadmapEven() && this.verifyEpicStatuses()) {
 					this.importRoadmap();
 				} else {
@@ -41,32 +43,33 @@
 					return true
 				} else {
 					this.importError.status = true;
-					this.importError.message = 'You are missing statuses for your epics';
+					this.importError.message = 'Your epics seem to be missing their statuses';
 					return false
 				}
 			},
 			verifyEpicStatuses() {
 				let statuses = true;
+				let validStatuses = ['inProgress', 'soon', 'later', 'done'];
 
+				// We iterate two by two because we want to check the statuses, not each element
 				for (let i = 0; i < this.importedRoadmap.length; i += 2) {
-					if (statuses){
-						if (this.importedRoadmap[i + 1] === 'inProgress' && statuses) {
+					if (validStatuses.includes(this.importedRoadmap[i + 1])){
 							statuses = true;
-						} else if (this.importedRoadmap[i + 1] === 'soon' && statuses) {
-							statuses = true;
-						} else if (this.importedRoadmap[i + 1] === 'later' && statuses) {
-							statuses = true;
-						} else if (this.importedRoadmap[i + 1] === 'done' && statuses) {
-							statuses = true;
-						} else {
-							this.importError.status = true;
-							this.importError.message = 'Some of your statuses are wrong';
-							statuses = false;
-						}
+					} else {
+						this.importError.status = true;
+						this.importError.message = 'Some of your statuses are incorrect';
+						statuses = false;
 					}
 				}
 				return statuses;
 			},
+			cleanImport() {
+				for (let i = 0; i < this.importedRoadmap.length; i++) {
+					if (this.importedRoadmap[i] == '') {
+						this.importedRoadmap.splice(i, 1);
+					}
+				}
+			}
 		},
 		computed: {
 			importedRoadmap() {
