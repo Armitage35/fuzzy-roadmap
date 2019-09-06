@@ -1,0 +1,66 @@
+// Local variables
+$toolBarContentColor: #99a0af;
+$toolbarPadding: 25px;
+
+%toolBarContent {
+	flex-basis: 100%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	user-select: none;
+	outline: none;
+
+	i {
+		font-size: 35px;
+		height: 100%;
+		margin: 0 16px;
+		cursor: pointer;
+
+		&:hover {
+			color: #788195;
+		}
+	}
+}
+
+// Styling
+.toolbar {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	width: 100vw;
+	height: 60px;
+	background-color: #34495e;
+	display: flex;
+	color: $toolBarContentColor;
+	justify-content: space-between;
+}
+
+.toolbar-roadmapName {
+	@extend %toolBarContent;
+	padding-left: $toolbarPadding;
+	justify-content: flex-start;
+	cursor: pointer;
+	margin: auto;
+	text-transform: none;
+
+	&:hover {
+		color: #788195;
+	}
+
+	i {
+		font-size: 18px;
+	}
+}
+
+.toolbar-tools {
+	@extend %toolBarContent;
+	margin: auto
+}
+
+.toolbar-advancedFeatures {
+	@extend %toolBarContent;
+	margin: auto;
+	justify-content: flex-end;
+	padding-right: $toolbarPadding;
+}

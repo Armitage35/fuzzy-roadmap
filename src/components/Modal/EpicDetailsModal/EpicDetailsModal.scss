@@ -1,0 +1,35 @@
+%epicDetails {
+	cursor: default;
+	user-select: none;
+}
+
+.epicDetails-layout {
+	display: flex;
+}
+
+.modal-epicDetails-epicDetailsLabel {
+	@extend %epicDetails;
+
+	color: $lightGrey;
+	font-size: 12px;
+	margin-bottom: 0;
+}
+
+.modal-epicDetails-epicDetailsValue {
+	@extend %epicDetails;
+
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 0;
+}
+
+.epicDetails-left {
+	margin-right: 32px;
+	padding-right: 32px;
+	border-right: $defaultBorder;
+}
+
+.epicDetails-delete {
+	align-content: left;
+	align-items: left
+}
