@@ -32,6 +32,7 @@
 			></ImportRoadmapModal>
 			<OnboardingModal
 				v-if="modalType === 'onboarding'"
+				@toggleModal="closeModal"
 			></OnboardingModal>
 			<ExportRoadmapModal
 				v-if="modalType === 'exportRoadmap'"
