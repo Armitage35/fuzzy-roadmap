@@ -1,7 +1,7 @@
 {
 	"name": "fuzz-roadmap",
-	"version": "1.1.2",
-	"description": "A roadmapping tool that lets you forget about timelines",
+	"version": "1.2.1",
+	"description": "A roadmapping tool that lets you forget about time estimate and focus on what matters",
 	"author": "Adrien D. Ahlqvist",
 	"bugs": "https://github.com/Armitage35/fuzzy-roadmap/issues",
 	"license": "MIT",

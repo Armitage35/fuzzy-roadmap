@@ -30,6 +30,10 @@
 				v-if="modalType === 'importRoadmap'"
 				@importRoadmap="$emit('importRoadmap', $event)"
 			></ImportRoadmapModal>
+			<OnboardingModal
+				v-if="modalType === 'onboarding'"
+				@toggleModal="closeModal"
+			></OnboardingModal>
 			<ExportRoadmapModal
 				v-if="modalType === 'exportRoadmap'"
 				:epics="epics"
@@ -49,6 +53,7 @@
 	import EpicDetailsModal from './EpicDetailsModal/EpicDetailsModal.vue';
 	import ExportRoadmapModal from './ExportRoadmapModal/ExportRoadmapModal'
 	import ImportRoadmapModal from './ImportRoadmapModal/ImportRoadmapModal.vue'
+	import OnboardingModal from './OnboardingModal/OnboardingModal.vue';
 	import ResetRoadmapModal from './ResetRoadmapModal/ResetRoadmapModal.vue';
 	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
@@ -59,6 +64,7 @@
 			EpicDetailsModal,
 			ExportRoadmapModal,
 			ImportRoadmapModal,
+			OnboardingModal,
 			ResetRoadmapModal,
 			SettingsModal
 		},
@@ -77,6 +83,8 @@
 						return 'Export roadmap';
 					case 'importRoadmap':
 						return 'Import roadmap';
+					case 'onboarding':
+						return 'Welcome to Fuzzy Roadmap';
 					default:
 						return 'Hum, this is rather embarassing...'
 				}
