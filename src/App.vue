@@ -76,10 +76,12 @@
 				analytics.load("1RIT6LUKH0GmiuFYdtpf1Yz5oz4mrsO5");
 				analytics.page();
 				}}();
+
+				// eslint-disable-next-line
 				analytics.identify(this.userDetails.id, {
 					name: this.userDetails.username,
 					email: this.userDetails.email
-					});
+				});
 			}
 		},
 		data: function () {

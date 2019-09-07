@@ -14,7 +14,7 @@
 	background-size: contain;
 }
 
-.settings-roadmapName {
+.settings-disclaimer {
 	color: $lightGrey;
 	text-transform: none;
 	padding: 18px;
@@ -28,4 +28,12 @@
 	color: black;
 	text-transform: none;
 	user-select: none;
+}
+
+.modal-settings-trackingInfo {
+	display: block;
+	text-transform: none;
+	color: $lightGrey;
+	font-size: 14px;
+	margin-top: 8px
 }

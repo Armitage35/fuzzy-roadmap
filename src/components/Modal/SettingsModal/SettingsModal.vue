@@ -59,8 +59,9 @@
 							type="checkbox"
 							name="tracking"
 							v-model="tracking">I agree be tracked to help improve this app</label>
+						<a href="https://github.com/Armitage35/fuzzy-roadmap/wiki/Privacy" target="_blank" class="modal-settings-trackingInfo">Learn what happens when you agree to be tracked</a>
 					</div>
-					<p class="settings-roadmapName">* This is still an early version, some of these features are not implemented yet</p>
+					<p class="settings-disclaimer">* This is still an early version, some of these features are not implemented yet</p>
 				</div>
 			</div>
 		</div>
