@@ -1,6 +1,5 @@
 body {
 	font-family: $mainFonts;
-	text-transform: uppercase;
 }
 
 h2 {
@@ -49,6 +48,16 @@ button {
 	}
 }
 
+textarea {
+	border: $defaultBorder;
+	resize: none;
+	overflow: auto;
+	width: 90%;
+	font-family: $mainFonts;
+	border-radius: 5px;
+	padding: 12px;
+}
+
 .app {
 	display: flex;
 }
@@ -83,8 +92,4 @@ button {
 
 .bttn-danger:hover {
 	background-color: $darkerRed
-}
-
-.iziToast-body {
-	text-transform: none;
 }

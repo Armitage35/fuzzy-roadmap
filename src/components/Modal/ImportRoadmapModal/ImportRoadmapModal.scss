@@ -1,0 +1,12 @@
+.modal-import-hint {
+	font-style: italic;
+	color: $lightGrey;
+	font-size: 14px;
+	margin: 12px 0;
+	width: 90%;
+}
+
+.modal-import-error {
+	color: $red;
+	font-weight: bold;
+}

@@ -9,6 +9,7 @@
 			@createEpic="createEpic($event)"
 			@deleteEpic="deleteEpic($event)"
 			@deleteRoadmap="resetRoadmap"
+			@importRoadmap="batchAddEpics($event)"
 			@toggleModal="toggleModal($event)"
 			@updateEpic="updateEpic($event)"
 			@updateSettings="updateSettings($event)"
@@ -26,6 +27,7 @@
 			<Toolbar
 				@toggleModal="toggleModal($event)"
 				@exportRoadmap="toggleModal($event)"
+				@importRoadmap="toggleModal($event)"
 				@openResetRoadmapModal="toggleModal($event)"></Toolbar>
 	</div>
 </template>
@@ -50,6 +52,7 @@
 			Lane, Toolbar, Modal
 		},
 		created: function() {
+			// initialize roadmap
 			if (localStorage.getItem('roadmap') === null) {
 				this.userEpics = demoEpics.demoEpics;
 				this.saveRoadmapInClient();
@@ -57,11 +60,29 @@
 				this.userEpics = JSON.parse(localStorage.getItem('roadmap'));
 			}
 
+			// initialize user
 			if (localStorage.getItem('user') === null) {
 				this.userDetails = defaultUser.defaultUser;
-				this.saveRoadmapInClient();
+				this.saveUserInClient();
+				this.toggleModal('onboarding');
 			} else {
 				this.userDetails = JSON.parse(localStorage.getItem('user'));
+			}
+		},
+		mounted: function() {
+			// segment tracking library
+			if (this.userDetails.preferences.tracking) {
+				// eslint-disable-next-line
+				!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+				analytics.load("1RIT6LUKH0GmiuFYdtpf1Yz5oz4mrsO5");
+				analytics.page();
+				}}();
+
+				// eslint-disable-next-line
+				analytics.identify(this.userDetails.id, {
+					name: this.userDetails.username,
+					email: this.userDetails.email
+				});
 			}
 		},
 		data: function () {
@@ -121,7 +142,7 @@
 				this.userDetails.preferences.theme = event.theme;
 				this.userDetails.preferences.tracking = event.tracking;
 
-				localStorage.setItem('user', JSON.stringify(this.userDetails));
+				this.saveUserInClient();
 
 				iziToast.success({
 					title: 'Settings updated',
@@ -174,7 +195,25 @@
 			saveRoadmapInClient() {
 				localStorage.setItem('roadmap', JSON.stringify(this.userEpics));
 			},
-			createEpic(newEpic) {
+			saveUserInClient() {
+				localStorage.setItem('user', JSON.stringify(this.userDetails));
+			},
+			createEpic(epicData) {
+				let newEpic = {
+					epicName: {
+						displayName: epicData[0],
+						fullName: epicData[0],
+					},
+					status: epicData[1],
+					creationDate: new Date(),
+					order: 1,
+					resolution: {
+						resolved: epicData[1] === 'done' ? true : false,
+						resolutionDate: epicData[1] === 'done' ? new Date() : null,
+					},
+					author: this.userDetails.userName
+				}
+
 				this.userEpics.unshift(newEpic);
 				this.toggleModal();
 
@@ -185,7 +224,11 @@
 					message: 'You are getting the hang of this',
 					position: "topRight"
 				});
-
+			},
+			batchAddEpics (batch) {
+				for (let i = 0; i < batch.length; i++) {
+					this.createEpic(batch[i]);
+				}
 			}
 		},
 		computed: {

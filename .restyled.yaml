@@ -12,12 +12,12 @@ comments: true
 
 # Set commit statuses on the original PR?
 statuses:
-	# Red status in the case of differences found
-	differences: true
-	# Green status in the case of no differences found
-	no_differences: true
-	# Red status if we encounter errors restyling
-	error: true
+  # Red status in the case of differences found
+  differences: true
+  # Green status in the case of no differences found
+  no_differences: true
+  # Red status if we encounter errors restyling
+  error: true
 
 # Request review on the Restyle PR?
 request_review: author

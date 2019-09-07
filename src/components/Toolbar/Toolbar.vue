@@ -22,7 +22,7 @@
 				@click="$emit('exportRoadmap', 'exportRoadmap')"></i>
 			<i class="fas fa-upload"
 				data-tippy="Import roadmap"
-				@click="featureNotReady"></i>
+				@click="$emit('importRoadmap', 'importRoadmap')"></i>
 			<i class="fas fa-trash"
 				data-tippy="Reset roadmap"
 				@click="$emit('openResetRoadmapModal', 'resetRoadmapModal')"></i>
