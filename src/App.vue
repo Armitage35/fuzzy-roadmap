@@ -64,6 +64,7 @@
 			if (localStorage.getItem('user') === null) {
 				this.userDetails = defaultUser.defaultUser;
 				this.saveUserInClient();
+				this.toggleModal('onboarding')
 			} else {
 				this.userDetails = JSON.parse(localStorage.getItem('user'));
 			}
