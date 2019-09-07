@@ -16,7 +16,6 @@
 
 .settings-disclaimer {
 	color: $lightGrey;
-	text-transform: none;
 	padding: 18px;
 	border-left: 5px solid $lightGrey;
 	font-size: 12px;
@@ -26,13 +25,11 @@
 
 .modal-settings-checkboxLabel {
 	color: black;
-	text-transform: none;
 	user-select: none;
 }
 
 .modal-settings-trackingInfo {
 	display: block;
-	text-transform: none;
 	color: $lightGrey;
 	font-size: 14px;
 	margin-top: 8px

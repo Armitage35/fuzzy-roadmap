@@ -1,6 +1,5 @@
 body {
 	font-family: $mainFonts;
-	text-transform: uppercase;
 }
 
 h2 {
@@ -93,8 +92,4 @@ textarea {
 
 .bttn-danger:hover {
 	background-color: $darkerRed
-}
-
-.iziToast-body {
-	text-transform: none;
 }
