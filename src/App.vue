@@ -63,7 +63,7 @@
 			// initialize user
 			if (localStorage.getItem('user') === null) {
 				this.userDetails = defaultUser.defaultUser;
-				this.saveRoadmapInClient();
+				this.saveUserInClient();
 			} else {
 				this.userDetails = JSON.parse(localStorage.getItem('user'));
 			}
@@ -141,7 +141,7 @@
 				this.userDetails.preferences.theme = event.theme;
 				this.userDetails.preferences.tracking = event.tracking;
 
-				localStorage.setItem('user', JSON.stringify(this.userDetails));
+				this.saveUserInClient();
 
 				iziToast.success({
 					title: 'Settings updated',
@@ -193,6 +193,9 @@
 			},
 			saveRoadmapInClient() {
 				localStorage.setItem('roadmap', JSON.stringify(this.userEpics));
+			},
+			saveUserInClient() {
+				localStorage.setItem('user', JSON.stringify(this.userDetails));
 			},
 			createEpic(epicData) {
 				let newEpic = {
