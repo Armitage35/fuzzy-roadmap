@@ -39,21 +39,18 @@
 		props: ['epics'],
 		data: function() {
 			return {
-				epicName: "",
-				epicStatus: "inProgress"
+				epicName: '',
+				epicStatus: 'inProgress'
 			}
 		},
 		methods: {
 			// @TODO: this should be in an event bus to share it directly to the App component
 			closeModal() {
-				this.$emit('toggleModal', "");
+				this.$emit('toggleModal', '');
 			},
 			saveEpic() {
 				let newEpic = {
-					name: {
-						displayName: this.epicName,
-						fullName: this.epicName,
-					},
+					epicName: this.epicName,
 					status: this.epicStatus,
 					creationDate: new Date(),
 					order: 1,
@@ -68,7 +65,7 @@
 				iziToast.success({
 					title: 'Epic created',
 					message: 'You are getting the hang of this',
-					position: "topRight"
+					position: 'topRight'
 				});
 			}
 		}

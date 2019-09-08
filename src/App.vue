@@ -167,9 +167,6 @@
 				});
 			},
 			updateEpic(event) {
-				// @TODO: display name shoud not be a string but a computed property
-				// @TODO: the whole resolution system should also be a computed property
-				event.epicName.displayName = event.epicName.fullName;
 				event.updated = new Date();
 				this.userEpics.splice(event.id, 1, event);
 
@@ -200,10 +197,7 @@
 			},
 			createEpic(epicData) {
 				let newEpic = {
-					epicName: {
-						displayName: epicData[0],
-						fullName: epicData[0],
-					},
+					epicName: epicData[0],
 					status: epicData[1],
 					creationDate: new Date(),
 					order: 1,
@@ -222,7 +216,7 @@
 				iziToast.success({
 					title: 'Epic created',
 					message: 'You are getting the hang of this',
-					position: "topRight"
+					position: 'topRight'
 				});
 			},
 			batchAddEpics (batch) {
