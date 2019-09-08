@@ -1,6 +1,4 @@
-.epic {
-	border: $defaultBorder;
-	height: 70px;
+%epic {
 	width: 18vw;
 	display: flex;
 	margin: auto;
@@ -9,9 +7,14 @@
 	cursor: pointer;
 }
 
+.epic {
+	@extend %epic;
+	height: 70px;
+	border: $defaultBorder;
+}
+
 .epicStatusMarker {
 	border-right: $defaultBorder;
-	background-color: $epicYellow;
 	height: 100%;
 	min-width: 10px;
 }

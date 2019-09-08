@@ -4,6 +4,10 @@
 	display: inline-block;
 }
 
+.laneContent:hover > .lane-ghostEpic {
+	display: flex;
+}
+
 .laneHeader {
 	width: 20vw;
 	height: 80px;
@@ -51,4 +55,27 @@
 .laneDone {
 	border: 1px solid $epicDarkGreen;
 	background-color: $epicGreen;
+}
+
+.lane-ghostEpic {
+	@extend %epic;
+	border: 2px $lightGrey dashed;
+	color: $lightGrey;
+	text-align: center;
+	display: none;
+	padding: 8px;
+}
+
+.lane-ghostEpic:hover {
+	border: 2px $almostBlack dashed;
+	color: $almostBlack;
+}
+
+.Lane-plusIcon {
+	height: 100%;
+	min-width: 10px;
+	text-align: center;
+	margin: auto;
+	padding: 4px;
+	padding-right: 6px
 }

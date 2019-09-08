@@ -4,24 +4,28 @@
 			<span class="laneTitle">{{ laneTitle }}</span>
 		</div>
 		<div class="laneContent">
-			<Epic
+			<EpicCard
 				v-for="epic in epics"
 				:EpicName="epic.epicName"
 				:epicStatus="epic.status"
 				:key="epic.id"
 				:id="epic.id"
 				@epicSelectd="$emit('epicSelected', $event)"
-				></Epic>
+				></EpicCard>
+			<div class="lane-ghostEpic">
+				<div class="Lane-plusIcon"><i class="fas fa-plus-circle"></i></div>
+				Create a new epic
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-	import Epic from './EpicCard/EpicCard.vue'
+	import EpicCard from './EpicCard/EpicCard.vue'
 
 	export default {
 		components: {
-			Epic
+			EpicCard
 		},
 		props: ['laneStatus', 'laneTitle', 'epics'],
 		methods: {
