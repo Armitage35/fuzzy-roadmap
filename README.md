@@ -5,7 +5,7 @@
 ![Made with Vue](https://img.shields.io/badge/Made%20with-Vue.js-%2341b883)
 [![CodeFactor](https://www.codefactor.io/repository/github/armitage35/fuzzy-roadmap/badge)](https://www.codefactor.io/repository/github/armitage35/fuzzy-roadmap)
 
-This easy to use tool will enable you to create fuzzy time roadmap in a matter of seconds.
+This easy to use tool will enable you to create fuzzy time roadmap in a matter of seconds, available today at [fuzzyroadmap.com](https://www.fuzzyroadmap.com/)
 
 ## What is a fuzzy time roadmap
 
@@ -33,5 +33,3 @@ With this application, you will be able to:
 
 ---
 Brought to you by [Armitage](https://www.linkedin.com/in/adrien-d-ahlqvist-4179b33b/) and made with :heart: in beautiful Montreal
-
-[![Analytics](https://ga-beacon.appspot.com/UA-146122558-1/github.com/Naereen/badges/README.md?pixel)](https://GitHub.com/armitage35)
