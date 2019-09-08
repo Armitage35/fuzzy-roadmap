@@ -26,9 +26,7 @@
 		</div>
 			<Toolbar
 				@toggleModal="toggleModal($event)"
-				@exportRoadmap="toggleModal($event)"
-				@importRoadmap="toggleModal($event)"
-				@openResetRoadmapModal="toggleModal($event)"></Toolbar>
+			></Toolbar>
 	</div>
 </template>
 

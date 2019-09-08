@@ -29,6 +29,7 @@
 			<ImportRoadmapModal
 				v-if="modalType === 'importRoadmap'"
 				@importRoadmap="$emit('importRoadmap', $event)"
+				@toggleModal="closeModal"
 			></ImportRoadmapModal>
 			<OnboardingModal
 				v-if="modalType === 'onboarding'"

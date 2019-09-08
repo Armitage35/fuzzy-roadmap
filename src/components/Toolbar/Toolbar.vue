@@ -11,7 +11,7 @@
 				@click="requestEpicCreationModal"></i>
 			<i class="fas fa-stream"
 				data-tippy="Backlog"
-				@click="featureNotReady"></i>
+				@click="$emit('toggleModal', 'backlog')"></i>
 			<i class="fas fa-chart-line"
 				data-tippy="Reports"
 				@click="featureNotReady"></i>
@@ -19,13 +19,13 @@
 		<div class="toolbar-advancedFeatures">
 			<i class="fas fa-file-download"
 				data-tippy="Download roadmap"
-				@click="$emit('exportRoadmap', 'exportRoadmap')"></i>
+				@click="$emit('toggleModal', 'exportRoadmap')"></i>
 			<i class="fas fa-upload"
 				data-tippy="Import roadmap"
-				@click="$emit('importRoadmap', 'importRoadmap')"></i>
+				@click="$emit('toggleModal', 'importRoadmap')"></i>
 			<i class="fas fa-trash"
 				data-tippy="Reset roadmap"
-				@click="$emit('openResetRoadmapModal', 'resetRoadmapModal')"></i>
+				@click="$emit('toggleModal', 'resetRoadmapModal')"></i>
 			<i class="fas fa-cog"
 				data-tippy="Settings"
 				@click="$emit('toggleModal', 'settings')"></i>
