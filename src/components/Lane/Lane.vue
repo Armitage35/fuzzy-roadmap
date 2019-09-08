@@ -17,7 +17,7 @@
 </template>
 
 <script>
-	import Epic from '../Epic/Epic.vue'
+	import Epic from './Epic/Epic.vue'
 
 	export default {
 		components: {
