@@ -53,7 +53,7 @@
 							v-model="pictureUrl">
 					</div>
 					<div class="modal-form">
-						<label for="tracking">Tracking *</label>
+						<label for="tracking">Tracking</label>
 						<br />
 						<label class="modal-settings-checkboxLabel"><input
 							type="checkbox"
