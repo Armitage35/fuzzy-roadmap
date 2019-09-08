@@ -6,7 +6,7 @@
 		<div class="laneContent">
 			<Epic
 				v-for="epic in epics"
-				:epicTitle="epic.epicName.displayName"
+				:EpicName="epic.epicName"
 				:epicStatus="epic.status"
 				:key="epic.id"
 				:id="epic.id"
@@ -24,12 +24,6 @@
 			Epic
 		},
 		props: ['laneStatus', 'laneTitle', 'epics'],
-		data: function(){
-			return {
-				epicTitle: "Cameras in Jogogo",
-				epicStatus: "epicInProgress"
-			}
-		},
 		methods: {
 			classNameCalculation(){
 				return "lane" + this.laneStatus.charAt(0).toUpperCase() + this.laneStatus.slice(1)

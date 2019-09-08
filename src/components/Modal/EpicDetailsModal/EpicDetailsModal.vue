@@ -34,11 +34,11 @@
 						<br />
 						<input
 							type="text"
-							name="userName"
+							name="epicName"
 							spellcheck="true"
 							class="modal-form-title"
 							autocomplete="off"
-							v-model="selectedEpic.epicName.fullName">
+							v-model="selectedEpic.epicName">
 					</div>
 					<div class="modal-form">
 						<label for="epicStatus">Epic status</label>
