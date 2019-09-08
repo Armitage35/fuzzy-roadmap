@@ -22,6 +22,7 @@
 				:key="lane.type"
 				:epics="findLane(lane.type)"
 				@epicSelected="selectEpic($event)"
+				@toggleModal="toggleModal($event)"
 				></Lane>
 		</div>
 			<Toolbar

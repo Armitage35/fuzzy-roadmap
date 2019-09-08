@@ -64,18 +64,18 @@
 	text-align: center;
 	display: none;
 	padding: 8px;
+
+	i {
+		height: 100%;
+		min-width: 10px;
+		text-align: center;
+		margin: auto;
+		padding: 4px;
+		padding-right: 6px
+	}
 }
 
 .lane-ghostEpic:hover {
 	border: 2px $almostBlack dashed;
 	color: $almostBlack;
-}
-
-.Lane-plusIcon {
-	height: 100%;
-	min-width: 10px;
-	text-align: center;
-	margin: auto;
-	padding: 4px;
-	padding-right: 6px
 }

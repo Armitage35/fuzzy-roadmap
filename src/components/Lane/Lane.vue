@@ -12,8 +12,8 @@
 				:id="epic.id"
 				@epicSelectd="$emit('epicSelected', $event)"
 				></EpicCard>
-			<div class="lane-ghostEpic">
-				<div class="Lane-plusIcon"><i class="fas fa-plus-circle"></i></div>
+			<div class="lane-ghostEpic" @click="$emit('toggleModal', 'epic')">
+				<i class="fas fa-plus-circle"></i>
 				Create a new epic
 			</div>
 		</div>
