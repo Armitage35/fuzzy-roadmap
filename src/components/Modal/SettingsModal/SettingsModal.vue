@@ -73,6 +73,8 @@
 </template>
 
 <script>
+	import { bus } from '../../../main.js';
+
 	export default {
 		props: ['userSettings'],
 		data: function(){
@@ -96,7 +98,7 @@
 					pictureUrl: this.pictureUrl.toLowerCase(),
 					tracking: this.tracking
 				});
-				this.$emit('toggleModal');
+				bus.$emit('toggleModal');
 			}
 		}
 	}

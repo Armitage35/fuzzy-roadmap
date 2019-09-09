@@ -65,6 +65,8 @@
 </template>
 
 <script>
+	import { bus } from '../../../main.js';
+
 	export default {
 		props: ['selectedEpic'],
 		computed:{
@@ -83,12 +85,12 @@
 			},
 			deleteEpic() {
 				this.$emit('deleteEpic', this.selectedEpic.id);
-				this.$emit('toggleModal', '');
+				bus.$emit('toggleModal', '');
 			},
 			saveEpic() {
 				this.selectedEpic.status = this.status;
 				this.$emit('updateEpic', this.selectedEpic);
-				this.$emit('toggleModal', '');
+				bus.$emit('toggleModal', '');
 			}
 		},
 		data: function() {

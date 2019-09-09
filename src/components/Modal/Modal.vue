@@ -50,6 +50,8 @@
 </template>
 
 <script>
+	import { bus } from '../../main.js';
+
 	import CreateEpicModal from './CreateEpicModal/CreateEpicModal.vue';
 	import EpicDetailsModal from './EpicDetailsModal/EpicDetailsModal.vue';
 	import ExportRoadmapModal from './ExportRoadmapModal/ExportRoadmapModal'
@@ -93,7 +95,7 @@
 		},
 		methods: {
 			closeModal () {
-				this.$emit('toggleModal', "");
+				bus.$emit('toggleModal', "");
 			},
 			updateSettings (event) {
 				this.$emit('updateSettings', event);
@@ -106,7 +108,7 @@
 			},
 			deleteRoadmap() {
 				this.$emit('deleteRoadmap');
-				this.$emit('toggleModal', "");
+				bus.$emit('toggleModal', '');
 			}
 		}
 	}
