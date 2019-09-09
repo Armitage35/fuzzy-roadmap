@@ -12,7 +12,7 @@
 				:id="epic.id"
 				@epicSelectd="$emit('epicSelected', $event)"
 				></EpicCard>
-			<div class="lane-ghostEpic" @click="test">
+			<div class="lane-ghostEpic" @click="toggleModal">
 				<i class="fas fa-plus-circle"></i>
 				<span>Create a new epic</span>
 			</div>
@@ -33,7 +33,7 @@
 			classNameCalculation(){
 				return "lane" + this.laneStatus.charAt(0).toUpperCase() + this.laneStatus.slice(1)
 			},
-			test() {
+			toggleModal() {
 				bus.$emit('toggleModal', 'epic')
 			}
 		}
