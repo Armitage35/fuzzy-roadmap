@@ -34,6 +34,7 @@
 
 <script>
 	// General imports
+	import { bus } from './main.js';
 	import './master.scss';
 	const demoEpics = require( './utilities/demoRoadmap.js');
 	const defaultUser = require( './utilities/defaultUser.js');
@@ -68,6 +69,10 @@
 			} else {
 				this.userDetails = JSON.parse(localStorage.getItem('user'));
 			}
+
+			bus.$on('toggleModal', (state) => {
+				this.toggleModal(state);
+			})
 		},
 		mounted: function() {
 			// segment tracking library
@@ -223,7 +228,7 @@
 					position: 'topRight'
 				});
 			},
-			batchAddEpics (batch) {
+			batchAddEpics(batch) {
 				for (let i = 0; i < batch.length; i++) {
 					this.createEpic(batch[i]);
 				}

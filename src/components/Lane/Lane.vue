@@ -12,7 +12,7 @@
 				:id="epic.id"
 				@epicSelectd="$emit('epicSelected', $event)"
 				></EpicCard>
-			<div class="lane-ghostEpic" @click="$emit('toggleModal', 'epic')">
+			<div class="lane-ghostEpic" @click="test">
 				<i class="fas fa-plus-circle"></i>
 				<span>Create a new epic</span>
 			</div>
@@ -21,7 +21,8 @@
 </template>
 
 <script>
-	import EpicCard from './EpicCard/EpicCard.vue'
+	import EpicCard from './EpicCard/EpicCard.vue';
+	import { bus } from '../../main.js';
 
 	export default {
 		components: {
@@ -31,6 +32,9 @@
 		methods: {
 			classNameCalculation(){
 				return "lane" + this.laneStatus.charAt(0).toUpperCase() + this.laneStatus.slice(1)
+			},
+			test() {
+				bus.$emit('toggleModal', 'epic')
 			}
 		}
 	}
