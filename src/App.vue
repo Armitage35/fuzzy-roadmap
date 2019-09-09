@@ -68,6 +68,7 @@
 				this.toggleModal('onboarding');
 			} else {
 				this.userDetails = JSON.parse(localStorage.getItem('user'));
+				this.userDetails.lastLoginDate = new Date();
 			}
 
 			bus.$on('toggleModal', (state) => {
