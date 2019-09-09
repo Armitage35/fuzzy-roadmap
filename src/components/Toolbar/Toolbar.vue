@@ -12,7 +12,7 @@
 				@click="$emit('changeView', 'roadmap')"></i>
 			<i class="fas fa-stream"
 				data-tippy="Backlog"
-				@click="$emit('toggleModal', 'backlog')"></i>
+				@click="toggleModal('backlog')"></i>
 			<i class="fas fa-chart-line"
 				data-tippy="Reports"
 				@click="featureNotReady"></i>
@@ -20,16 +20,16 @@
 		<div class="toolbar-advancedFeatures">
 			<i class="fas fa-file-download"
 				data-tippy="Download roadmap"
-				@click="$emit('toggleModal', 'exportRoadmap')"></i>
+				@click="toggleModal('exportRoadmap')"></i>
 			<i class="fas fa-upload"
 				data-tippy="Import roadmap"
-				@click="$emit('toggleModal', 'importRoadmap')"></i>
+				@click="toggleModal('importRoadmap')"></i>
 			<i class="fas fa-trash"
 				data-tippy="Reset roadmap"
-				@click="$emit('toggleModal', 'resetRoadmapModal')"></i>
+				@click="toggleModal('resetRoadmapModal')"></i>
 			<i class="fas fa-cog"
 				data-tippy="Settings"
-				@click="$emit('toggleModal', 'settings')"></i>
+				@click="toggleModal('settings')"></i>
 		</div>
 	</div>
 </template>
@@ -39,6 +39,8 @@
 	import tippy from 'tippy.js';
 	import iziToast from 'izitoast';
 
+	import { bus } from '../../main.js';
+
 	export default {
 		methods: {
 			featureNotReady() {
@@ -47,6 +49,9 @@
 					message: 'Sorry, I\'ve not gotten around this one yet, but be sure it\'s coming along soon!',
 					position: 'topRight'
 				});
+			},
+			toggleModal(modalType) {
+				bus.$emit('toggleModal', modalType);
 			}
 		}
 	}
