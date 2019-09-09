@@ -6,6 +6,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -19,6 +20,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 2,
 			resolution: {
 				resolved: false,
@@ -32,6 +34,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 2,
 			resolution: {
 				resolved: false,
@@ -45,6 +48,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -58,6 +62,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -71,6 +76,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -84,6 +90,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -97,6 +104,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -110,6 +118,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -123,6 +132,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -136,6 +146,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -149,6 +160,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -162,6 +174,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -175,6 +188,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -188,6 +202,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -201,6 +216,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -214,6 +230,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -227,6 +244,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -240,6 +258,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -253,6 +272,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -266,6 +286,7 @@ module.exports = {
 			displayInRoadmap: true,
 			creationDate: new Date(),
 			updateDate: new Date(),
+			isDisplayedInRoadmap: true,
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -273,7 +294,21 @@ module.exports = {
 			},
 			author: 'Adrien D. Ahlqvist'
 		},
-	],
+		{
+			epicName: 'Engagement update',
+			status: 'done',
+			displayInRoadmap: true,
+			creationDate: new Date(),
+			updateDate: new Date(),
+			isDisplayedInRoadmap: false,
+			order: 1,
+			resolution: {
+				resolved: true,
+				resolutionDate: new Date(),
+			},
+			author: 'Adrien D. Ahlqvist'
+		}
+	]
 };
 
 exports.demoEpics;

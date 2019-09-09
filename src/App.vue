@@ -116,7 +116,7 @@
 			filterEpic(status){
 				let epics = [];
 				for (let i = 0; i < this.userEpics.length; i++){
-					if (this.userEpics[i].status == status) {
+					if (this.userEpics[i].status == status && this.userEpics[i].isDisplayedInRoadmap) {
 						this.userEpics[i].id = i;
 						epics.push(this.userEpics[i])
 					}
