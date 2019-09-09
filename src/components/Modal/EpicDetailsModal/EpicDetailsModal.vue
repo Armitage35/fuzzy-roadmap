@@ -17,7 +17,7 @@
 					</div>
 					<div>
 						<p class="modal-epicDetails-epicDetailsLabel">Update date</p>
-						<p class="modal-epicDetails-epicDetailsValue">{{ dateResolver(selectedEpic.creationDate) }}</p>
+						<p class="modal-epicDetails-epicDetailsValue">{{ dateResolver(selectedEpic.updateDate) }}</p>
 					</div>
 					<div>
 						<p class="modal-epicDetails-epicDetailsLabel">Resolved</p>

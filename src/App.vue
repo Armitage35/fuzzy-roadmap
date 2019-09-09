@@ -203,6 +203,7 @@
 					epicName: epicData[0],
 					status: epicData[1],
 					creationDate: new Date(),
+					updateDate: new Date(),
 					order: 1,
 					resolution: {
 						resolved: epicData[1] === 'done' ? true : false,

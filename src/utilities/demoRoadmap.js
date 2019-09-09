@@ -5,6 +5,7 @@ module.exports = {
 			status: 'inProgress',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -17,6 +18,7 @@ module.exports = {
 			status: 'inProgress',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 2,
 			resolution: {
 				resolved: false,
@@ -29,6 +31,7 @@ module.exports = {
 			status: 'inProgress',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 2,
 			resolution: {
 				resolved: false,
@@ -41,6 +44,7 @@ module.exports = {
 			status: 'soon',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -53,6 +57,7 @@ module.exports = {
 			status: 'soon',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -65,6 +70,7 @@ module.exports = {
 			status: 'soon',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -77,6 +83,7 @@ module.exports = {
 			status: 'soon',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -89,6 +96,7 @@ module.exports = {
 			status: 'soon',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -101,6 +109,7 @@ module.exports = {
 			status: 'soon',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -113,6 +122,7 @@ module.exports = {
 			status: 'later',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -125,6 +135,7 @@ module.exports = {
 			status: 'later',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -137,6 +148,7 @@ module.exports = {
 			status: 'later',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -149,6 +161,7 @@ module.exports = {
 			status: 'later',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: false,
@@ -161,6 +174,7 @@ module.exports = {
 			status: 'done',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -173,6 +187,7 @@ module.exports = {
 			status: 'done',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -185,6 +200,7 @@ module.exports = {
 			status: 'done',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -197,6 +213,7 @@ module.exports = {
 			status: 'done',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -209,6 +226,7 @@ module.exports = {
 			status: 'done',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -221,6 +239,7 @@ module.exports = {
 			status: 'done',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -233,6 +252,7 @@ module.exports = {
 			status: 'done',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: true,
@@ -245,6 +265,7 @@ module.exports = {
 			status: 'done',
 			displayInRoadmap: true,
 			creationDate: new Date(),
+			updateDate: new Date(),
 			order: 1,
 			resolution: {
 				resolved: true,
