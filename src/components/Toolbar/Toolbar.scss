@@ -37,11 +37,11 @@ $toolbarPadding: 25px;
 }
 
 .toolbar-roadmapName {
+	margin: auto;
 	@extend %toolBarContent;
 	padding-left: $toolbarPadding;
 	justify-content: flex-start;
 	cursor: pointer;
-	margin: auto;
 
 	&:hover {
 		color: #788195;

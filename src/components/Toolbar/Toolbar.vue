@@ -3,12 +3,13 @@
 		<div class="toolbar-roadmapName">
 			<span>My roadmap</span>
 			<i class="fas fa-pencil-alt"
-				data-tippy="Rename this roadmap"></i>
+				data-tippy="Rename this roadmap"
+				@click="featureNotReady"></i>
 		</div>
 		<div class="toolbar-tools">
-			<i class="fas fa-plus-circle"
-				data-tippy="Create a new epic"
-				@click="requestEpicCreationModal"></i>
+			<i class="fas fa-project-diagram"
+				data-tippy="Roadmap"
+				@click="$emit('changeView', 'roadmap')"></i>
 			<i class="fas fa-stream"
 				data-tippy="Backlog"
 				@click="$emit('toggleModal', 'backlog')"></i>
@@ -40,9 +41,6 @@
 
 	export default {
 		methods: {
-			requestEpicCreationModal() {
-				this.$emit('toggleModal', "epic");
-			},
 			featureNotReady() {
 				iziToast.error({
 					title: 'Yikes!',

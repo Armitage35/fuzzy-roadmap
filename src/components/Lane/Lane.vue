@@ -14,7 +14,7 @@
 				></EpicCard>
 			<div class="lane-ghostEpic" @click="$emit('toggleModal', 'epic')">
 				<i class="fas fa-plus-circle"></i>
-				Create a new epic
+				<span>Create a new epic</span>
 			</div>
 		</div>
 	</div>

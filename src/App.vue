@@ -14,13 +14,14 @@
 			@updateEpic="updateEpic($event)"
 			@updateSettings="updateSettings($event)"
 		></Modal>
-		<div class="roadmap">
+		<div class="roadmap" v-if="appState.activeView === 'roadmap'">
 			<Lane
 				v-for="lane in lanes"
 				:laneStatus="lane.type"
 				:laneTitle="lane.title"
 				:key="lane.type"
 				:epics="findLane(lane.type)"
+				@changeView="changeView($event)"
 				@epicSelected="selectEpic($event)"
 				@toggleModal="toggleModal($event)"
 				></Lane>
@@ -108,6 +109,9 @@
 			toggleModal(event){
 				this.appState.modal.showModal = !this.appState.modal.showModal;
 				this.appState.modal.modalType = event;
+			},
+			changeView(view) {
+				this.appState.activeView = view;
 			},
 			filterEpic(status){
 				let epics = [];
