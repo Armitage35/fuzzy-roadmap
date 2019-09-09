@@ -74,6 +74,10 @@
 			bus.$on('toggleModal', (state) => {
 				this.toggleModal(state);
 			})
+
+			bus.$on('epicSelectd', (id) => {
+				this.selectEpic(id)
+			})
 		},
 		mounted: function() {
 			// segment tracking library

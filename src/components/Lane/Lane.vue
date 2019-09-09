@@ -10,7 +10,6 @@
 				:epicStatus="epic.status"
 				:key="epic.id"
 				:id="epic.id"
-				@epicSelectd="$emit('epicSelected', $event)"
 				></EpicCard>
 			<div class="lane-ghostEpic" @click="toggleModal">
 				<i class="fas fa-plus-circle"></i>
