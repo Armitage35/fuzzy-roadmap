@@ -12,6 +12,7 @@
 				@createEpic="$emit('createEpic', $event)"
 				@toggleModal="closeModal"
 				:author="userSettings.userName"
+				:selectedStatus="selectedStatus"
 			></CreateEpicModal>
 			<SettingsModal
 				v-if="modalType === 'settings'"
@@ -61,7 +62,7 @@
 	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
 	export default {
-		props: ['modalType', 'epics', 'userSettings', 'selectedEpic'],
+		props: ['modalType', 'epics', 'userSettings', 'selectedEpic', 'selectedStatus'],
 		components: {
 			CreateEpicModal,
 			EpicDetailsModal,

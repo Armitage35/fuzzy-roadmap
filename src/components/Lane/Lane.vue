@@ -20,8 +20,8 @@
 </template>
 
 <script>
-	import EpicCard from './EpicCard/EpicCard.vue';
 	import { bus } from '../../main.js';
+	import EpicCard from './EpicCard/EpicCard.vue';
 
 	export default {
 		components: {
@@ -33,7 +33,7 @@
 				return "lane" + this.laneStatus.charAt(0).toUpperCase() + this.laneStatus.slice(1)
 			},
 			toggleModal() {
-				bus.$emit('toggleModal', 'epic');
+				bus.$emit('createEpic', ['epic', this.laneStatus]);
 			}
 		}
 	}

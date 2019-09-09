@@ -6,6 +6,7 @@
 			:epics="this.userEpics"
 			:userSettings="this.userDetails"
 			:selectedEpic="this.userEpics[this.appState.selectedEpic]"
+			:selectedStatus="this.appState.selectedStatus"
 			@createEpic="createEpic($event)"
 			@deleteEpic="deleteEpic($event)"
 			@deleteRoadmap="resetRoadmap"
@@ -75,6 +76,11 @@
 				this.toggleModal(state);
 			})
 
+			bus.$on('createEpic', (state) => {
+				this.toggleModal(state[0]);
+				this.appState.selectedStatus = state[1];
+			})
+
 			bus.$on('epicSelectd', (id) => {
 				this.selectEpic(id)
 			})
@@ -111,7 +117,8 @@
 						modalType: ''
 					},
 					activeView: 'roadmap',
-					selectedEpic: 0
+					selectedEpic: 0,
+					selectedStatus: 'inProgress'
 				}
 			}
 		},

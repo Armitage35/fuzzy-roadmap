@@ -33,11 +33,11 @@
 
 <script>
 	export default {
-		props: ['author'],
+		props: ['author', 'selectedStatus'],
 		data: function() {
 			return {
 				epicName: "",
-				epicStatus: "inProgress"
+				epicStatus: this.selectedStatus
 			}
 		}
 	}
