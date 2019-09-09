@@ -37,8 +37,8 @@ $toolbarPadding: 25px;
 }
 
 .toolbar-roadmapName {
-	margin: auto;
 	@extend %toolBarContent;
+	margin: auto;
 	padding-left: $toolbarPadding;
 	justify-content: flex-start;
 	cursor: pointer;
