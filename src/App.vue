@@ -7,12 +7,9 @@
 			:userSettings="this.userDetails"
 			:selectedEpic="this.userEpics[this.appState.selectedEpic]"
 			:selectedStatus="this.appState.selectedStatus"
-			@createEpic="createEpic($event)"
 			@deleteEpic="deleteEpic($event)"
 			@deleteRoadmap="resetRoadmap"
 			@importRoadmap="batchAddEpics($event)"
-			@toggleModal="toggleModal($event)"
-			@updateEpic="updateEpic($event)"
 			@updateSettings="updateSettings($event)"
 		></Modal>
 		<div class="roadmap" v-if="appState.activeView === 'roadmap'">
@@ -76,13 +73,21 @@
 				this.toggleModal(state);
 			})
 
-			bus.$on('createEpic', (state) => {
+			bus.$on('toggleCreateEpicModal', (state) => {
 				this.toggleModal(state[0]);
 				this.appState.selectedStatus = state[1];
 			})
 
 			bus.$on('epicSelectd', (id) => {
-				this.selectEpic(id)
+				this.selectEpic(id);
+			})
+
+			bus.$on('updateEpic', (selectedEpic) => {
+				this.updateEpic(selectedEpic);
+			})
+
+			bus.$on('createEpic', (epicData) => {
+				this.createEpic(epicData);
 			})
 		},
 		mounted: function() {
@@ -136,22 +141,22 @@
 					if (this.userEpics[i].status == status && this.userEpics[i].isDisplayedInRoadmap) {
 						this.userEpics[i].id = i;
 						epics.push(this.userEpics[i])
-					}
+					};
 				}
 				return epics;
 			},
 			findLane(lane) {
 				switch(lane) {
 					case 'inProgress':
-							return this.epicsInProgress;
-						case 'soon':
-							return this.epicsSoon;
-						case 'later':
-							return this.epicsLater;
-						case 'done':
-							return this.epicsDone;
-						default:
-							null;
+						return this.epicsInProgress;
+					case 'soon':
+						return this.epicsSoon;
+					case 'later':
+						return this.epicsLater;
+					case 'done':
+						return this.epicsDone;
+					default:
+						null;
 				}
 			},
 			updateSettings(event) {
@@ -222,12 +227,13 @@
 					creationDate: new Date(),
 					updateDate: new Date(),
 					order: 1,
+					isDisplayedInRoadmap: true,
 					resolution: {
 						resolved: epicData[1] === 'done' ? true : false,
 						resolutionDate: epicData[1] === 'done' ? new Date() : null,
 					},
 					author: this.userDetails.userName
-				}
+				};
 
 				this.userEpics.unshift(newEpic);
 				this.toggleModal();

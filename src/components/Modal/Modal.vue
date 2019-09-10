@@ -9,7 +9,6 @@
 			</div>
 			<CreateEpicModal
 				v-if="modalType === 'epic'"
-				@createEpic="$emit('createEpic', $event)"
 				@toggleModal="closeModal"
 				:author="userSettings.userName"
 				:selectedStatus="selectedStatus"

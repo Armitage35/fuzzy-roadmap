@@ -33,7 +33,7 @@
 				return "lane" + this.laneStatus.charAt(0).toUpperCase() + this.laneStatus.slice(1)
 			},
 			toggleModal() {
-				bus.$emit('createEpic', ['epic', this.laneStatus]);
+				bus.$emit('toggleCreateEpicModal', ['epic', this.laneStatus]);
 			}
 		}
 	}

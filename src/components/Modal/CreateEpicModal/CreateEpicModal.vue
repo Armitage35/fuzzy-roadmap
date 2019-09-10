@@ -26,18 +26,25 @@
 		</div>
 		<div class="modal-actions">
 			<button type="button" class="bttn-secondary" @click="$emit('toggleModal', '');">Cancel changes</button>
-			<button type="button" class="bttn-primary" @click="$emit('createEpic', [epicName, epicStatus])">Save</button>
+			<button type="button" class="bttn-primary" @click="createEpic">Save</button>
 		</div>
 	</div>
 </template>
 
 <script>
+	import { bus } from '../../../main.js';
+
 	export default {
 		props: ['author', 'selectedStatus'],
 		data: function() {
 			return {
 				epicName: "",
 				epicStatus: this.selectedStatus
+			}
+		},
+		methods: {
+			createEpic: function () {
+				bus.$emit('createEpic', [this.epicName, this.epicStatus]);
 			}
 		}
 	}

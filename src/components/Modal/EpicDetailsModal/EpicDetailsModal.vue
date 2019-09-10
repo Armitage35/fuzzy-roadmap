@@ -89,7 +89,7 @@
 			},
 			saveEpic() {
 				this.selectedEpic.status = this.status;
-				this.$emit('updateEpic', this.selectedEpic);
+				bus.$emit('updateEpic', this.selectedEpic);
 				bus.$emit('toggleModal', '');
 			}
 		},
