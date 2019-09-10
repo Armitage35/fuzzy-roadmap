@@ -23,8 +23,6 @@
 				v-if="modalType === 'epicDetails'"
 				:selectedEpic="selectedEpic"
 				@toggleModal="closeModal"
-				@deleteEpic="deleteEpic($event)"
-				@updateEpic="updateEpic($event)"
 			></EpicDetailsModal>
 			<ImportRoadmapModal
 				v-if="modalType === 'importRoadmap'"
@@ -42,8 +40,6 @@
 			></ExportRoadmapModal>
 			<ResetRoadmapModal
 				v-if="modalType === 'resetRoadmapModal'"
-				@deleteRoadmap="deleteRoadmap"
-				@toggleModal="closeModal"
 			></ResetRoadmapModal>
 		</div>
 	</div>

@@ -89,6 +89,14 @@
 			bus.$on('createEpic', (epicData) => {
 				this.createEpic(epicData);
 			})
+
+			bus.$on('deleteEpic', (selectedEpic) => {
+				this.deleteEpic(selectedEpic);
+			})
+
+			bus.$on('deleteRoadmap', () => {
+				this.resetRoadmap();
+			})
 		},
 		mounted: function() {
 			// segment tracking library
@@ -141,7 +149,7 @@
 					if (this.userEpics[i].status == status && this.userEpics[i].isDisplayedInRoadmap) {
 						this.userEpics[i].id = i;
 						epics.push(this.userEpics[i])
-					};
+					}
 				}
 				return epics;
 			},
@@ -204,9 +212,11 @@
 				});
 			},
 			resetRoadmap() {
-				this.userEpics = [];
+				this.userEpics = demoEpics.demoEpics;
 
 				localStorage.clear();
+
+				this.toggleModal();
 
 				iziToast.success({
 					title: 'Roadmap reset',

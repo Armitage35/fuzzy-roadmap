@@ -84,7 +84,7 @@
 				return date.toLocaleDateString('en-CA');
 			},
 			deleteEpic() {
-				this.$emit('deleteEpic', this.selectedEpic.id);
+				bus.$emit('deleteEpic', this.selectedEpic.id);
 				bus.$emit('toggleModal', '');
 			},
 			saveEpic() {

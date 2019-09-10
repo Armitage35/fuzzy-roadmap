@@ -6,8 +6,8 @@
 			<p class="modal-reset-warning">Just so you know, unless you exported your roadmap prior to deleting it, there is no way back from here.</p>
 		</div>
 		<div class="modal-actions">
-			<button type="button" class="bttn-secondary" @click="$emit('toggleModal')">Cancel</button>
-			<button type="button" class="bttn-danger epicDetails-delete" @click="$emit('deleteRoadmap')">
+			<button type="button" class="bttn-secondary" @click="closeModal">Cancel</button>
+			<button type="button" class="bttn-danger epicDetails-delete" @click="deleteRoadmap">
 				<i class="fas fa-dragon"></i>
 				Reset roadmap
 			</button>
@@ -16,7 +16,16 @@
 </template>
 
 <script>
-export default {
+	import { bus } from '../../../main.js';
 
-}
+	export default {
+		methods: {
+			deleteRoadmap: function() {
+				bus.$emit('deleteRoadmap')
+			},
+			closeModal () {
+				bus.$emit('toggleModal');
+			},
+		}
+	}
 </script>
