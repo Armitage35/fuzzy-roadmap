@@ -58,7 +58,7 @@
 				<i class="fas fa-trash-alt"></i>
 				Delete epic
 			</button>
-			<button type="button" class="bttn-secondary" @click="$emit('toggleModal')">Cancel changes</button>
+			<button type="button" class="bttn-secondary" @click="closeModal">Cancel changes</button>
 			<button type="button" class="bttn-primary" @click="saveEpic">Save</button>
 		</div>
 	</div>
@@ -85,12 +85,15 @@
 			},
 			deleteEpic() {
 				bus.$emit('deleteEpic', this.selectedEpic.id);
-				bus.$emit('toggleModal', '');
+				bus.$emit('toggleModal');
 			},
 			saveEpic() {
 				this.selectedEpic.status = this.status;
 				bus.$emit('updateEpic', this.selectedEpic);
-				bus.$emit('toggleModal', '');
+				bus.$emit('toggleModal');
+			},
+			closeModal () {
+				bus.$emit('toggleModal');
 			}
 		},
 		data: function() {

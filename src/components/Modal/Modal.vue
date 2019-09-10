@@ -19,16 +19,12 @@
 			<EpicDetailsModal
 				v-if="modalType === 'epicDetails'"
 				:selectedEpic="selectedEpic"
-				@toggleModal="closeModal"
 			></EpicDetailsModal>
 			<ImportRoadmapModal
 				v-if="modalType === 'importRoadmap'"
-				@importRoadmap="$emit('importRoadmap', $event)"
-				@toggleModal="closeModal"
 			></ImportRoadmapModal>
 			<OnboardingModal
 				v-if="modalType === 'onboarding'"
-				@toggleModal="closeModal"
 			></OnboardingModal>
 			<ExportRoadmapModal
 				v-if="modalType === 'exportRoadmap'"

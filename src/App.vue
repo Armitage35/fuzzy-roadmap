@@ -9,7 +9,6 @@
 			:selectedStatus="this.appState.selectedStatus"
 			@deleteEpic="deleteEpic($event)"
 			@deleteRoadmap="resetRoadmap"
-			@importRoadmap="batchAddEpics($event)"
 			@updateSettings="updateSettings($event)"
 		></Modal>
 		<div class="roadmap" v-if="appState.activeView === 'roadmap'">
@@ -83,6 +82,10 @@
 
 			bus.$on('epicSelectd', (id) => {
 				this.selectEpic(id);
+			})
+
+			bus.$on('importRoadmap', (roadmapToImport) => {
+				this.batchAddEpics(roadmapToImport);
 			})
 
 			bus.$on('toggleModal', (state) => {
@@ -216,7 +219,7 @@
 				});
 			},
 			resetRoadmap() {
-				this.userEpics = demoEpics.demoEpics;
+				this.userEpics = [];
 
 				localStorage.clear();
 

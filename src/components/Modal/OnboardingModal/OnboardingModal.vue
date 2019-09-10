@@ -10,14 +10,20 @@
 			<span class="modal-onboarding-rocket">🚀</span>
 		</div>
 		<div class="modal-actions">
-			<button type="button" class="bttn-primary" @click="$emit('toggleModal')">
+			<button type="button" class="bttn-primary" @click="closeModal">
 				<i class="fas fa-drafting-compass"></i>Let's get started</button>
 		</div>
 	</div>
 </template>
 
 <script>
-export default {
+	import { bus } from '../../../main.js';
 
-}
+	export default {
+		methods: {
+			closeModal () {
+				bus.$emit('toggleModal');
+			}
+		}
+	}
 </script>
