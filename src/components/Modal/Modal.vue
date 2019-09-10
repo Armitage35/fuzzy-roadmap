@@ -9,15 +9,12 @@
 			</div>
 			<CreateEpicModal
 				v-if="modalType === 'epic'"
-				@toggleModal="closeModal"
 				:author="userSettings.userName"
 				:selectedStatus="selectedStatus"
 			></CreateEpicModal>
 			<SettingsModal
 				v-if="modalType === 'settings'"
 				:userSettings="this.userSettings"
-				@toggleModal="closeModal"
-				@updateSettings="updateSettings($event)"
 				></SettingsModal>
 			<EpicDetailsModal
 				v-if="modalType === 'epicDetails'"

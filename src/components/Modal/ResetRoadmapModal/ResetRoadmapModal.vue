@@ -25,7 +25,7 @@
 			},
 			closeModal () {
 				bus.$emit('toggleModal');
-			},
+			}
 		}
 	}
 </script>

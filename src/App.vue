@@ -34,8 +34,8 @@
 	// General imports
 	import { bus } from './main.js';
 	import './master.scss';
-	const demoEpics = require( './utilities/demoRoadmap.js');
-	const defaultUser = require( './utilities/defaultUser.js');
+	const demoEpics = require('./utilities/demoRoadmap.js');
+	const defaultUser = require('./utilities/defaultUser.js');
 
 	// Importing external modules
 	import iziToast from 'izitoast';
@@ -96,6 +96,10 @@
 
 			bus.$on('deleteRoadmap', () => {
 				this.resetRoadmap();
+			})
+
+			bus.$on('updateSettings', (data) => {
+				this.updateSettings(data)
 			})
 		},
 		mounted: function() {

@@ -25,7 +25,7 @@
 			</div>
 		</div>
 		<div class="modal-actions">
-			<button type="button" class="bttn-secondary" @click="$emit('toggleModal', '');">Cancel changes</button>
+			<button type="button" class="bttn-secondary" @click="closeModal">Cancel changes</button>
 			<button type="button" class="bttn-primary" @click="createEpic">Save</button>
 		</div>
 	</div>
@@ -45,6 +45,9 @@
 		methods: {
 			createEpic: function () {
 				bus.$emit('createEpic', [this.epicName, this.epicStatus]);
+			},
+			closeModal () {
+				bus.$emit('toggleModal');
 			}
 		}
 	}
