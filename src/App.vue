@@ -69,23 +69,6 @@
 				this.userDetails.lastLoginDate = new Date();
 			}
 
-			bus.$on('toggleModal', (state) => {
-				this.toggleModal(state);
-			})
-
-			bus.$on('toggleCreateEpicModal', (state) => {
-				this.toggleModal(state[0]);
-				this.appState.selectedStatus = state[1];
-			})
-
-			bus.$on('epicSelectd', (id) => {
-				this.selectEpic(id);
-			})
-
-			bus.$on('updateEpic', (selectedEpic) => {
-				this.updateEpic(selectedEpic);
-			})
-
 			bus.$on('createEpic', (epicData) => {
 				this.createEpic(epicData);
 			})
@@ -96,6 +79,23 @@
 
 			bus.$on('deleteRoadmap', () => {
 				this.resetRoadmap();
+			})
+
+			bus.$on('epicSelectd', (id) => {
+				this.selectEpic(id);
+			})
+
+			bus.$on('toggleModal', (state) => {
+				this.toggleModal(state);
+			})
+
+			bus.$on('toggleCreateEpicModal', (state) => {
+				this.toggleModal(state[0]);
+				this.appState.selectedStatus = state[1];
+			})
+
+			bus.$on('updateEpic', (selectedEpic) => {
+				this.updateEpic(selectedEpic);
 			})
 
 			bus.$on('updateSettings', (data) => {
