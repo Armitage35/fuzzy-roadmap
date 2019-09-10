@@ -29,7 +29,6 @@
 			<ExportRoadmapModal
 				v-if="modalType === 'exportRoadmap'"
 				:epics="epics"
-				@toggleModal="closeModal"
 			></ExportRoadmapModal>
 			<ResetRoadmapModal
 				v-if="modalType === 'resetRoadmapModal'"
@@ -84,20 +83,7 @@
 		},
 		methods: {
 			closeModal () {
-				bus.$emit('toggleModal', "");
-			},
-			updateSettings (event) {
-				this.$emit('updateSettings', event);
-			},
-			deleteEpic(event) {
-				this.$emit('deleteEpic', event);
-			},
-			updateEpic(event) {
-				this.$emit('updateEpic', event);
-			},
-			deleteRoadmap() {
-				this.$emit('deleteRoadmap');
-				bus.$emit('toggleModal', '');
+				bus.$emit('toggleModal');
 			}
 		}
 	}

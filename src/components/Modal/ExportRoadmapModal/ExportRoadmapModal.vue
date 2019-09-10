@@ -17,6 +17,7 @@
 
 <script>
 	import { bus } from '../../../main.js';
+
 	import iziToast from 'izitoast';
 	import html2canvas from 'html2canvas';
 
@@ -50,6 +51,7 @@
 			},
 			exportSuccess() {
 				bus.$emit('toggleModal');
+
 				iziToast.success({
 					title: 'Export generated',
 					message: 'Your file is ready for you',
