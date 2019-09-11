@@ -1,9 +1,6 @@
 <template>
-	<router-view>
-		<Roadmap
-			:lanes="lanes"
-			:epics="epics"
-		></Roadmap>
+	<router-view :lanes="lanes" :epics="epics">
+		<Roadmap></Roadmap>
 		<Backlog></Backlog>
 	</router-view>
 </template>
