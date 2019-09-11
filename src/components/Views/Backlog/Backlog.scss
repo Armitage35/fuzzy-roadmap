@@ -1,9 +1,19 @@
 .backlog {
 	display: flex;
+	width: 100vw;
+	height: 100vh;
+	background-color: #f5f7f9;
 }
 
 .backlog-filters {
-	display: flex;
-	margin: 8px;
 	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	border-bottom: $defaultBorder;
+	text-transform: capitalize;
 }
+
+.backlog-filter {
+	margin: 8px;
+}
+

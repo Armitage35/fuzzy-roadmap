@@ -1,15 +1,22 @@
 <template>
 	<div class="backlog-epicCard">
-		<div>Epic ID</div>
-		<div>Epic Name</div>
-		<div>Created date</div>
-		<div>Update date</div>
-		<div>Author</div>
+		<input type="checkbox">
+		<div>Epic status: {{ epic.status }}</div>
+		<div>Epic Name: {{ epic.epicName }}</div>
+		<div>Created date: {{ dateResolver(epic.creationDate) }}</div>
+		<div>Update date:  {{ dateResolver(epic.updateDate) }}</div>
+		<div>Author: {{ epic.author }}</div>
 	</div>
 </template>
 
 <script>
-export default {
-
-}
+	export default {
+		props: ['epic'],
+		methods: {
+			dateResolver(date) {
+				date = new Date(date);
+				return date.toLocaleDateString('en-CA');
+			}
+		}
+	}
 </script>
