@@ -9,8 +9,7 @@
 		<div class="toolbar-tools">
 			<router-link to="roadmap">
 				<i class="fas fa-project-diagram"
-					data-tippy="Roadmap"
-					@click="$emit('changeView', 'roadmap')"></i>
+					data-tippy="Roadmap"></i>
 			</router-link>
 			<router-link to="backlog">
 				<i class="fas fa-stream"

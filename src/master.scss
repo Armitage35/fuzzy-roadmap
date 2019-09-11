@@ -4,7 +4,11 @@
 @import './App.scss';
 @import './components/Views/Roadmap/Lane/EpicCard/EpicCard.scss';
 @import './components/Views/Roadmap/Lane/Lane.scss';
+@import './components/Views/Backlog/Backlog.scss';
+@import './components/Views/Backlog/EpicList/EpicList.scss';
 @import './components/Toolbar/Toolbar.scss';
+
+// Modal
 @import './components/Modal/Modal.scss';
 @import './components/Modal/SettingsModal/SettingsModal.scss';
 @import './components/Modal/EpicDetailsModal/EpicDetailsModal.scss';
