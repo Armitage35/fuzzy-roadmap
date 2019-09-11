@@ -11,21 +11,14 @@
 			@deleteRoadmap="resetRoadmap"
 			@updateSettings="updateSettings($event)"
 		></Modal>
-		<div class="roadmap" v-if="appState.activeView === 'roadmap'">
-			<Lane
-				v-for="lane in lanes"
-				:laneStatus="lane.type"
-				:laneTitle="lane.title"
-				:key="lane.type"
-				:epics="findLane(lane.type)"
-				@changeView="changeView($event)"
-				@epicSelected="selectEpic($event)"
-				@toggleModal="toggleModal($event)"
-				></Lane>
-		</div>
-			<Toolbar
-				@toggleModal="toggleModal($event)"
-			></Toolbar>
+			<Views
+				:activeView="appState.activeView"
+				:lanes="lanes"
+				:epics="userEpics"
+			></Views>
+		<Toolbar
+			@toggleModal="toggleModal($event)"
+		></Toolbar>
 	</div>
 </template>
 
@@ -41,13 +34,13 @@
 	import 'izitoast/dist/css/iziToast.min.css';
 
 	// Components
-	import Lane from './components/Lane/Lane.vue';
+	import Views from './components/Views/Views.vue'
 	import Toolbar from './components/Toolbar/Toolbar.vue';
 	import Modal from './components/Modal/Modal.vue';
 
 	export default {
 		components: {
-			Lane, Toolbar, Modal
+			Toolbar, Modal, Views
 		},
 		created: function() {
 			// initialize roadmap
@@ -150,29 +143,10 @@
 			changeView(view) {
 				this.appState.activeView = view;
 			},
-			filterEpic(status){
-				let epics = [];
-				for (let i = 0; i < this.userEpics.length; i++){
-					if (this.userEpics[i].status == status && this.userEpics[i].isDisplayedInRoadmap) {
-						this.userEpics[i].id = i;
-						epics.push(this.userEpics[i])
-					}
-				}
-				return epics;
-			},
-			findLane(lane) {
-				switch(lane) {
-					case 'inProgress':
-						return this.epicsInProgress;
-					case 'soon':
-						return this.epicsSoon;
-					case 'later':
-						return this.epicsLater;
-					case 'done':
-						return this.epicsDone;
-					default:
-						null;
-				}
+			selectEpic(event) {
+				this.appState.selectedEpic = event;
+				this.appState.modal.showModal = true;
+				this.appState.modal.modalType = 'epicDetails';
 			},
 			updateSettings(event) {
 				this.userDetails.userName = event.userName;
@@ -189,11 +163,6 @@
 					message: 'Your profile has a newfound gleam',
 					position: 'topRight'
 				});
-			},
-			selectEpic(event) {
-				this.appState.selectedEpic = event;
-				this.appState.modal.showModal = true;
-				this.appState.modal.modalType = 'epicDetails';
 			},
 			deleteEpic(event) {
 				this.userEpics.splice(event, 1);
@@ -267,20 +236,6 @@
 				for (let i = 0; i < batch.length; i++) {
 					this.createEpic(batch[i]);
 				}
-			}
-		},
-		computed: {
-			epicsInProgress() {
-				return this.filterEpic('inProgress');
-			},
-			epicsSoon() {
-				return this.filterEpic('soon');
-			},
-			epicsLater() {
-				return this.filterEpic('later');
-			},
-			epicsDone() {
-				return this.filterEpic('done');
 			}
 		}
 	}

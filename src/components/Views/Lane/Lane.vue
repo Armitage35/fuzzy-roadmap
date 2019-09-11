@@ -10,7 +10,7 @@
 				:epicStatus="epic.status"
 				:key="epic.id"
 				:id="epic.id"
-				></EpicCard>
+			></EpicCard>
 			<div class="lane-ghostEpic" @click="toggleModal">
 				<i class="fas fa-plus-circle"></i>
 				<span>Create a new epic</span>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-	import { bus } from '../../main.js';
+	import { bus } from '../../../main.js';
 	import EpicCard from './EpicCard/EpicCard.vue';
 
 	export default {
