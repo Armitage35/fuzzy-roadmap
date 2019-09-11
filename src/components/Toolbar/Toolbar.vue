@@ -7,12 +7,15 @@
 				@click="featureNotReady"></i>
 		</div>
 		<div class="toolbar-tools">
-			<i class="fas fa-project-diagram"
-				data-tippy="Roadmap"
-				@click="$emit('changeView', 'roadmap')"></i>
-			<i class="fas fa-stream"
-				data-tippy="Backlog"
-				@click="toggleModal('backlog')"></i>
+			<router-link to="roadmap">
+				<i class="fas fa-project-diagram"
+					data-tippy="Roadmap"
+					@click="$emit('changeView', 'roadmap')"></i>
+			</router-link>
+			<router-link to="backlog">
+				<i class="fas fa-stream"
+					data-tippy="Backlog"></i>
+			</router-link>
 			<i class="fas fa-chart-line"
 				data-tippy="Reports"
 				@click="featureNotReady"></i>

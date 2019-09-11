@@ -20,7 +20,7 @@
 		components: {
 			Lane
 		},
-		props: ['lanes', 'epics'],
+		props: ['epics', 'lanes'],
 		methods: {
 			findLane(lane) {
 				switch(lane) {
