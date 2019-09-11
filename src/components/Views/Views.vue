@@ -1,16 +1,18 @@
 <template>
-	<div class="roadmap" v-if="activeView === 'roadmap'">
-		<Lane
-			v-for="lane in lanes"
-			:laneStatus="lane.type"
-			:laneTitle="lane.title"
-			:key="lane.type"
-			:epics="findLane(lane.type)"
-			@changeView="changeView($event)"
-			@epicSelected="selectEpic($event)"
-			@toggleModal="toggleModal($event)"
-		></Lane>
-	</div>
+	<router-view>
+		<div class="roadmap" v-if="activeView === 'roadmap'">
+			<Lane
+				v-for="lane in lanes"
+				:laneStatus="lane.type"
+				:laneTitle="lane.title"
+				:key="lane.type"
+				:epics="findLane(lane.type)"
+				@changeView="changeView($event)"
+				@epicSelected="selectEpic($event)"
+				@toggleModal="toggleModal($event)"
+			></Lane>
+		</div>
+	</router-view>
 </template>
 
 <script>
