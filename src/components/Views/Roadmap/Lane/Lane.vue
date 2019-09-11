@@ -20,7 +20,7 @@
 </template>
 
 <script>
-	import { bus } from '../../../main.js';
+	import { bus } from '../../../../main.js';
 	import EpicCard from './EpicCard/EpicCard.vue';
 
 	export default {

@@ -11,11 +11,10 @@
 			@deleteRoadmap="resetRoadmap"
 			@updateSettings="updateSettings($event)"
 		></Modal>
-			<Views
-				:activeView="appState.activeView"
-				:lanes="lanes"
-				:epics="userEpics"
-			></Views>
+		<Views
+			:lanes="lanes"
+			:epics="userEpics"
+		></Views>
 		<Toolbar
 			@toggleModal="toggleModal($event)"
 		></Toolbar>
@@ -129,7 +128,6 @@
 						showModal: false,
 						modalType: ''
 					},
-					activeView: 'roadmap',
 					selectedEpic: 0,
 					selectedStatus: 'inProgress'
 				}
@@ -139,9 +137,6 @@
 			toggleModal(event){
 				this.appState.modal.showModal = !this.appState.modal.showModal;
 				this.appState.modal.modalType = event;
-			},
-			changeView(view) {
-				this.appState.activeView = view;
 			},
 			selectEpic(event) {
 				this.appState.selectedEpic = event;
