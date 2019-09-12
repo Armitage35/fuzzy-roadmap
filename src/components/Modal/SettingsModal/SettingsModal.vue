@@ -66,13 +66,15 @@
 			</div>
 		</div>
 		<div class="modal-actions">
-			<button type="button" class="bttn-secondary" @click="$emit('toggleModal')">Cancel changes</button>
+			<button type="button" class="bttn-secondary" @click="closeModal">Cancel changes</button>
 			<button type="button" class="bttn-primary" @click="updateSettings">Save</button>
 		</div>
 	</div>
 </template>
 
 <script>
+	import { bus } from '../../../main.js';
+
 	export default {
 		props: ['userSettings'],
 		data: function(){
@@ -88,7 +90,7 @@
 		},
 		methods: {
 			updateSettings() {
-				this.$emit('updateSettings', {
+				bus.$emit('updateSettings', {
 					userName: this.userName,
 					email: this.email.toLowerCase(),
 					theme: this.theme,
@@ -96,7 +98,10 @@
 					pictureUrl: this.pictureUrl.toLowerCase(),
 					tracking: this.tracking
 				});
-				this.$emit('toggleModal');
+				bus.$emit('toggleModal');
+			},
+			closeModal () {
+				bus.$emit('toggleModal');
 			}
 		}
 	}

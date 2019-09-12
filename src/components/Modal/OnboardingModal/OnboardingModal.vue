@@ -7,17 +7,23 @@
 			<p>They are also an excellent tool to work with other departments since they often don't have the patience to read detailed Gantt charts or even to read your well-written Confluence pages. They care about what's going on now and what will happen tomorrow.</p>
 			<p class="modal-onboarding-signature">With love</p>
 			<p class="modal-onboarding-signature">Adrien D. A.</p>
-			<span class="modal-onboarding-kiss">😘</span>
+			<span class="modal-onboarding-rocket">🚀</span>
 		</div>
 		<div class="modal-actions">
-			<button type="button" class="bttn-primary" @click="$emit('toggleModal')">
+			<button type="button" class="bttn-primary" @click="closeModal">
 				<i class="fas fa-drafting-compass"></i>Let's get started</button>
 		</div>
 	</div>
 </template>
 
 <script>
-export default {
+	import { bus } from '../../../main.js';
 
-}
+	export default {
+		methods: {
+			closeModal () {
+				bus.$emit('toggleModal');
+			}
+		}
+	}
 </script>

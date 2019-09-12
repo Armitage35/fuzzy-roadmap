@@ -16,6 +16,8 @@
 </template>
 
 <script>
+	import { bus } from '../../../main.js';
+
 	import iziToast from 'izitoast';
 	import html2canvas from 'html2canvas';
 
@@ -48,7 +50,8 @@
 				window.URL.revokeObjectURL(url);
 			},
 			exportSuccess() {
-				this.$emit('toggleModal');
+				bus.$emit('toggleModal');
+
 				iziToast.success({
 					title: 'Export generated',
 					message: 'Your file is ready for you',

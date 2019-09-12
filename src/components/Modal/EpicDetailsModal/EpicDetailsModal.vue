@@ -17,7 +17,7 @@
 					</div>
 					<div>
 						<p class="modal-epicDetails-epicDetailsLabel">Update date</p>
-						<p class="modal-epicDetails-epicDetailsValue">{{ dateResolver(selectedEpic.creationDate) }}</p>
+						<p class="modal-epicDetails-epicDetailsValue">{{ dateResolver(selectedEpic.updateDate) }}</p>
 					</div>
 					<div>
 						<p class="modal-epicDetails-epicDetailsLabel">Resolved</p>
@@ -58,13 +58,15 @@
 				<i class="fas fa-trash-alt"></i>
 				Delete epic
 			</button>
-			<button type="button" class="bttn-secondary" @click="$emit('toggleModal')">Cancel changes</button>
+			<button type="button" class="bttn-secondary" @click="closeModal">Cancel changes</button>
 			<button type="button" class="bttn-primary" @click="saveEpic">Save</button>
 		</div>
 	</div>
 </template>
 
 <script>
+	import { bus } from '../../../main.js';
+
 	export default {
 		props: ['selectedEpic'],
 		computed:{
@@ -82,13 +84,16 @@
 				return date.toLocaleDateString('en-CA');
 			},
 			deleteEpic() {
-				this.$emit('deleteEpic', this.selectedEpic.id);
-				this.$emit('toggleModal', '');
+				bus.$emit('deleteEpic', this.selectedEpic.id);
+				bus.$emit('toggleModal');
 			},
 			saveEpic() {
 				this.selectedEpic.status = this.status;
-				this.$emit('updateEpic', this.selectedEpic);
-				this.$emit('toggleModal', '');
+				bus.$emit('updateEpic', this.selectedEpic);
+				bus.$emit('toggleModal');
+			},
+			closeModal () {
+				bus.$emit('toggleModal');
 			}
 		},
 		data: function() {

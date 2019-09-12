@@ -9,46 +9,37 @@
 			</div>
 			<CreateEpicModal
 				v-if="modalType === 'epic'"
-				@createEpic="$emit('createEpic', $event)"
-				@toggleModal="closeModal"
 				:author="userSettings.userName"
+				:selectedStatus="selectedStatus"
 			></CreateEpicModal>
 			<SettingsModal
 				v-if="modalType === 'settings'"
 				:userSettings="this.userSettings"
-				@toggleModal="closeModal"
-				@updateSettings="updateSettings($event)"
 				></SettingsModal>
 			<EpicDetailsModal
 				v-if="modalType === 'epicDetails'"
 				:selectedEpic="selectedEpic"
-				@toggleModal="closeModal"
-				@deleteEpic="deleteEpic($event)"
-				@updateEpic="updateEpic($event)"
 			></EpicDetailsModal>
 			<ImportRoadmapModal
 				v-if="modalType === 'importRoadmap'"
-				@importRoadmap="$emit('importRoadmap', $event)"
 			></ImportRoadmapModal>
 			<OnboardingModal
 				v-if="modalType === 'onboarding'"
-				@toggleModal="closeModal"
 			></OnboardingModal>
 			<ExportRoadmapModal
 				v-if="modalType === 'exportRoadmap'"
 				:epics="epics"
-				@toggleModal="closeModal"
 			></ExportRoadmapModal>
 			<ResetRoadmapModal
 				v-if="modalType === 'resetRoadmapModal'"
-				@deleteRoadmap="deleteRoadmap"
-				@toggleModal="closeModal"
 			></ResetRoadmapModal>
 		</div>
 	</div>
 </template>
 
 <script>
+	import { bus } from '../../main.js';
+
 	import CreateEpicModal from './CreateEpicModal/CreateEpicModal.vue';
 	import EpicDetailsModal from './EpicDetailsModal/EpicDetailsModal.vue';
 	import ExportRoadmapModal from './ExportRoadmapModal/ExportRoadmapModal'
@@ -58,7 +49,7 @@
 	import SettingsModal from './SettingsModal/SettingsModal.vue';
 
 	export default {
-		props: ['modalType', 'epics', 'userSettings', 'selectedEpic'],
+		props: ['modalType', 'epics', 'userSettings', 'selectedEpic', 'selectedStatus'],
 		components: {
 			CreateEpicModal,
 			EpicDetailsModal,
@@ -92,20 +83,7 @@
 		},
 		methods: {
 			closeModal () {
-				this.$emit('toggleModal', "");
-			},
-			updateSettings (event) {
-				this.$emit('updateSettings', event);
-			},
-			deleteEpic(event) {
-				this.$emit('deleteEpic', event);
-			},
-			updateEpic(event) {
-				this.$emit('updateEpic', event);
-			},
-			deleteRoadmap() {
-				this.$emit('deleteRoadmap');
-				this.$emit('toggleModal', "");
+				bus.$emit('toggleModal');
 			}
 		}
 	}

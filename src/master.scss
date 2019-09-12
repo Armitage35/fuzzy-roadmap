@@ -1,16 +1,20 @@
 // Internal files
-@import './utilities/variables.scss';
+@import './utilities/variables';
 
-@import './App.scss';
-@import './components/Epic/Epic.scss';
-@import './components/Lane/Lane.scss';
-@import './components/Toolbar/Toolbar.scss';
-@import './components/Modal/Modal.scss';
-@import './components/Modal/SettingsModal/SettingsModal.scss';
-@import './components/Modal/EpicDetailsModal/EpicDetailsModal.scss';
-@import './components/Modal/ExportRoadmapModal/ExportRoadmapModal.scss';
-@import './components/Modal/OnboardingModal/OnboardingModal.scss';
-@import './components/Modal/ImportRoadmapModal/ImportRoadmapModal.scss';
+@import './App';
+@import './components/Views/Roadmap/Lane/EpicCard/EpicCard';
+@import './components/Views/Roadmap/Lane/Lane';
+@import './components/Views/Backlog/Backlog';
+@import './components/Views/Backlog/EpicList/EpicList';
+@import './components/Toolbar/Toolbar';
+
+// Modal
+@import './components/Modal/Modal';
+@import './components/Modal/SettingsModal/SettingsModal';
+@import './components/Modal/EpicDetailsModal/EpicDetailsModal';
+@import './components/Modal/ExportRoadmapModal/ExportRoadmapModal';
+@import './components/Modal/OnboardingModal/OnboardingModal';
+@import './components/Modal/ImportRoadmapModal/ImportRoadmapModal';
 
 // External ressources
 @import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');

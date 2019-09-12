@@ -8,13 +8,15 @@
 			<div class="modal-import-hint">Hint: paste your content from a .CSV (comma separated) file to add them to your current roadmap. We will only import your epics names and statuses. The accepted statuses can be either 'inProgress', 'soon', 'later' or 'done', anything else will be rejected.</div>
 		</div>
 		<div class="modal-actions">
-			<button type="button" class="bttn-secondary" @click="$emit('toggleModal')">Close</button>
+			<button type="button" class="bttn-secondary" @click="closeModal">Close</button>
 			<button type="button" class="bttn-primary" @click="runVerification">Launch import</button>
 		</div>
 	</div>
 </template>
 
 <script>
+	import { bus } from '../../../main.js';
+
 	export default {
 		data: function() {
 			return {
@@ -27,6 +29,9 @@
 			}
 		},
 		methods: {
+			closeModal () {
+				bus.$emit('toggleModal');
+			},
 			runVerification() {
 				this.cleanImport();
 
@@ -37,7 +42,7 @@
 				}
 			},
 			importRoadmap() {
-				this.$emit('importRoadmap', this.cleanedUpImport);
+				bus.$emit('importRoadmap', this.cleanedUpImport);
 			},
 			isRoadmapEven() {
 				if (Number.isInteger(this.importedRoadmap.length / 2)) {
