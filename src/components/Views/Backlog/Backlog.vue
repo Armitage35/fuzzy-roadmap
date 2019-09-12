@@ -8,28 +8,28 @@
 					:class="isActive(index)"
 					v-for="(filter, index) in filters"
 					:key="index"
-					@click="updateFilter(index)"
+					@click="featureNotReady"
 					>{{ filter }}
 				</div>
 			</div>
 			<div class="backlog-tableHeader">
 				<input type="checkbox">
-				<div class="backlog-tableHeader-id">ID
+				<div class="backlog-tableHeader-id" @click="featureNotReady">ID
 					<i class="fas fa-sort"></i>
 				</div>
-				<div class="backlog-tableHeader-epicName">Epic name
+				<div class="backlog-tableHeader-epicName" @click="featureNotReady">Epic name
 					<i class="fas fa-sort"></i>
 				</div>
-				<div class="backlog-tableHeader-status">Status
+				<div class="backlog-tableHeader-status" @click="featureNotReady">Status
 					<i class="fas fa-sort"></i>
 				</div>
-				<div class="backlog-tableHeader-author">Author
+				<div class="backlog-tableHeader-author" @click="featureNotReady">Author
 					<i class="fas fa-sort"></i>
 				</div>
-				<div class="backlog-tableHeader-creationDate">Created on
+				<div class="backlog-tableHeader-creationDate" @click="featureNotReady">Created on
 					<i class="fas fa-sort"></i>
 				</div>
-				<div class="backlog-tableHeader-updateDate">Updated on
+				<div class="backlog-tableHeader-updateDate" @click="featureNotReady">Updated on
 					<i class="fas fa-sort"></i>
 				</div>
 			</div>
@@ -48,7 +48,8 @@
 <script>
 	import EpicList from './EpicList/EpicList.vue';
 	import draggable from 'vuedraggable';
-	import { bus } from '../../../main.js'
+	import { bus } from '../../../main.js';
+	import iziToast from 'izitoast';
 
 	export default {
 		props: [ 'epics', 'userDetails', 'lane'],
@@ -70,7 +71,14 @@
 			},
 			sortEpic (event) {
 				bus.$emit('epicReorder', [event.oldIndex, event.newIndex])
-			}
+			},
+			featureNotReady() {
+				iziToast.error({
+					title: 'Yikes!',
+					message: 'Sorry, I\'ve not gotten around this one yet, but be sure it\'s coming along soon!',
+					position: 'topRight'
+				});
+			},
 		}
 	}
 </script>
