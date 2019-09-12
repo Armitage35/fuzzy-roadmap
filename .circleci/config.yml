@@ -24,6 +24,15 @@ jobs:
         - restore_cache:
             key: v1-dependencies-{{ checksum "package.json" }}
         - run: yarn lint
+  lint-sass:
+      docker:
+        - image: circleci/node:10
+      working_directory: ~/repo
+      steps:
+        - checkout
+        - restore_cache:
+            key: v1-dependencies-{{ checksum "package.json" }}
+        - run: yarn sass-lint
 workflows:
   version: 2.1
   pipeline:
