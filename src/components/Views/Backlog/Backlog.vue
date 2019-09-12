@@ -23,7 +23,7 @@
 	import EpicList from './EpicList/EpicList.vue';
 
 	export default {
-		props: [ 'epics', 'userDetails'],
+		props: [ 'epics', 'userDetails', 'lane'],
 		components: { EpicList },
 		data: () => {
 			return {

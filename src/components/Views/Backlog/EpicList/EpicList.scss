@@ -23,18 +23,22 @@
 	color: $veryLightGrey;
 	border-radius: 4px;
 	padding: 4px;
+	display: flex;
+	align-self: center;
+	width: 15%;
+	text-align: center;
 }
 .badgeinProgress {
 	background-color: $epicDarkYellow;
-};
+}
 
 .badgesoon {
 	background-color: $epicDarkBlue;
-};
+}
 
 .badgelater {
 	background-color: $epicDarkRed;
-};
+}
 
 .badgedone {
 	background-color: $epicDarkBlue;
@@ -52,13 +56,6 @@
 	width: 40px;
 	border-radius: 100%;
 	margin-right: 10px;
-}
-
-.epicList-statusBadge {
-	display: flex;
-	align-self: center;
-	width: 15%;
-	text-align: center;
 }
 
 .epicCard-creationDate, .epicCard-updateDate {
