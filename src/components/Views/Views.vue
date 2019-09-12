@@ -14,6 +14,5 @@
 			Roadmap, Backlog
 		},
 		props: ['lanes', 'epics', 'userDetails'],
-
 	}
 </script>

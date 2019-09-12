@@ -1,17 +1,14 @@
-// Local variables
-%epicCardDates {
-	width: 15%;
-}
-
-// Regular CSS
 .backlog-epicCard {
 	display: flex;
 	margin: 10px 0;
-	border: 1px solid $darkGrey;
 	border-radius: 4px;
 	padding: 8px;
 	text-transform: capitalize;
-	flex-basis: 100px
+	flex-basis: 100px;
+	background-color: white;
+	box-shadow: 0 2px 8px rgba(0, 2, 0, .25);
+	cursor: grab;
+	user-select:none;
 }
 
 .backlog-epicCard > div {
@@ -21,11 +18,11 @@
 
 .epicList-statusBadge {
 	display: flex;
+	width: $backlogStatusSpacing;
 	color: $veryLightGrey;
 	border-radius: 4px;
 	padding: 4px;
 	align-self: center;
-	width: 15%;
 	text-align: center;
 }
 .badgeinProgress {
@@ -48,7 +45,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 30%;
+	width: $backlogAuthorSpacing;
 }
 
 .epicList-userProfilePicture {
@@ -59,9 +56,13 @@
 }
 
 .epicCard-creationDate, .epicCard-updateDate {
-	@extend %epicCardDates;
+	width: $backlogDateSpacing;
 }
 
 .epicCard-epicName {
-	width: 20%;
+	width: $backlogEpicSpacing;
+}
+
+.epicCard-id {
+	width: $backlogIDSpacing;
 }

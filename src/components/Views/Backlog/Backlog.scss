@@ -1,9 +1,18 @@
+// ariables for view
+$backlogIDSpacing: 10%;
+$backlogAuthorSpacing: 30%;
+$backlogDateSpacing: 25%;
+$backlogEpicSpacing: 30%;
+$backlogStatusSpacing: 30%;
+
+// Regular styling
 .backlog {
 	display: flex;
 	width: 100vw;
 	height: 100vh;
 	background-color: #F5F7F9;
 	padding: 50px;
+	margin-bottom: 60px;
 }
 
 .backlog-filters {
@@ -17,9 +26,40 @@
 
 .backlog-filter {
 	margin: 8px;
+	color: $darkGrey;
+}
+
+.backlog-filter.active {
+	color: black;
+}
+
+.backlog-tableHeader > div {
+	margin: 10px;
 }
 
 .backlog-tableHeader {
 	display: flex;
 	flex-direction: row;
+	padding: 8px;
+	text-align: left;
+}
+
+.backlog-tableHeader-updateDate, .backlog-tableHeader-creationDate {
+	width: $backlogDateSpacing;
+}
+
+.backlog-tableHeader-author {
+	width: $backlogAuthorSpacing;
+}
+
+.backlog-tableHeader-epicName {
+	width: $backlogEpicSpacing;
+}
+
+.backlog-tableHeader-status {
+	width: $backlogEpicSpacing;
+}
+
+.backlog-tableHeader-id {
+	width: $backlogIDSpacing;
 }

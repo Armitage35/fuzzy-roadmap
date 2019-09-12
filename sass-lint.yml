@@ -44,6 +44,7 @@ rules:
       order:
         - display
         - margin
+        - border
       ignore-custom-properties: true
   variable-for-property:
     - 2

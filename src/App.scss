@@ -15,9 +15,9 @@ label {
 }
 
 select {
-	appearance: none;
 	border: 1px solid $lightGrey;
 	border-radius: 3px;
+	appearance: none;
 	width: 240px;
 	font-size: 24px;
 	box-shadow: 1px 1px #888888;
@@ -26,8 +26,8 @@ select {
 }
 
 input {
-	font-size: 24px;
 	border: none;
+	font-size: 24px;
 }
 
 input:hover {

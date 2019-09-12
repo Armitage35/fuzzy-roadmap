@@ -1,3 +1,4 @@
+// Variables
 %epic {
 	display: flex;
 	margin: auto;
@@ -7,10 +8,11 @@
 	text-transform: uppercase;
 }
 
+// Styling
 .epic {
 	@extend %epic;
-	height: 70px;
 	border: $defaultBorder;
+	height: 70px;
 }
 
 .epicStatusMarker {
