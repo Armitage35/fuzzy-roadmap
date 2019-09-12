@@ -18,7 +18,7 @@
 
 .epicList-statusBadge {
 	display: flex;
-	width: $backlogStatusSpacing;
+	width: $backlogStatusWidth;
 	color: $veryLightGrey;
 	border-radius: 4px;
 	padding: 4px;
@@ -45,7 +45,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: $backlogAuthorSpacing;
+	width: $backlogAuthorWidth;
 }
 
 .epicList-userProfilePicture {
@@ -56,13 +56,13 @@
 }
 
 .epicCard-creationDate, .epicCard-updateDate {
-	width: $backlogDateSpacing;
+	width: $backlogDateWidth;
 }
 
 .epicCard-epicName {
-	width: $backlogEpicSpacing;
+	width: $backlogEpicWidth;
 }
 
 .epicCard-id {
-	width: $backlogIDSpacing;
+	width: $backlogIDWidth;
 }

@@ -1,17 +1,19 @@
-// ariables for view
-$backlogIDSpacing: 10%;
-$backlogAuthorSpacing: 30%;
-$backlogDateSpacing: 25%;
-$backlogEpicSpacing: 30%;
-$backlogStatusSpacing: 30%;
+// Variables for view
+$backlogIDWidth: 10%;
+$backlogAuthorWidth: 30%;
+$backlogDateWidth: 25%;
+$backlogEpicWidth: 30%;
+$backlogStatusWidth: 30%;
 
 // Regular styling
 .backlog {
 	display: flex;
+	flex-direction: column;
 	width: 100vw;
 	height: 100vh;
 	background-color: #F5F7F9;
 	padding: 50px;
+	padding-top: 20px;
 	margin-bottom: 60px;
 }
 
@@ -52,21 +54,21 @@ $backlogStatusSpacing: 30%;
 }
 
 .backlog-tableHeader-updateDate, .backlog-tableHeader-creationDate {
-	width: $backlogDateSpacing;
+	width: $backlogDateWidth;
 }
 
 .backlog-tableHeader-author {
-	width: $backlogAuthorSpacing;
+	width: $backlogAuthorWidth;
 }
 
 .backlog-tableHeader-epicName {
-	width: $backlogEpicSpacing;
+	width: $backlogEpicWidth;
 }
 
 .backlog-tableHeader-status {
-	width: $backlogEpicSpacing;
+	width: $backlogEpicWidth;
 }
 
 .backlog-tableHeader-id {
-	width: $backlogIDSpacing;
+	width: $backlogIDWidth;
 }

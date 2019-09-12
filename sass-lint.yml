@@ -43,6 +43,7 @@ rules:
     -
       order:
         - display
+        - flex-direction
         - width
         - height
         - margin

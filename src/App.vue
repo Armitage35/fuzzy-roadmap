@@ -97,6 +97,10 @@
 			bus.$on('updateSettings', (data) => {
 				this.updateSettings(data)
 			})
+
+			bus.$on('epicReorder', (data) => {
+				this.reorderEcpics(data)
+			})
 		},
 		mounted: function() {
 			// segment tracking library
@@ -232,6 +236,9 @@
 				for (let i = 0; i < batch.length; i++) {
 					this.createEpic(batch[i]);
 				}
+			},
+			reorderEcpics(values) {
+				console.log(values)
 			}
 		}
 	}
