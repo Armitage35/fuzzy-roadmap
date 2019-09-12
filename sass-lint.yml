@@ -43,8 +43,14 @@ rules:
     -
       order:
         - display
+        - width
+        - height
         - margin
         - border
+        - border-radius
+        - color
+        - font-family
+        - background-color
       ignore-custom-properties: true
   variable-for-property:
     - 2

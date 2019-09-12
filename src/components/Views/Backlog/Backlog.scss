@@ -15,22 +15,29 @@ $backlogStatusSpacing: 30%;
 	margin-bottom: 60px;
 }
 
+.backlog-main {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
 .backlog-filters {
 	display: flex;
 	cursor: pointer;
 	flex-direction: row;
-	border-bottom: $defaultBorder;
+	border-bottom: solid 1px $darkGrey;
 	text-transform: capitalize;
 	margin-bottom: 20px;
 }
 
 .backlog-filter {
-	margin: 8px;
+	padding: 12px;
 	color: $darkGrey;
 }
 
 .backlog-filter.active {
 	color: black;
+	border-bottom: 2px solid $primaryBlue;
 }
 
 .backlog-tableHeader > div {
