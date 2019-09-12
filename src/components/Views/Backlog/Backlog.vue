@@ -13,6 +13,7 @@
 				v-for="epic in epics"
 				:key="epic.id"
 				:epic="epic"
+				:userDetails="userDetails"
 			></EpicList>
 		</div>
 	</div>
@@ -22,7 +23,7 @@
 	import EpicList from './EpicList/EpicList.vue';
 
 	export default {
-		props: [ 'epics'],
+		props: [ 'epics', 'userDetails'],
 		components: { EpicList },
 		data: () => {
 			return {

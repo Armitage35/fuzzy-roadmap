@@ -1,6 +1,6 @@
 <template>
 	<!-- @TODO: lazyload backlog to improve on performance -->
-	<router-view :lanes="lanes" :epics="epics">
+	<router-view :lanes="lanes" :epics="epics" :userDetails="userDetails">
 		<Roadmap></Roadmap>
 		<Backlog></Backlog>
 	</router-view>
@@ -14,7 +14,7 @@
 		components: {
 			Roadmap, Backlog
 		},
-		props: ['lanes', 'epics'],
+		props: ['lanes', 'epics', 'userDetails'],
 
 	}
 </script>

@@ -14,6 +14,7 @@
 		<Views
 			:lanes="lanes"
 			:epics="userEpics"
+			:userDetails="userDetails"
 		></Views>
 		<Toolbar
 			@toggleModal="toggleModal($event)"
