@@ -11,9 +11,9 @@ $toolbarPadding: 25px;
 	outline: none;
 
 	i {
+		height: 100%;
 		margin: 0 16px;
 		font-size: 35px;
-		height: 100%;
 		cursor: pointer;
 
 		&:hover {
@@ -25,14 +25,14 @@ $toolbarPadding: 25px;
 // Styling
 .toolbar {
 	display: flex;
+	width: 100vw;
+	height: 60px;
+	color: $toolBarContentColor;
+	background-color: #34495E;
 	position: fixed;
 	bottom: 0;
 	right: 0;
 	left: 0;
-	width: 100vw;
-	height: 60px;
-	background-color: #34495E;
-	color: $toolBarContentColor;
 	justify-content: space-between;
 }
 

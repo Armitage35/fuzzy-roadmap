@@ -25,16 +25,16 @@ $backlogStatusWidth: 30%;
 
 .backlog-filters {
 	display: flex;
-	cursor: pointer;
 	flex-direction: row;
+	cursor: pointer;
 	border-bottom: solid 1px $darkGrey;
 	text-transform: capitalize;
 	margin-bottom: 20px;
 }
 
 .backlog-filter {
-	padding: 12px;
 	color: $darkGrey;
+	padding: 12px;
 }
 
 .backlog-filter.active {

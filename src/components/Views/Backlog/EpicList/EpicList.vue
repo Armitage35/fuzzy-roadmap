@@ -1,7 +1,7 @@
 <template>
 	<div class="backlog-epicCard">
 		<input type="checkbox">
-		<div class="epicCard-id">12763</div>
+		<div class="epicCard-id">{{ 'FZ' + (epic.id  + 1)}}</div>
 		<div class="epicCard-epicName">{{ epicNameResolver(epic.epicName) }}</div>
 		<div :class="badgeResolver(epic.status)">{{ epic.status }}</div>
 		<div class="epicList-author">
