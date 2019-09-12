@@ -9,6 +9,15 @@
 				@click="updateFilter (index)"
 				>{{ filter }}</div>
 			</div>
+			<div class="backlog-tableHeader">
+				<input type="checkbox">
+				<div class="backlog-tableHeader-checkbox">ID</div>
+				<div class="backlog-tableHeader-epicName">Epic name</div>
+				<div class="backlog-tableHeader-status">Status</div>
+				<div class="backlog-tableHeader-author">Author</div>
+				<div class="backlog-tableHeader-creationDate">Creation date</div>
+				<div class="backlog-tableHeader-updateDate">Update Date</div>
+			</div>
 			<EpicList
 				v-for="epic in epics"
 				:key="epic.id"

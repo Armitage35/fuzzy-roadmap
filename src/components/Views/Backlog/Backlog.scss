@@ -12,9 +12,14 @@
 	flex-direction: row;
 	border-bottom: $defaultBorder;
 	text-transform: capitalize;
+	margin-bottom: 20px;
 }
 
 .backlog-filter {
 	margin: 8px;
 }
 
+.backlog-tableHeader {
+	display: flex;
+	flex-direction: row;
+}
