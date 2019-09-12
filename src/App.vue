@@ -238,7 +238,14 @@
 				}
 			},
 			reorderEcpics(values) {
-				console.log(values)
+				let originalPosition = values[0];
+				let finalPosition = values [1];
+				let element = this.userEpics[originalPosition];
+
+				this.userEpics.splice(originalPosition, 1);
+				this.userEpics.splice(finalPosition, 0, element);
+
+				this.saveRoadmapInClient();
 			}
 		}
 	}

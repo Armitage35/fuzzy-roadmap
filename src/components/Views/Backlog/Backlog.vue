@@ -33,7 +33,7 @@
 					<i class="fas fa-sort"></i>
 				</div>
 			</div>
-			<draggable group="people" @end="sortEpic" @change="sortEpic">
+			<draggable group="people" @end="sortEpic">
 				<EpicList
 					v-for="epic in epics"
 					:key="epic.id"
