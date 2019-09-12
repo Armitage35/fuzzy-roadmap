@@ -1,8 +1,8 @@
 %epic {
-	cursor: pointer;
-	width: 18vw;
 	display: flex;
 	margin: auto;
+	cursor: pointer;
+	width: 18vw;
 	margin-bottom: 20px;
 	text-transform: uppercase;
 }
@@ -20,8 +20,8 @@
 }
 
 .epicTitle {
+	margin: auto;
 	text-align: center;
-	margin: auto
 }
 
 .epicInProgress {

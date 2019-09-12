@@ -1,6 +1,6 @@
 body {
-	font-family: $mainFonts;
 	margin: 0;
+	font-family: $mainFonts;
 }
 
 h2 {
@@ -35,12 +35,12 @@ input:hover {
 }
 
 button {
+	margin: 12px;
 	border: none;
 	padding: 12px 24px;
 	font-family: $mainFonts;
 	font-size: 18px;
 	cursor: pointer;
-	margin: 12px;
 	border-radius: 5px;
 
 	i {
@@ -59,7 +59,7 @@ textarea {
 }
 
 a {
-	color: #99a0af;
+	color: #99A0AF;
 	outline: none;
 }
 

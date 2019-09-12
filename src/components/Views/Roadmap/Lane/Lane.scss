@@ -1,7 +1,7 @@
 // @TODO: use flexbox properly rather than hacking your way in
 .lane {
-	width: 22vw;
 	display: inline-block;
+	width: 22vw;
 }
 
 .laneContent:hover > .lane-ghostEpic {
@@ -9,20 +9,20 @@
 }
 
 .laneHeader {
+	display: inline-flex;
+	margin: auto;
 	width: 20vw;
 	height: 80px;
 	text-align: center;
-	margin: auto;
 	font-size: 18px;
 	font-weight: bold;
-	display: inline-flex;
 	margin-left: 1vw;
 	text-transform: uppercase;
 }
 
 .laneTitle {
-	text-align: center;
 	margin: auto;
+	text-align: center;
 }
 
 .laneContent {
@@ -59,10 +59,10 @@
 
 .lane-ghostEpic {
 	@extend %epic;
+	display: none;
 	border: 2px $lightGrey dashed;
 	color: $lightGrey;
 	text-align: center;
-	display: none;
 	padding: 8px;
 
 	i {

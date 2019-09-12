@@ -6,8 +6,8 @@
 // Regular CSS
 .backlog-epicCard {
 	display: flex;
-	border: 1px solid $darkGrey;
 	margin: 10px 0;
+	border: 1px solid $darkGrey;
 	border-radius: 4px;
 	padding: 8px;
 	text-transform: capitalize;
@@ -20,10 +20,10 @@
 }
 
 .epicList-statusBadge {
+	display: flex;
 	color: $veryLightGrey;
 	border-radius: 4px;
 	padding: 4px;
-	display: flex;
 	align-self: center;
 	width: 15%;
 	text-align: center;

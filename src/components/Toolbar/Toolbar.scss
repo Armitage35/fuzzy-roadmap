@@ -1,19 +1,19 @@
 // Local variables
-$toolBarContentColor: #99a0af;
+$toolBarContentColor: #99A0AF;
 $toolbarPadding: 25px;
 
 %toolBarContent {
+	display: flex;
 	flex-basis: 100%;
 	align-items: center;
 	justify-content: center;
-	display: flex;
 	user-select: none;
 	outline: none;
 
 	i {
+		margin: 0 16px;
 		font-size: 35px;
 		height: 100%;
-		margin: 0 16px;
 		cursor: pointer;
 
 		&:hover {
@@ -24,14 +24,14 @@ $toolbarPadding: 25px;
 
 // Styling
 .toolbar {
+	display: flex;
 	position: fixed;
 	bottom: 0;
 	right: 0;
 	left: 0;
 	width: 100vw;
 	height: 60px;
-	background-color: #34495e;
-	display: flex;
+	background-color: #34495E;
 	color: $toolBarContentColor;
 	justify-content: space-between;
 }
