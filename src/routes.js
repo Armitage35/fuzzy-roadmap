@@ -1,5 +1,11 @@
 import Roadmap from './components/Views/Roadmap/Roadmap.vue';
-import Backlog from './components/Views/Backlog/Backlog.vue';
+
+// Lazy load backlog
+const Backlog = resolve =>  {
+	require.ensure(['./components/Views/Backlog/Backlog.vue'], () => {
+		resolve(require('./components/Views/Backlog/Backlog.vue'));
+	});
+}
 
 export const routes = [
 	{ path: '', component: Roadmap },

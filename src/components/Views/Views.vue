@@ -1,5 +1,4 @@
 <template>
-	<!-- @TODO: lazyload backlog to improve on performance -->
 	<router-view :lanes="lanes" :epics="epics" :userDetails="userDetails">
 		<Roadmap></Roadmap>
 		<Backlog></Backlog>
