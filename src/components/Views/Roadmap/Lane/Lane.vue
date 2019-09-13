@@ -4,35 +4,36 @@
 			<span class="laneTitle">{{ laneTitle }}</span>
 		</div>
 		<div class="laneContent">
-			<Epic
+			<EpicCard
 				v-for="epic in epics"
-				:epicTitle="epic.epicName.displayName"
+				:EpicName="epic.epicName"
 				:epicStatus="epic.status"
 				:key="epic.id"
 				:id="epic.id"
-				@epicSelectd="$emit('epicSelected', $event)"
-				></Epic>
+			></EpicCard>
+			<div class="lane-ghostEpic" @click="toggleModal">
+				<i class="fas fa-plus-circle"></i>
+				<span>Create a new epic</span>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-	import Epic from '../Epic/Epic.vue'
+	import { bus } from '../../../../main.js';
+	import EpicCard from './EpicCard/EpicCard.vue';
 
 	export default {
 		components: {
-			Epic
+			EpicCard
 		},
 		props: ['laneStatus', 'laneTitle', 'epics'],
-		data: function(){
-			return {
-				epicTitle: "Cameras in Jogogo",
-				epicStatus: "epicInProgress"
-			}
-		},
 		methods: {
 			classNameCalculation(){
 				return "lane" + this.laneStatus.charAt(0).toUpperCase() + this.laneStatus.slice(1)
+			},
+			toggleModal() {
+				bus.$emit('toggleCreateEpicModal', ['epic', this.laneStatus]);
 			}
 		}
 	}

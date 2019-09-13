@@ -3,12 +3,12 @@
 }
 
 .settings-picture {
-	margin-top: 32px;
-	margin-left: 32px;
 	width: 80px;
 	height: 80px;
-	background-color: $darkGrey;
 	border-radius: 5px;
+	background-color: $darkGrey;
+	margin-top: 32px;
+	margin-left: 32px;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;

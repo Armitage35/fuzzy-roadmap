@@ -1,24 +1,28 @@
 // @TODO: use flexbox properly rather than hacking your way in
 .lane {
-	width: 22vw;
 	display: inline-block;
+	width: 22vw;
+}
+
+.laneContent:hover > .lane-ghostEpic {
+	display: flex;
 }
 
 .laneHeader {
+	display: inline-flex;
 	width: 20vw;
 	height: 80px;
-	text-align: center;
 	margin: auto;
+	text-align: center;
 	font-size: 18px;
 	font-weight: bold;
-	display: inline-flex;
 	margin-left: 1vw;
 	text-transform: uppercase;
 }
 
 .laneTitle {
-	text-align: center;
 	margin: auto;
+	text-align: center;
 }
 
 .laneContent {
@@ -39,7 +43,7 @@
 }
 
 .laneSoon {
-	border: 1px solid $epiDcarkBlue;
+	border: 1px solid $epicDarkBlue;
 	background-color: $epicBlue;
 }
 
@@ -51,4 +55,26 @@
 .laneDone {
 	border: 1px solid $epicDarkGreen;
 	background-color: $epicGreen;
+}
+
+.lane-ghostEpic {
+	@extend %epic;
+	display: none;
+	border: 2px $lightGrey dashed;
+	color: $lightGrey;
+	text-align: center;
+	padding: 8px;
+
+	i {
+		height: 100%;
+		min-width: 10px;
+		text-align: center;
+		padding: 4px;
+		padding-right: 6px
+	}
+}
+
+.lane-ghostEpic:hover {
+	border: 2px $almostBlack dashed;
+	color: $almostBlack;
 }

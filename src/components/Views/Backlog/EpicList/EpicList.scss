@@ -1,0 +1,68 @@
+.backlog-epicCard {
+	display: flex;
+	margin: 10px 0;
+	border-radius: 4px;
+	background-color: white;
+	padding: 8px;
+	text-transform: capitalize;
+	flex-basis: 100px;
+	box-shadow: 0 2px 8px rgba(0, 2, 0, .25);
+	cursor: grab;
+	user-select:none;
+}
+
+.backlog-epicCard > div {
+	margin: 10px;
+	align-self: center;
+}
+
+.epicList-statusBadge {
+	display: flex;
+	width: $backlogStatusWidth;
+	border-radius: 4px;
+	color: $veryLightGrey;
+	padding: 4px;
+	align-self: center;
+	text-align: center;
+}
+.badgeinProgress {
+	background-color: $epicDarkYellow;
+}
+
+.badgesoon {
+	background-color: $epicDarkBlue;
+}
+
+.badgelater {
+	background-color: $epicDarkRed;
+}
+
+.badgedone {
+	background-color: $epicDarkBlue;
+}
+
+.epicList-author {
+	display: flex;
+	width: $backlogAuthorWidth;
+	align-items: center;
+	justify-content: center;
+}
+
+.epicList-userProfilePicture {
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	margin-right: 10px;
+}
+
+.epicCard-creationDate, .epicCard-updateDate {
+	width: $backlogDateWidth;
+}
+
+.epicCard-epicName {
+	width: $backlogEpicWidth;
+}
+
+.epicCard-id {
+	width: $backlogIDWidth;
+}

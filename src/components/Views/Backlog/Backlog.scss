@@ -1,0 +1,75 @@
+// Variables for view
+$backlogIDWidth: 10%;
+$backlogAuthorWidth: 30%;
+$backlogDateWidth: 25%;
+$backlogEpicWidth: 30%;
+$backlogStatusWidth: 30%;
+
+// Regular styling
+.backlog {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+	background-color: #F5F7F9;
+	padding: 50px;
+	padding-top: 20px;
+	margin-bottom: 60px;
+}
+
+.backlog-main {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.backlog-filters {
+	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+	border-bottom: solid 1px $darkGrey;
+	text-transform: capitalize;
+	margin-bottom: 20px;
+}
+
+.backlog-filter {
+	color: $darkGrey;
+	padding: 12px;
+}
+
+.backlog-filter.active {
+	color: black;
+	border-bottom: 2px solid $primaryBlue;
+}
+
+.backlog-tableHeader > div {
+	margin: 10px;
+	cursor: pointer;
+}
+
+.backlog-tableHeader {
+	display: flex;
+	flex-direction: row;
+	padding: 8px;
+	text-align: left;
+}
+
+.backlog-tableHeader-updateDate, .backlog-tableHeader-creationDate {
+	width: $backlogDateWidth;
+}
+
+.backlog-tableHeader-author {
+	width: $backlogAuthorWidth;
+}
+
+.backlog-tableHeader-epicName {
+	width: $backlogEpicWidth;
+}
+
+.backlog-tableHeader-status {
+	width: $backlogEpicWidth;
+}
+
+.backlog-tableHeader-id {
+	width: $backlogIDWidth;
+}

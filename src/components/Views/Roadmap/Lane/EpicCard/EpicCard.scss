@@ -1,24 +1,29 @@
-.epic {
-	border: $defaultBorder;
-	height: 70px;
-	width: 18vw;
+// Variables
+%epic {
 	display: flex;
+	width: 18vw;
 	margin: auto;
+	cursor: pointer;
 	margin-bottom: 20px;
 	text-transform: uppercase;
-	cursor: pointer;
+}
+
+// Styling
+.epic {
+	@extend %epic;
+	height: 70px;
+	border: $defaultBorder;
 }
 
 .epicStatusMarker {
-	border-right: $defaultBorder;
-	background-color: $epicYellow;
 	height: 100%;
+	border-right: $defaultBorder;
 	min-width: 10px;
 }
 
 .epicTitle {
+	margin: auto;
 	text-align: center;
-	margin: auto
 }
 
 .epicInProgress {
