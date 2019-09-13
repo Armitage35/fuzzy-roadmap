@@ -39,3 +39,4 @@ workflows:
     jobs:
       - build
       - lint
+      - lint-sass
