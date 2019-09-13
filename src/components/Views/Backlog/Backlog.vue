@@ -5,10 +5,10 @@
 			<div class="backlog-filters">
 				<div
 					class="backlog-filter"
-					:class="isActive(index)"
-					v-for="(filter, index) in filters"
+					:class="isActive(filter)"
+					v-for="(filter, index) in buildFilterList()"
 					:key="index"
-					@click="featureNotReady"
+					@click="updateFilter(index)"
 					>{{ filter }}
 				</div>
 			</div>
@@ -46,14 +46,17 @@
 </template>
 
 <script>
-	import EpicList from './EpicList/EpicList.vue';
-	import draggable from 'vuedraggable';
 	import { bus } from '../../../main.js';
 	import iziToast from 'izitoast';
+	import draggable from 'vuedraggable';
+	import EpicList from './EpicList/EpicList.vue';
 
 	export default {
-		props: [ 'epics', 'userDetails', 'lane'],
+		props: [ 'epics', 'userDetails', 'lanes'],
 		components: { EpicList, draggable },
+		created() {
+			this.buildFilterList()
+		},
 		data: () => {
 			return {
 				filters: ['all', 'active', 'in progress', 'soon', 'later', 'done', 'archived'],
@@ -79,6 +82,18 @@
 					position: 'topRight'
 				});
 			},
+			buildFilterList() {
+				let filterList = ['all', 'active'];
+
+				for (let laneStatus of this.lanes){
+					filterList.push(laneStatus.title);
+				}
+
+				filterList.push('archived');
+
+				return filterList;
+
+			}
 		}
 	}
 </script>
