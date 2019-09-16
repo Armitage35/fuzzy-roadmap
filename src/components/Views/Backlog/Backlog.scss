@@ -27,9 +27,9 @@ $backlogStatusWidth: 30%;
 	display: flex;
 	flex-direction: row;
 	cursor: pointer;
-	border-bottom: solid 1px $darkGrey;
 	text-transform: capitalize;
 	margin-bottom: 20px;
+	border-bottom: solid 1px $darkGrey;
 }
 
 .backlog-filter {

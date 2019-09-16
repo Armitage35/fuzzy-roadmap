@@ -246,6 +246,11 @@
 				this.userEpics.splice(finalPosition, 0, element);
 
 				this.saveRoadmapInClient();
+
+				iziToast.success({
+					title: 'Epic reordered',
+					position: 'topRight'
+				});
 			}
 		}
 	}
