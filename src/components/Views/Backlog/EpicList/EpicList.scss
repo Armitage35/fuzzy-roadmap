@@ -19,13 +19,15 @@
 	margin: 10px;
 	align-self: center;
 }
-
-.epicList-statusBadge {
+.epicCard-status {
 	display: flex;
 	width: $backlogStatusWidth;
-	border-radius: 4px;
+}
+
+.epicList-statusBadge {
+	border-radius: 8px;
 	color: $veryLightGrey;
-	padding: 4px;
+	padding: 8px;
 	align-self: center;
 	text-align: center;
 }

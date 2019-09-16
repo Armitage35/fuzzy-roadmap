@@ -3,7 +3,9 @@
 		<input type="checkbox">
 		<div class="epicCard-id">{{ 'FZ' + (epic.id  + 1)}}</div>
 		<div class="epicCard-epicName">{{ epicNameResolver(epic.epicName) }}</div>
-		<div :class="badgeResolver(epic.status)">{{ epic.status }}</div>
+		<div class="epicCard-status">
+			<div :class="badgeResolver(epic.status)">{{ epic.status }}</div>
+		</div>
 		<div class="epicList-author">
 			<img :src="userDetails.profilePicture" :alt="userDetails.userName" class="epicList-userProfilePicture">
 			{{ epic.author }}
