@@ -5,11 +5,11 @@
 			<div class="backlog-filters">
 				<div
 					class="backlog-filter"
-					:class="isActive(filter)"
-					v-for="(filter, index) in buildFilterList()"
-					:key="index"
-					@click="updateFilter(index)"
-					>{{ filter }}
+					:class="isActive(filter.type)"
+					v-for="filter in filters"
+					:key="filter.type"
+					@click="updateFilter(filter.type)"
+					>{{ filter.title }}
 				</div>
 			</div>
 			<div class="backlog-tableHeader">
@@ -55,20 +55,23 @@
 		props: [ 'epics', 'userDetails', 'lanes'],
 		components: { EpicList, draggable },
 		created() {
-			this.buildFilterList()
+			this.buildFilterList();
 		},
 		data: () => {
 			return {
-				filters: ['all', 'active', 'in progress', 'soon', 'later', 'done', 'archived'],
+				filters: [
+					{title:'all', type: 'all'},
+					{title: 'active', type: 'active'}
+				],
 				activeFilter: 'all'
 			}
 		},
 		methods: {
 			updateFilter (newFilter) {
-				this.activeFilter = this.filters[newFilter];
+				this.activeFilter = newFilter;
 			},
-			isActive (index) {
-				if (index === this.activeFilter) {
+			isActive (filterType) {
+				if (filterType === this.activeFilter) {
 					return 'active'
 				}
 			},
@@ -83,16 +86,11 @@
 				});
 			},
 			buildFilterList() {
-				let filterList = ['all', 'active'];
-
-				for (let laneStatus of this.lanes){
-					filterList.push(laneStatus.title);
+				for (let i = 0; i < this.lanes.length; i++){
+					this.filters.push(this.lanes[i])
 				}
 
-				filterList.push('archived');
-
-				return filterList;
-
+				this.filters.push({title: 'archived', type: 'archived'});
 			}
 		}
 	}
