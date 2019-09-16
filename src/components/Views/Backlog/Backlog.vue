@@ -5,11 +5,11 @@
 			<div class="backlog-filters">
 				<div
 					class="backlog-filter"
-					:class="isActive(index)"
-					v-for="(filter, index) in filters"
-					:key="index"
-					@click="featureNotReady"
-					>{{ filter }}
+					:class="isActive(filter.type)"
+					v-for="filter in filters"
+					:key="filter.type"
+					@click="updateFilter(filter.type)"
+					>{{ filter.title }}
 				</div>
 			</div>
 			<div class="backlog-tableHeader">
@@ -20,7 +20,7 @@
 				<div class="backlog-tableHeader-epicName" @click="featureNotReady">Epic name
 					<i class="fas fa-sort"></i>
 				</div>
-				<div class="backlog-tableHeader-status" @click="featureNotReady">Status
+				<div class="backlog-tableHeader-status"  @click="featureNotReady">Status
 					<i class="fas fa-sort"></i>
 				</div>
 				<div class="backlog-tableHeader-author" @click="featureNotReady">Author
@@ -36,8 +36,9 @@
 			<draggable group="people" @end="sortEpic">
 				<EpicList
 					v-for="epic in epics"
-					:key="epic.id"
+					:activeFilter="validStatuses"
 					:epic="epic"
+					:key="epic.id"
 					:userDetails="userDetails"
 				></EpicList>
 			</draggable>
@@ -46,26 +47,32 @@
 </template>
 
 <script>
-	import EpicList from './EpicList/EpicList.vue';
-	import draggable from 'vuedraggable';
 	import { bus } from '../../../main.js';
 	import iziToast from 'izitoast';
+	import draggable from 'vuedraggable';
+	import EpicList from './EpicList/EpicList.vue';
 
 	export default {
-		props: [ 'epics', 'userDetails', 'lane'],
+		props: [ 'epics', 'userDetails', 'lanes'],
 		components: { EpicList, draggable },
+		created() {
+			this.buildFilterList();
+		},
 		data: () => {
 			return {
-				filters: ['all', 'active', 'in progress', 'soon', 'later', 'done', 'archived'],
+				filters: [
+					{title:'all', type: 'all'},
+					{title: 'active', type: 'active'}
+				],
 				activeFilter: 'all'
 			}
 		},
 		methods: {
 			updateFilter (newFilter) {
-				this.activeFilter = this.filters[newFilter];
+				this.activeFilter = newFilter;
 			},
-			isActive (index) {
-				if (index === this.activeFilter) {
+			isActive (filterType) {
+				if (filterType === this.activeFilter) {
 					return 'active'
 				}
 			},
@@ -79,6 +86,43 @@
 					position: 'topRight'
 				});
 			},
+			buildFilterList() {
+				for (let i = 0; i < this.lanes.length; i++){
+					this.filters.push(this.lanes[i])
+				}
+
+				this.filters.push({title: 'archived', type: 'archived'});
+			}
+		},
+		computed: {
+			validStatuses() {
+				let laneStatuses = [];
+
+				for (let i = 0; i < this.lanes.length; i++) {
+					laneStatuses.push(this.lanes[i].type);
+				}
+
+				let activeStatuses = ['inProgress', 'soon', 'later'];
+
+				switch (this.activeFilter) {
+					case 'all':
+						return laneStatuses;
+					case 'active':
+						return activeStatuses;
+					case 'inProgress':
+						return 'inProgress';
+					case 'soon':
+						return 'soon';
+					case 'later':
+						return 'later';
+					case 'done':
+						return 'done';
+					case 'archived':
+						return 'done';
+					default:
+						return laneStatuses;
+				}
+			}
 		}
 	}
 </script>

@@ -13,6 +13,6 @@
 		components: {
 			Roadmap, Backlog
 		},
-		props: ['lanes', 'epics', 'userDetails'],
+		props: ['epics', 'lanes', 'userDetails'],
 	}
 </script>

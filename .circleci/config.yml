@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10
+    parallelism: 4
     working_directory: ~/repo
     steps:
       - checkout
@@ -39,3 +40,4 @@ workflows:
     jobs:
       - build
       - lint
+      - lint-sass
