@@ -20,7 +20,7 @@
 				<div class="backlog-tableHeader-epicName" @click="featureNotReady">Epic name
 					<i class="fas fa-sort"></i>
 				</div>
-				<div class="backlog-tableHeader-status" @click="featureNotReady">Status
+				<div class="backlog-tableHeader-status"  @click="featureNotReady">Status
 					<i class="fas fa-sort"></i>
 				</div>
 				<div class="backlog-tableHeader-author" @click="featureNotReady">Author
@@ -36,8 +36,9 @@
 			<draggable group="people" @end="sortEpic">
 				<EpicList
 					v-for="epic in epics"
-					:key="epic.id"
+					:activeFilter="validStatuses"
 					:epic="epic"
+					:key="epic.id"
 					:userDetails="userDetails"
 				></EpicList>
 			</draggable>
@@ -91,6 +92,36 @@
 				}
 
 				this.filters.push({title: 'archived', type: 'archived'});
+			}
+		},
+		computed: {
+			validStatuses() {
+				let laneStatuses = [];
+
+				for (let i = 0; i < this.lanes.length; i++) {
+					laneStatuses.push(this.lanes[i].type);
+				}
+
+				let activeStatuses = ['inProgress', 'soon', 'later'];
+
+				switch (this.activeFilter) {
+					case 'all':
+						return laneStatuses;
+					case 'active':
+						return activeStatuses;
+					case 'inProgress':
+						return 'inProgress';
+					case 'soon':
+						return 'soon';
+					case 'later':
+						return 'later';
+					case 'done':
+						return 'done';
+					case 'archived':
+						return 'done';
+					default:
+						return laneStatuses;
+				}
 			}
 		}
 	}

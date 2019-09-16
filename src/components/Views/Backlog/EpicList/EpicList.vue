@@ -1,5 +1,5 @@
 <template>
-	<div class="backlog-epicCard">
+	<div class="backlog-epicCard" :class="filterHandler(epic.status)">
 		<input type="checkbox">
 		<div class="epicCard-id">{{ 'FZ' + (epic.id  + 1)}}</div>
 		<div class="epicCard-epicName">{{ epicNameResolver(epic.epicName) }}</div>
@@ -15,14 +15,19 @@
 
 <script>
 	export default {
-		props: ['epic', 'userDetails'],
+		props: ['activeFilter', 'epic', 'userDetails'],
 		methods: {
+			badgeResolver(status) {
+				return 'epicList-statusBadge ' + 'badge' + status;
+			},
 			dateResolver(date) {
 				date = new Date(date);
 				return date.toLocaleDateString('en-CA');
 			},
-			badgeResolver(status) {
-				return 'epicList-statusBadge ' + 'badge' + status;
+			filterHandler(epicStatus) {
+				if (!this.activeFilter.includes(epicStatus)) {
+					return 'backlog-epicHidden'
+				}
 			},
 			epicNameResolver(epicName) {
 				return epicName.toLowerCase();
