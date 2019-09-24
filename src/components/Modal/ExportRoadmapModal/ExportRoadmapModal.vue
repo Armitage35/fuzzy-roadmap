@@ -36,14 +36,16 @@
 					newItem.push(this.epics[i].status);
 
 					epicInCsv.push(newItem);
-				}
+				};
 
-				const blob = new Blob([epicInCsv], {type: 'application/json'});
+				let csvContent = epicInCsv.map(e => e.join(",")).join("\n");
+
+				const blob = new Blob([csvContent], {type: 'application/csv'});
 				this.exportRoadmap(blob, 'fuzzyRoadmap.csv')
 				this.exportSuccess();
 			},
 			exportJson() {
-				const blob = new Blob([JSON.stringify(this.epics)], {type: 'application/csv'});
+				const blob = new Blob([JSON.stringify(this.epics)], {type: 'application/json'});
 				this.exportRoadmap(blob, 'fuzzyRoadmap.json')
 				this.exportSuccess();
 			},
