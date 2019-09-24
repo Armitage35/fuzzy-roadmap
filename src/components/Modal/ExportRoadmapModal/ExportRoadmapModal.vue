@@ -6,6 +6,9 @@
 				<button type="button" class="bttn-primary" @click="exportJson">
 					<i class="fas fa-file-code"></i>
 					Export as .JSON</button>
+				<button type="button" class="bttn-primary" @click="exportCsv">
+					<i class="fas fa-file-csv"></i>
+					Export as .CSV</button>
 				<button type="button" class="bttn-primary" @click="exportJPG">
 					<i class="fas fa-file-image"></i>
 					Export as .PNG (beta)
@@ -24,8 +27,23 @@
 	export default {
 		props: ['epics'],
 		methods: {
-			exportJson(){
-				const blob = new Blob([JSON.stringify(this.epics)], {type: 'application/json'});
+			exportCsv() {
+				let epicInCsv = [];
+
+				for (let i = 0; i < this.epics.length; i++) {
+					let newItem = [];
+					newItem.push(this.epics[i].epicName);
+					newItem.push(this.epics[i].status);
+
+					epicInCsv.push(newItem);
+				}
+
+				const blob = new Blob([epicInCsv], {type: 'application/json'});
+				this.exportRoadmap(blob, 'fuzzyRoadmap.csv')
+				this.exportSuccess();
+			},
+			exportJson() {
+				const blob = new Blob([JSON.stringify(this.epics)], {type: 'application/csv'});
 				this.exportRoadmap(blob, 'fuzzyRoadmap.json')
 				this.exportSuccess();
 			},
