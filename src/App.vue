@@ -99,7 +99,7 @@
 			})
 
 			bus.$on('epicReorder', (data) => {
-				this.reorderEcpics(data)
+				this.reorderEpic(data)
 			})
 		},
 		mounted: function() {
@@ -237,7 +237,7 @@
 					this.createEpic(batch[i]);
 				}
 			},
-			reorderEcpics(values) {
+			reorderEpic(values) {
 				let originalPosition = values[0];
 				let finalPosition = values [1];
 				let element = this.userEpics[originalPosition];

@@ -33,7 +33,7 @@
 					<i class="fas fa-sort"></i>
 				</div>
 			</div>
-			<draggable group="people" @end="sortEpic">
+			<draggable @end="sortEpic">
 				<EpicList
 					v-for="epic in epics"
 					:activeFilter="validStatuses"
@@ -48,8 +48,8 @@
 
 <script>
 	import { bus } from '../../../main.js';
-	import iziToast from 'izitoast';
 	import draggable from 'vuedraggable';
+	import iziToast from 'izitoast';
 	import EpicList from './EpicList/EpicList.vue';
 
 	export default {

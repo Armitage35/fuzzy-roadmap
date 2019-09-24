@@ -1,5 +1,5 @@
 <template>
-	<div class="epic" @click="toggleModal(id)">
+	<div class="epic" :id="id" @click="toggleModal(id)">
 		<div class="epicStatusMarker" :class="classNameCalculation()"></div>
 		<div class="epicTitle">{{this.EpicName}}</div>
 	</div>
@@ -20,6 +20,3 @@
 		}
 	}
 </script>
-
-<style>
-</style>
