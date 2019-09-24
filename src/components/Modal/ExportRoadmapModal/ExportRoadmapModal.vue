@@ -36,7 +36,7 @@
 					newItem.push(this.epics[i].status);
 
 					epicInCsv.push(newItem);
-				};
+				}
 
 				let csvContent = epicInCsv.map(e => e.join(",")).join("\n");
 
