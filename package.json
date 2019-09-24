@@ -1,6 +1,6 @@
 {
 	"name": "fuzz-roadmap",
-	"version": "2.1.0",
+	"version": "2.3.0",
 	"description": "A roadmapping tool that lets you forget about time estimate and focus on what matters",
 	"author": "Adrien D. Ahlqvist",
 	"bugs": "https://github.com/Armitage35/fuzzy-roadmap/issues",
@@ -19,12 +19,12 @@
 	},
 	"dependencies": {
 		"core-js": "^3.2.1",
-		"html2canvas": "^1.0.0-rc.3",
+		"html2canvas": "^1.0.0-rc.4",
 		"izitoast": "^1.4.0",
 		"tippy.js": "^4.3.5",
 		"vue": "^2.6.10",
 		"vue-router": "^3.1.3",
-		"vuedraggable": "^2.23.0"
+		"vuedraggable": "^2.23.1"
 	},
 	"devDependencies": {
 		"@vue/cli": "^3.11.0",
