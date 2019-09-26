@@ -1,5 +1,5 @@
 <template>
-	<div class="app">
+	<div v-if="appState.windowSize > 800" class="app">
 		<Modal
 			v-if="appState.modal.showModal"
 			:modalType="appState.modal.modalType"
@@ -20,6 +20,7 @@
 			@toggleModal="toggleModal($event)"
 		></Toolbar>
 	</div>
+	<MobileWarning v-else></MobileWarning>
 </template>
 
 <script>
@@ -34,13 +35,14 @@
 	import 'izitoast/dist/css/iziToast.min.css';
 
 	// Components
-	import Views from './components/Views/Views.vue'
+	import Views from './components/Views/Views.vue';
+	import MobileWarning from './components/Views/MobileWarning/MobileWarning.vue';
 	import Toolbar from './components/Toolbar/Toolbar.vue';
 	import Modal from './components/Modal/Modal.vue';
 
 	export default {
 		components: {
-			Toolbar, Modal, Views
+			Toolbar, MobileWarning, Modal, Views
 		},
 		created: function() {
 			// initialize roadmap
@@ -134,7 +136,8 @@
 						modalType: ''
 					},
 					selectedEpic: 0,
-					selectedStatus: 'inProgress'
+					selectedStatus: 'inProgress',
+					windowSize: window.innerWidth
 				}
 			}
 		},
