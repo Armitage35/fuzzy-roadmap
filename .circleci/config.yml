@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10
-    parallelism: 4
+    parallelism: 2
     working_directory: ~/repo
     steps:
       - checkout
