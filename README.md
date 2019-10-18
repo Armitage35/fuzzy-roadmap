@@ -32,4 +32,4 @@ With this application, you will be able to:
 1. Design your own swimlanes
 
 ---
-Brought to you by [Armitage](https://www.linkedin.com/in/adrien-d-ahlqvist-4179b33b/) and made with :heart: in beautiful Montreal
+Brought to you by [Armitage](https://armitageweb.net) and made with :heart: in beautiful Montreal
