@@ -18,7 +18,7 @@
 		"deploy": "bash src/deploy.sh"
 	},
 	"dependencies": {
-		"core-js": "^3.3.6",
+		"core-js": "^3.5.0",
 		"html2canvas": "^1.0.0-rc.5",
 		"izitoast": "^1.4.0",
 		"tippy.js": "^5.1.0",
