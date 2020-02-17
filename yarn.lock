@@ -2084,7 +2084,7 @@
   resolved "https://registry.yarnpkg.com/@vue/cli-overlay/-/cli-overlay-4.2.2.tgz#43184ab5b7bc491cac46e3c3e375ec4976fbea5f"
   integrity sha512-6hMYDkH/rSzFkSKuu/EfTXVkUaBDR6sq5vJ161pN1q46zUB5uN1L7rJHQDjxTy1EZazk1MqU5cS10vRVhIeWvw==
 
-"@vue/cli-plugin-babel@^4.2.2":
+"@vue/cli-plugin-babel@^4.1.2":
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@vue/cli-plugin-babel/-/cli-plugin-babel-4.2.2.tgz#c65cad9921713b9233bab49306559c553a78ee1d"
   integrity sha512-uCXDlgUp4ehHoYosr6kbyJYeQ+aQ4lR9Zn0Bf58MFbZbmjBCi8dBKzQf7ve4bo8L8CTGjWirnzgA7pStRmWx0g==
@@ -2179,7 +2179,7 @@
     webpack-dev-server "^3.10.2"
     webpack-merge "^4.2.2"
 
-"@vue/cli-shared-utils@^4.1.2", "@vue/cli-shared-utils@^4.2.2":
+"@vue/cli-shared-utils@^4.2.2":
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.2.2.tgz#953fec34115cb12d0820012a9d7400f8c27d6660"
   integrity sha512-EK5wcxgjadqUpSzfh6Bnxd46Zx+SAaHusygqV11UZKHr4EObc/SjCpq7c7drmFkBjRqmVvrHs4jRnJJo5VgCgQ==
@@ -13297,9 +13297,9 @@ yargs@^7.0.0:
     yargs-parser "^5.0.0"
 
 yarn@^1.15.0:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.19.1.tgz#14b92410dd1ba5bab87a12b4a3d807f4569bea97"
-  integrity sha512-gBnfbL9rYY05Gt0cjJhs/siqQXHYlZalTjK3nXn2QO20xbkIFPob+LlH44ML47GcR4VU9/2dYck1BWFM0Javxw==
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.0.tgz#acf82906e36bcccd1ccab1cfb73b87509667c881"
+  integrity sha512-KMHP/Jq53jZKTY9iTUt3dIVl/be6UPs2INo96+BnZHLKxYNTfwMmlgHTaMWyGZoO74RI4AIFvnWhYrXq2USJkg==
 
 yauzl@^2.4.2:
   version "2.10.0"
