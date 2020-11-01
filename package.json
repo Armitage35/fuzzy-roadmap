@@ -24,7 +24,7 @@
 		"tippy.js": "^6.2.3",
 		"vue": "^2.6.11",
 		"vue-router": "^3.3.2",
-		"vuedraggable": "^2.23.2"
+		"vuedraggable": "^2.24.3"
 	},
 	"devDependencies": {
 		"@vue/cli": "^4.4.1",
