@@ -23,7 +23,7 @@
 		"izitoast": "^1.4.0",
 		"tippy.js": "^6.2.3",
 		"vue": "^2.6.11",
-		"vue-router": "^3.3.2",
+		"vue-router": "^3.5.1",
 		"vuedraggable": "^2.23.2"
 	},
 	"devDependencies": {
